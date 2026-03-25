@@ -1,0 +1,142 @@
+
+[2026-03-25 15:52:40]
+Inicio ExportarGrupos
+PUBLIC_DIR=C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public
+EXPORT_ONLY=True SEND_TO_WEBHOOK=True
+Elementos recolectados: 6664 (límite ninguno)
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\revit_elements.csv
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\revit_groups.csv
+blocks.csv: 204 filas, 36 columnas temáticas
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\payload_groups.json
+EXPORT_ONLY=True: no se envía al webhook (payload ya en disco).
+Fin OK
+
+[2026-03-25 16:06:02]
+Inicio ExportarGrupos
+PUBLIC_DIR=C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public
+EXPORT_ONLY=True SEND_TO_WEBHOOK=True
+Elementos recolectados: 6664 (límite ninguno)
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\revit_elements.csv
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\revit_groups.csv
+blocks.csv: 204 filas, 36 columnas temáticas
+blocks.csv (raw): 28667 caracteres, encoding=utf-8-sig
+Copia resources/blocks.csv → C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\blocks_snapshot.csv
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\payload_groups.json
+EXPORT_ONLY=True: no se envía al webhook (payload ya en disco).
+Fin OK
+
+[2026-03-25 16:08:52]
+Inicio ExportarGrupos
+PUBLIC_DIR=C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public
+EXPORT_ONLY=False SEND_TO_WEBHOOK=True
+Filtro: whitelist ON — 19 categorías permitidas
+Elementos recolectados: 1782 (límite ninguno)
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\revit_elements.csv
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\revit_groups.csv
+blocks.csv: 204 filas, 36 columnas temáticas
+blocks.csv (raw): 28667 caracteres, encoding=utf-8-sig
+Copia resources/blocks.csv → C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\blocks_snapshot.csv
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\payload_groups.json
+HTTP 500: {"message":"Error in workflow"}
+ERROR: n8n HTTP 500
+
+[2026-03-25 16:09:57]
+Inicio ExportarGrupos
+PUBLIC_DIR=C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public
+EXPORT_ONLY=False SEND_TO_WEBHOOK=True
+Filtro: whitelist ON — 19 categorías permitidas
+Elementos recolectados: 1782 (límite ninguno)
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\revit_elements.csv
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\revit_groups.csv
+blocks.csv: 204 filas, 36 columnas temáticas
+blocks.csv (raw): 28667 caracteres, encoding=utf-8-sig
+Copia resources/blocks.csv → C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\blocks_snapshot.csv
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\payload_groups.json
+HTTP 500: {"message":"Error in workflow"}
+ERROR: n8n HTTP 500
+
+[2026-03-25 16:15:31]
+Inicio ExportarGrupos
+PUBLIC_DIR=C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public
+EXPORT_ONLY=False SEND_TO_WEBHOOK=True
+Filtro: whitelist ON — 19 categorías permitidas
+Elementos recolectados: 1782 (límite ninguno)
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\revit_elements.csv
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\revit_groups.csv
+blocks.csv: 204 filas, 36 columnas temáticas
+blocks.csv (raw): 28667 caracteres, encoding=utf-8-sig
+Copia resources/blocks.csv → C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\blocks_snapshot.csv
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\payload_groups.json
+HTTP 500: {"message":"Error in workflow"}
+ERROR: n8n HTTP 500
+
+[2026-03-25 16:21:26]
+Inicio ExportarGrupos
+PUBLIC_DIR=C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public
+EXPORT_ONLY=False SEND_TO_WEBHOOK=True
+Filtro: whitelist ON — 19 categorías permitidas
+Elementos recolectados: 1782 (límite ninguno)
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\revit_elements.csv
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\revit_groups.csv
+blocks.csv: 204 filas, 36 columnas temáticas
+blocks.csv (raw): 28667 caracteres, encoding=utf-8-sig
+Copia resources/blocks.csv → C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\blocks_snapshot.csv
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\payload_groups.json
+ERROR: System.IO.IOException: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond..
+ ---> System.Net.Sockets.SocketException (10060): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+   at System.Net.Sockets.NetworkStream.Read(Span`1 buffer)
+   --- End of inner exception stack trace ---
+   at Microsoft.Scripting.Runtime.LightExceptions.ThrowException(LightException lightEx)
+   at Microsoft.Scripting.Runtime.LightExceptions.CheckAndThrow(Object value)
+   at Microsoft.Scripting.Interpreter.FuncCallInstruction`2.Run(InterpretedFrame frame)
+   at Microsoft.Scripting.Interpreter.Interpreter.HandleException(InterpretedFrame frame, Exception exception)
+   at Microsoft.Scripting.Interpreter.Interpreter.Run(InterpretedFrame frame)
+   at Microsoft.Scripting.Interpreter.LightLambda.Run3[T0,T1,T2,TRet](T0 arg0, T1 arg1, T2 arg2)
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute4[T0,T1,T2,T3,TRet](CallSite site, T0 arg0, T1 arg1, T2 arg2, T3 arg3)
+   at Microsoft.Scripting.Interpreter.DynamicInstruction`5.Run(InterpretedFrame frame)
+   at Microsoft.Scripting.Interpreter.Interpreter.Run(InterpretedFrame frame)
+
+[2026-03-25 16:33:32]
+Modo: enviar JSON desde disco → n8n
+Archivo: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\payload_groups.json
+Webhook: https://jrcontrera.app.n8n.cloud/webhook/revit-btz-classifier
+Cargado C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\payload_groups.json (287259 caracteres)
+HTTP 500: {"message":"Error in workflow"}
+ERROR: n8n HTTP 500
+
+[2026-03-25 16:37:04]
+Modo: enviar JSON desde disco → n8n
+Archivo: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\payload_groups.json
+Webhook: https://jrcontrera.app.n8n.cloud/webhook/revit-btz-classifier
+Cargado C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\payload_groups.json (287259 caracteres)
+ERROR: System.IO.IOException: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond..
+ ---> System.Net.Sockets.SocketException (10060): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+   at System.Net.Sockets.NetworkStream.Read(Span`1 buffer)
+   --- End of inner exception stack trace ---
+   at Microsoft.Scripting.Runtime.LightExceptions.ThrowException(LightException lightEx)
+   at Microsoft.Scripting.Runtime.LightExceptions.CheckAndThrow(Object value)
+   at Microsoft.Scripting.Interpreter.FuncCallInstruction`2.Run(InterpretedFrame frame)
+   at Microsoft.Scripting.Interpreter.Interpreter.HandleException(InterpretedFrame frame, Exception exception)
+   at Microsoft.Scripting.Interpreter.Interpreter.Run(InterpretedFrame frame)
+   at Microsoft.Scripting.Interpreter.LightLambda.Run3[T0,T1,T2,TRet](T0 arg0, T1 arg1, T2 arg2)
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute4[T0,T1,T2,T3,TRet](CallSite site, T0 arg0, T1 arg1, T2 arg2, T3 arg3)
+   at Microsoft.Scripting.Interpreter.DynamicInstruction`5.Run(InterpretedFrame frame)
+   at Microsoft.Scripting.Interpreter.Interpreter.Run(InterpretedFrame frame)
+
+[2026-03-25 16:59:08]
+Inicio ExportarGrupos (export completo)
+PUBLIC_DIR=C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public
+EXPORT_ONLY=False SEND_TO_WEBHOOK=True APPLY_WEBHOOK_RESULTS=True
+Filtro: whitelist ON — 19 categorías permitidas
+Elementos recolectados: 1782 (límite ninguno)
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\revit_elements.csv
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\revit_groups.csv
+Guardado mapa group_key → ids: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\group_key_element_ids.json
+blocks.csv: 204 filas, 36 columnas temáticas
+blocks.csv (raw): 28667 caracteres, encoding=utf-8-sig
+Copia resources/blocks.csv → C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\blocks_snapshot.csv
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\payload_groups.json
+Webhook OK, respuesta 14764 caracteres
+Guardado: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\webhook_response.json
+Validación / shared params: Faltan parámetros en el TXT: BTZ_Description, BTZ_Description_01, BTZ_Description_02, BTZ_Description_03, BTZ_Description_04, BTZ_Description_05, BTZ_Description_06, BTZ_Description_07, BTZ_Description_08, BTZ_Description_09, BTZ_Description_10, BTZ_Description_11, BTZ_Description_12, BTZ_Description_13, BTZ_Status, BTZ_Source, BTZ_Confidence
+Fin OK
