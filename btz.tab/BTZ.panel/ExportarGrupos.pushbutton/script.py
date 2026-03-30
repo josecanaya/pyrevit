@@ -7,7 +7,7 @@ La aplicación de BTZ en el modelo se hace con el botón aparte «Ejecutar autom
 """
 from __future__ import print_function
 
-__title__ = "Exportar grupos"
+__title__ = "Crear grupos"
 __doc__ = (
     "Exporta grupos y envía payload a n8n. Para aplicar BTZ usá el botón «Ejecutar automático»."
 )

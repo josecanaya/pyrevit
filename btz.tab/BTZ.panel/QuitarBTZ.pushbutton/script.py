@@ -7,7 +7,7 @@ de los elementos seleccionados (los deja vacíos).
 """
 from __future__ import print_function
 
-__title__ = "BTZ Quitar"
+__title__ = "Quitar"
 __doc__ = "Quita los valores BTZ de los elementos seleccionados"
 __author__ = "btz.extension"
 

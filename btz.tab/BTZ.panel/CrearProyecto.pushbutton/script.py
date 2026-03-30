@@ -1,11 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 
-__title__ = "Configurar proyecto"
-__doc__ = (
-    "Abre BTZ Console en el editor de prompt de proyecto "
-    "(reemplaza el diálogo anterior)."
-)
+__title__ = "Crear proyecto"
+__doc__ = "Abre BTZ Console en la vista inicial de preparación del proyecto."
 __author__ = "btz.extension"
 
 import os
@@ -41,11 +38,7 @@ def main():
         except Exception:
             pass
 
-    python_exe = (
-        os.environ.get("BTZ_CONSOLE_PYTHON_EXE")
-        or sys.executable
-        or "python"
-    )
+    python_exe = os.environ.get("BTZ_CONSOLE_PYTHON_EXE") or sys.executable or "python"
     cmd = [
         python_exe,
         "-m",
@@ -54,9 +47,7 @@ def main():
         public_dir,
         "--section",
         "Prepare",
-        "--open-prompt",
     ]
-
     try:
         subprocess.Popen(cmd, cwd=ext_dir)
     except Exception as ex:
@@ -70,8 +61,7 @@ def main():
         return
 
     forms.alert(
-        u"BTZ Console abierto en editor de prompt.\n"
-        u"Ruta public activa:\n{0}".format(public_dir),
+        u"BTZ Console abierto.\nRuta public activa:\n{0}".format(public_dir),
         title=__title__,
         warn_icon=False,
     )

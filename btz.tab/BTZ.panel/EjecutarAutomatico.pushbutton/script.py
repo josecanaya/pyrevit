@@ -5,7 +5,7 @@ No usa importlib/exec sobre script.py completo (evita cierre de Revit).
 """
 from __future__ import print_function
 
-__title__ = u"Ejecutar automático"
+__title__ = u"Automático"
 __doc__ = (
     u"Aplica en el modelo los BTZ sugeridos guardados en public/webhook_response.json. "
     u"Antes: «Exportar grupos» (export + n8n)."

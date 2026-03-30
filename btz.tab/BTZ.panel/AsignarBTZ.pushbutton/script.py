@@ -14,7 +14,7 @@ Solo trabaja con elementos PRESELECCIONADOS. Sin selección manual posterior.
 """
 from __future__ import print_function
 
-__title__ = "BTZ Asignar"
+__title__ = "Asignar"
 __doc__ = "Asigna BTZ_Description_x a elementos preseleccionados usando description de blocks.csv"
 __author__ = "btz.extension"
 
