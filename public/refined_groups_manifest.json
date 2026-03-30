@@ -1,0 +1,236 @@
+{
+  "otros|Generic Models|Modelos genéricos 2|Modelos genéricos 1": {
+    "btz_status_hint": "REVIEW", 
+    "dominant_code": "", 
+    "group_origin": "base", 
+    "base_group_key": "otros|Generic Models|Modelos genéricos 2|Modelos genéricos 1", 
+    "classification_hint": "REVIEW", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": true
+  }, 
+  "otros|Generic Models|Modelos genéricos 4|Modelos genéricos 1": {
+    "btz_status_hint": "REVIEW", 
+    "dominant_code": "", 
+    "group_origin": "base", 
+    "base_group_key": "otros|Generic Models|Modelos genéricos 4|Modelos genéricos 1", 
+    "classification_hint": "REVIEW", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": true
+  }, 
+  "obra_gris|Floors||Camino industrial||ref|test:tramos__sin_mark": {
+    "btz_status_hint": "SPLIT_AUTO", 
+    "dominant_code": "", 
+    "group_origin": "forced_test_split", 
+    "base_group_key": "obra_gris|Floors||Camino industrial", 
+    "classification_hint": "AUTO", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": false
+  }, 
+  "otros|Generic Models|Modelos genéricos 1|Modelos genéricos 1": {
+    "btz_status_hint": "REVIEW", 
+    "dominant_code": "", 
+    "group_origin": "base", 
+    "base_group_key": "otros|Generic Models|Modelos genéricos 1|Modelos genéricos 1", 
+    "classification_hint": "REVIEW", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": true
+  }, 
+  "obra_gris|Floors||Camino industrial||ref|test:nivel_1__sin_mark": {
+    "btz_status_hint": "SPLIT_AUTO", 
+    "dominant_code": "", 
+    "group_origin": "forced_test_split", 
+    "base_group_key": "obra_gris|Floors||Camino industrial", 
+    "classification_hint": "AUTO", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": false
+  }, 
+  "otros|Generic Models|Modelos genéricos 14|Modelos genéricos 14": {
+    "btz_status_hint": "REVIEW", 
+    "dominant_code": "", 
+    "group_origin": "base", 
+    "base_group_key": "otros|Generic Models|Modelos genéricos 14|Modelos genéricos 14", 
+    "classification_hint": "REVIEW", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": true
+  }, 
+  "obra_gris|Floors||Natural": {
+    "btz_status_hint": "REVIEW", 
+    "dominant_code": "", 
+    "group_origin": "base", 
+    "base_group_key": "obra_gris|Floors||Natural", 
+    "classification_hint": "REVIEW", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": true
+  }, 
+  "obra_gris|Floors||Hormigón 160 mm con chapa grecada 50 mm": {
+    "btz_status_hint": "REVIEW", 
+    "dominant_code": "", 
+    "group_origin": "base", 
+    "base_group_key": "obra_gris|Floors||Hormigón 160 mm con chapa grecada 50 mm", 
+    "classification_hint": "REVIEW", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": true
+  }, 
+  "otros|Generic Models|Familia1|Familia1": {
+    "btz_status_hint": "AUTO", 
+    "dominant_code": "", 
+    "group_origin": "base", 
+    "base_group_key": "otros|Generic Models|Familia1|Familia1", 
+    "classification_hint": "AUTO", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": false
+  }, 
+  "otros|Generic Models|Modelos genéricos 10|Modelos genéricos 1": {
+    "btz_status_hint": "REVIEW", 
+    "dominant_code": "", 
+    "group_origin": "base", 
+    "base_group_key": "otros|Generic Models|Modelos genéricos 10|Modelos genéricos 1", 
+    "classification_hint": "REVIEW", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": true
+  }, 
+  "obra_gris|Floors|techo curvo|techo curvo": {
+    "btz_status_hint": "REVIEW", 
+    "dominant_code": "", 
+    "group_origin": "base", 
+    "base_group_key": "obra_gris|Floors|techo curvo|techo curvo", 
+    "classification_hint": "REVIEW", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": true
+  }, 
+  "otros|Generic Models|Modelos genéricos 3|Modelos genéricos 1": {
+    "btz_status_hint": "REVIEW", 
+    "dominant_code": "", 
+    "group_origin": "base", 
+    "base_group_key": "otros|Generic Models|Modelos genéricos 3|Modelos genéricos 1", 
+    "classification_hint": "REVIEW", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": true
+  }, 
+  "otros|Generic Models|Modelos genéricos 9|Modelos genéricos 1": {
+    "btz_status_hint": "REVIEW", 
+    "dominant_code": "", 
+    "group_origin": "base", 
+    "base_group_key": "otros|Generic Models|Modelos genéricos 9|Modelos genéricos 1", 
+    "classification_hint": "REVIEW", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": true
+  }, 
+  "obra_gris|Floors||Camino industrial||ref|lvtypws:Nivel_1__Camino_industrial__Subproyecto1": {
+    "btz_status_hint": "SPLIT_AUTO", 
+    "dominant_code": "00S2D", 
+    "group_origin": "split", 
+    "base_group_key": "obra_gris|Floors||Camino industrial", 
+    "classification_hint": "AUTO", 
+    "btz_source_hint": "BLOCKS+LLM", 
+    "needs_review": false
+  }, 
+  "obra_gris|Floors||Camino industrial||ref|lvtypws:TRAMOS__Camino_industrial__Subproyecto1": {
+    "btz_status_hint": "SPLIT_AUTO", 
+    "dominant_code": "00S2D", 
+    "group_origin": "split", 
+    "base_group_key": "obra_gris|Floors||Camino industrial", 
+    "classification_hint": "AUTO", 
+    "btz_source_hint": "BLOCKS+LLM", 
+    "needs_review": false
+  }, 
+  "otros|Generic Models|Familia1|Familia1||ref|lvtypws:Nivel_1__Familia1__Subproyecto1": {
+    "btz_status_hint": "REVIEW", 
+    "dominant_code": "", 
+    "group_origin": "split", 
+    "base_group_key": "otros|Generic Models|Familia1|Familia1", 
+    "classification_hint": "REVIEW", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": true
+  }, 
+  "otros|Generic Models|Modelos genéricos 8|Modelos genéricos 8": {
+    "btz_status_hint": "REVIEW", 
+    "dominant_code": "", 
+    "group_origin": "base", 
+    "base_group_key": "otros|Generic Models|Modelos genéricos 8|Modelos genéricos 8", 
+    "classification_hint": "REVIEW", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": true
+  }, 
+  "otros|Generic Models|Modelos genéricos 13|Modelos genéricos 12": {
+    "btz_status_hint": "REVIEW", 
+    "dominant_code": "", 
+    "group_origin": "base", 
+    "base_group_key": "otros|Generic Models|Modelos genéricos 13|Modelos genéricos 12", 
+    "classification_hint": "REVIEW", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": true
+  }, 
+  "otros|Generic Models|Modelos genéricos 11|Modelos genéricos 11": {
+    "btz_status_hint": "REVIEW", 
+    "dominant_code": "", 
+    "group_origin": "base", 
+    "base_group_key": "otros|Generic Models|Modelos genéricos 11|Modelos genéricos 11", 
+    "classification_hint": "REVIEW", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": true
+  }, 
+  "otros|Generic Models|Modelos genéricos 7|Modelos genéricos 1": {
+    "btz_status_hint": "REVIEW", 
+    "dominant_code": "", 
+    "group_origin": "base", 
+    "base_group_key": "otros|Generic Models|Modelos genéricos 7|Modelos genéricos 1", 
+    "classification_hint": "REVIEW", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": true
+  }, 
+  "otros|Generic Models|Familia1|Familia1||ref|lvtypws:Muro_de_cimentación_T_O__Familia1__Subproyecto1": {
+    "btz_status_hint": "REVIEW", 
+    "dominant_code": "", 
+    "group_origin": "split", 
+    "base_group_key": "otros|Generic Models|Familia1|Familia1", 
+    "classification_hint": "REVIEW", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": true
+  }, 
+  "otros|Generic Models|Modelos genéricos 12|Modelos genéricos 12": {
+    "btz_status_hint": "REVIEW", 
+    "dominant_code": "", 
+    "group_origin": "base", 
+    "base_group_key": "otros|Generic Models|Modelos genéricos 12|Modelos genéricos 12", 
+    "classification_hint": "REVIEW", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": true
+  }, 
+  "obra_gris|Walls||Genérico - 200 mm": {
+    "btz_status_hint": "AUTO", 
+    "dominant_code": "", 
+    "group_origin": "base", 
+    "base_group_key": "obra_gris|Walls||Genérico - 200 mm", 
+    "classification_hint": "AUTO", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": false
+  }, 
+  "otros|Generic Models|Modelos genéricos 5|Modelos genéricos 1": {
+    "btz_status_hint": "REVIEW", 
+    "dominant_code": "", 
+    "group_origin": "base", 
+    "base_group_key": "otros|Generic Models|Modelos genéricos 5|Modelos genéricos 1", 
+    "classification_hint": "REVIEW", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": true
+  }, 
+  "obra_gris|Floors||Hormigón-362 mm comercial": {
+    "btz_status_hint": "REVIEW", 
+    "dominant_code": "", 
+    "group_origin": "base", 
+    "base_group_key": "obra_gris|Floors||Hormigón-362 mm comercial", 
+    "classification_hint": "REVIEW", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": true
+  }, 
+  "otros|Generic Models|Modelos genéricos 6|Modelos genéricos 1": {
+    "btz_status_hint": "REVIEW", 
+    "dominant_code": "", 
+    "group_origin": "base", 
+    "base_group_key": "otros|Generic Models|Modelos genéricos 6|Modelos genéricos 1", 
+    "classification_hint": "REVIEW", 
+    "btz_source_hint": "LLM_ONLY", 
+    "needs_review": true
+  }
+}

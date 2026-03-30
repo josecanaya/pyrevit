@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "ai_result": {
+    "base_group_key": "otros|Generic Models|Familia1|Familia1",
+    "should_split": false,
+    "group_count": 1,
+    "groups": [
+      {
+        "refined_group_key": "otros|Generic Models|Familia1|Familia1",
+        "label": "Familia1",
+        "reason": "No hay evidencia semantica suficiente para subdividir: todos los elementos comparten misma familia/tipo/categoria y no existen candidate_blocks ni tags normalizados. Los comentarios tipo S0-S10, vacios o una cadena con codigos CIR/CAM no permiten identificar con fiabilidad subgrupos funcionales distintos en este contexto estructural.",
+        "element_ids": [
+          "343066",
+          "343145",
+          "343677",
+          "343933",
+          "344217",
+          "344452",
+          "344733",
+          "345035",
+          "345038",
+          "356166",
+          "356604",
+          "357054",
+          "357907",
+          "358391"
+        ]
+      }
+    ],
+    "unassigned_element_ids": [],
+    "confidence": 0.84,
+    "summary": "Se mantiene un unico grupo porque no hay evidencia consistente para separar semanticamente los 14 Generic Models de la misma familia/tipo."
+  },
+  "logs": [
+    "[IA grouping] OK otros|Generic Models|Familia1|Familia1: should_split=False, groups=1, confidence=0.84"
+  ],
+  "model": "gpt-5.4"
+}

@@ -1,0 +1,26 @@
+{
+  "events": [
+    {
+      "detail": {
+        "created_tokens": 0, 
+        "updated_tokens": 0, 
+        "extracted_tokens": [], 
+        "imported_file_path": "C:\\Users\\Usuario\\AppData\\Roaming\\pyRevit\\Extensions\\btz.extension\\public\\blocks_normalized.csv", 
+        "project_name": "NAVES ESTRUCTURA"
+      }, 
+      "timestamp_utc": "2026-03-27T15:58:18.964000Z", 
+      "event": "apply_prompt_to_project_config"
+    }, 
+    {
+      "timestamp_utc": "2026-03-27T16:03:44.183000Z", 
+      "detail": {
+        "imported_file_path": "", 
+        "extracted_tokens": [], 
+        "updated_tokens": 0, 
+        "created_tokens": 0, 
+        "project_name": "NAVES ESTRUCTURA"
+      }, 
+      "event": "apply_prompt_to_project_config"
+    }
+  ]
+}

@@ -2,15 +2,14 @@
 """
 pyRevit — Exportar grupos Revit vs blocks (sin IA en Revit)
 
-Recorre el modelo, agrupa por group_key, exporta a public/, envía payload a n8n,
-opcionalmente aplica group_btz_mapping_result por grupo (slots BTZ libres locales).
+Recorre el modelo, agrupa por group_key, exporta a public/ y envía payload a n8n.
+La aplicación de BTZ en el modelo se hace con el botón aparte «Ejecutar automático».
 """
 from __future__ import print_function
 
 __title__ = "Exportar grupos"
 __doc__ = (
-    "Exporta grupos, envía payload a n8n y puede aplicar candidate_btz por group_key "
-    "(BTZ_Status/Source/Confidence)."
+    "Exporta grupos y envía payload a n8n. Para aplicar BTZ usá el botón «Ejecutar automático»."
 )
 __author__ = "btz.extension"
 
@@ -19,8 +18,12 @@ import csv
 import codecs
 import clr
 import json
+import re
 import urllib2
 import datetime
+import hashlib
+import time
+import subprocess
 
 clr.AddReference("RevitAPI")
 clr.AddReference("RevitAPIUI")
@@ -38,38 +41,116 @@ from Autodesk.Revit.DB import (
 
 from pyrevit import revit, forms
 
+try:
+    long
+except NameError:
+    long = int
+
+import sys
+_btz_bundle = os.path.dirname(os.path.abspath(__file__))
+if _btz_bundle not in sys.path:
+    sys.path.insert(0, _btz_bundle)
+
+from btz_apply_webhook import (
+    EXT_DIR,
+    RESOURCES_DIR,
+    SHARED_PARAMS_FILE,
+    PUBLIC_DIR,
+    PAYLOAD_GROUPS_JSON_PATH,
+    WEBHOOK_RESPONSE_JSON_PATH,
+    GROUP_KEY_ELEMENT_IDS_JSON_PATH,
+    REFINED_GROUP_KEY_ELEMENT_IDS_JSON_PATH,
+    REFINED_GROUPS_MANIFEST_JSON_PATH,
+    GROUPING_PIPELINE_LOG_PATH,
+    _BTZ_PATH_SOURCE,
+    AUTO_APPLY_CONFIDENCE,
+    APPLY_WEBHOOK_RESULTS,
+    APPLY_ONLY_FROM_SAVED_WEBHOOK,
+    EXPORT_APPLY_RESULTS_TXT,
+    PARAM_BASE,
+    PARAM_NUMERIC,
+    ALL_BTZ_PARAMS,
+    PARAM_STATUS,
+    PARAM_SOURCE,
+    PARAM_CONFIDENCE,
+    ALL_BIND_PARAMS,
+    _param_value_as_string,
+    _ensure_public_dir,
+    load_payload_from_json_file,
+    append_run_log,
+    map_group_key_to_elements,
+    load_group_key_element_ids_from_json,
+    try_apply_webhook_response,
+    main_apply_saved_webhook_only,
+)
+
+from btz_group_enrichment import (
+    enrich_groups_with_blocks,
+    split_ambiguous_groups,
+    save_refined_group_key_element_ids,
+    save_refined_groups_manifest,
+    save_grouping_pipeline_log,
+    build_enriched_revit_groups_for_payload,
+)
+from btz_element_metadata import SEMANTIC_CSV_COLUMNS, collect_extra_metadata_for_element
+from btz_openai_grouping import (
+    load_normalized_blocks_csv,
+    build_grouping_scenarios,
+    analyze_grouping_with_openai,
+    build_refined_groups_from_ai,
+)
+from btz_project_config import (
+    ensure_project_config_files,
+    load_project_config,
+    validate_project_config,
+    apply_project_soft_logic_to_scenario,
+    refresh_blocks_semantic_from_csv,
+    build_project_rule_split_parts,
+)
+
 
 # =============================================================================
 # CONFIGURACIÓN (editar aquí)
 # =============================================================================
 
-BASE_DIR = os.path.dirname(__file__)
-EXT_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "..", ".."))
-RESOURCES_DIR = os.path.join(EXT_DIR, "resources")
-
-# Carpeta de salida: dentro de la extensión (se crea si no existe)
-PUBLIC_DIR = os.path.join(EXT_DIR, "public")
-
-# JSON que se envía a n8n en modo “solo enviar archivo” (por defecto = public/payload_groups.json)
-PAYLOAD_GROUPS_JSON_PATH = os.path.join(PUBLIC_DIR, u"payload_groups.json")
-
-# Respuesta n8n (group_btz_mapping_result) y mapa grupo→elementos para reaplicar sin re-exportar
-WEBHOOK_RESPONSE_JSON_PATH = os.path.join(PUBLIC_DIR, u"webhook_response.json")
-GROUP_KEY_ELEMENT_IDS_JSON_PATH = os.path.join(PUBLIC_DIR, u"group_key_element_ids.json")
-
-# TXT de shared parameters: debe incluir BTZ_Description…01–13 y BTZ_Status / Source / Confidence
-SHARED_PARAMS_FILE = os.path.join(RESOURCES_DIR, u"BTZ_SharedParameters.txt")
-
+# Origen de la ruta a resources/ (para el log)
 # Si True: no recorre Revit; lee PAYLOAD_GROUPS_JSON_PATH y hace POST al webhook
 # Si False: flujo completo (export + payload + opcional webhook + aplicar)
 SEND_PAYLOAD_FILE_ONLY = False
 
-# CSV de obra (misma convención que Sugerir / AsignarBTZ)
-BLOCKS_CSV_FILE = os.path.join(RESOURCES_DIR, "blocks.csv")
+# CSV normalizado para agrupación inteligente (fuente única)
+BLOCKS_CSV_FILE = os.path.join(PUBLIC_DIR, "blocks_normalized.csv")
+
+# Etapa IA de agrupación (OpenAI en Python, previo al webhook)
+USE_OPENAI_GROUPING = True
+OPENAI_GROUPING_MODEL = u"gpt-5.4"
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
+OPENAI_GROUPING_TIMEOUT_SEC = 60
+OPENAI_GROUPING_MAX_ELEMENTS_PER_GROUP = 400
+OPENAI_GROUPING_MAX_CANDIDATE_BLOCKS = 12
+OPENAI_GROUPING_MAX_COMMENT_CHARS = 220
+OPENAI_GROUPING_MAX_GROUP_SUMMARY_CHARS = 360
+OPENAI_GROUPING_CACHE_PATH = os.path.join(PUBLIC_DIR, "openai_grouping_cache.json")
+OPENAI_GROUPING_AMBIGUITY_MIN = 0.35
+OPENAI_GROUPING_DOMINANT_CONF_MIN = 0.75
+OPENAI_GROUPING_CACHE_TTL_DAYS = 7
+OPENAI_GROUPING_PROMPT_VERSION = u"v2_aggressive"
+OPENAI_GROUPING_AGGRESSIVE_MODE = True
+OPENAI_GROUPING_IGNORE_CACHE = True
+OPENAI_GROUPING_FORCE_SPLIT_FOR_TEST = True
+OPENAI_GROUPING_FORCE_SPLIT_MIN_GROUP_SIZE = 20
+OPENAI_GROUPING_FORCE_SPLIT_MAX_BUCKETS = 8
+OPENAI_GROUPING_USE_EXTERNAL_PYTHON = True
+OPENAI_GROUPING_PYTHON_EXE = os.environ.get("BTZ_OPENAI_PYTHON_EXE", "python")
+OPENAI_GROUPING_HELPER_SCRIPT = os.path.join(
+    _btz_bundle, "btz_openai_grouping_worker.py"
+)
+OPENAI_GROUPING_WORKER_TIMEOUT_BUFFER_SEC = 20
 
 # Webhook n8n (clasificador BTZ — payload agrupado + blocks.csv embebido)
 N8N_WEBHOOK_URL = "https://jrcontrera.app.n8n.cloud/webhook/revit-btz-classifier"
-N8N_TIMEOUT_SEC = 120
+# Payloads grandes o n8n lento: subir (segundos). Error 10060 = timeout de red.
+N8N_TIMEOUT_SEC = 300
 
 # Si True: solo exporta a public/ (CSV + JSON); no hace POST al webhook
 EXPORT_ONLY = False
@@ -80,18 +161,6 @@ SEND_TO_WEBHOOK = True
 # Máximo de elementos a procesar (None = sin límite; usar con cuidado en modelos grandes)
 LIMIT_ELEMENTS = None
 
-# --- Respuesta n8n (group_btz_mapping_result) → aplicación en Revit ---
-# Mínimo de confianza para escribir un candidate_btz en un slot libre (0.0–1.0)
-AUTO_APPLY_CONFIDENCE = 0.75
-
-# Si True: tras recibir respuesta (o cargar webhook_response.json), aplica BTZ por grupo
-APPLY_WEBHOOK_RESULTS = True
-
-# Si True: guarda la respuesta cruda del webhook en public/webhook_response.json
-SAVE_WEBHOOK_RESPONSE = True
-
-# Opcional: exporta public/apply_results.txt con filas aplicadas
-EXPORT_APPLY_RESULTS_TXT = True
 
 # --- Filtro de categorías (reduce ruido: Views, Materials, Levels, etc.) ---
 # True (recomendado): solo se escanean categorías de obra listadas abajo.
@@ -170,31 +239,6 @@ MACRO_GROUPS_ORDER = [
     u"otros",
 ]
 
-# Parámetros BTZ (igual que el resto de herramientas BTZ)
-PARAM_BASE = u"BTZ_Description"
-PARAM_NUMERIC = [
-    u"BTZ_Description_01",
-    u"BTZ_Description_02",
-    u"BTZ_Description_03",
-    u"BTZ_Description_04",
-    u"BTZ_Description_05",
-    u"BTZ_Description_06",
-    u"BTZ_Description_07",
-    u"BTZ_Description_08",
-    u"BTZ_Description_09",
-    u"BTZ_Description_10",
-    u"BTZ_Description_11",
-    u"BTZ_Description_12",
-    u"BTZ_Description_13",
-]
-ALL_BTZ_PARAMS = [PARAM_BASE] + PARAM_NUMERIC
-
-# Metadatos sugerencia IA (mismo TXT que BTZ_Description; vincular con ensure_btz_shared_parameters)
-PARAM_STATUS = u"BTZ_Status"
-PARAM_SOURCE = u"BTZ_Source"
-PARAM_CONFIDENCE = u"BTZ_Confidence"
-ALL_BIND_PARAMS = ALL_BTZ_PARAMS + [PARAM_STATUS, PARAM_SOURCE, PARAM_CONFIDENCE]
-
 # Columnas base del CSV blocks (misma lógica que Sugerir)
 CSV_CODE_COL = "code"
 CSV_DESC_COL = "description"
@@ -205,6 +249,9 @@ MAX_SAMPLE_IDS = 50
 
 # Separador interno para group_key (si un nombre contiene "|", se reemplaza)
 GROUP_KEY_SEP = u"|"
+
+# Si True: guarda la respuesta cruda del webhook en public/webhook_response.json
+SAVE_WEBHOOK_RESPONSE = True
 
 
 # =============================================================================
@@ -263,22 +310,6 @@ def _safe_family_display_name(fam):
     return u""
 
 
-def _param_value_as_string(element, param_name):
-    p = element.LookupParameter(param_name)
-    if p is None or not p.HasValue:
-        return u""
-    try:
-        st = p.AsString()
-        if st is not None:
-            return unicode(st)
-    except Exception:
-        pass
-    try:
-        vs = p.AsValueString()
-        return unicode(vs or u"")
-    except Exception:
-        pass
-    return u""
 
 
 def _safe_category_name(element):
@@ -403,6 +434,19 @@ def _sanitize_group_field(s):
     return t.replace(GROUP_KEY_SEP, u" ")
 
 
+def _slug_for_key(s):
+    t = (s or u"").strip().lower()
+    out = []
+    for ch in t:
+        if ch.isalnum() or ch in (u"-", u"_"):
+            out.append(ch)
+        else:
+            out.append(u"_")
+    t = u"".join(out)
+    t = re.sub(u"_+", u"_", t).strip(u"_")
+    return t or u"na"
+
+
 def build_group_key(macro_group, category_name, family_name, type_name):
     """
     Clave compuesta para agrupar instancias repetidas.
@@ -473,8 +517,9 @@ def collect_revit_elements(doc, log_lines):
     """
     Recorre instancias del modelo y devuelve una lista de dicts por elemento.
 
-    Campos: element_id, unique_id, category_name, family_name, type_name,
-    level_name, element_name, macro_group, group_key, BTZ_*
+    Campos: identidad (id, categoría, familia, tipo, nivel, nombre), macro_group,
+    group_key, columnas semánticas (comments, mark, keynote, tipo, estructura,
+    OmniClass, workset, host, … ver btz_element_metadata), BTZ_*.
     """
     if USE_CATEGORY_WHITELIST:
         log_lines.append(
@@ -524,6 +569,9 @@ def collect_revit_elements(doc, log_lines):
             u"macro_group": macro,
             u"group_key": gkey,
         }
+        meta = collect_extra_metadata_for_element(doc, el)
+        for k in SEMANTIC_CSV_COLUMNS:
+            rec[k] = meta.get(k, u"")
         for pname in ALL_BTZ_PARAMS:
             rec[pname] = _param_value_as_string(el, pname)
 
@@ -534,6 +582,11 @@ def collect_revit_elements(doc, log_lines):
         u"Elementos recolectados: {0} (límite {1})".format(
             len(rows),
             LIMIT_ELEMENTS if LIMIT_ELEMENTS is not None else u"ninguno",
+        )
+    )
+    log_lines.append(
+        u"Columnas semánticas por elemento (además de BTZ): {0}".format(
+            len(SEMANTIC_CSV_COLUMNS)
         )
     )
     return rows
@@ -758,9 +811,6 @@ def save_blocks_snapshot(path, blocks_csv_text, log_lines):
 # =============================================================================
 
 
-def _ensure_public_dir():
-    if not os.path.isdir(PUBLIC_DIR):
-        os.makedirs(PUBLIC_DIR)
 
 
 def export_revit_elements_csv(path, element_rows, log_lines):
@@ -776,7 +826,7 @@ def export_revit_elements_csv(path, element_rows, log_lines):
             u"element_name",
             u"macro_group",
             u"group_key",
-        ] + ALL_BTZ_PARAMS
+        ] + list(SEMANTIC_CSV_COLUMNS) + ALL_BTZ_PARAMS
     else:
         fieldnames = list(element_rows[0].keys())
 
@@ -840,18 +890,66 @@ def export_revit_groups_csv(path, groups, log_lines):
     log_lines.append(u"Guardado: {0}".format(path))
 
 
-def build_group_payload(doc, groups, blocks_struct, blocks_csv_text):
+def save_groups_summary_txt(path, groups, element_rows, log_lines):
     """
-    JSON exacto para el webhook: mode, project_name, macro_groups,
-    blocks_rows, revit_groups, y el CSV de obra tal cual (resources/blocks.csv).
-
-    n8n recibe además:
-    - blocks_csv_filename: nombre del archivo (p. ej. blocks.csv)
-    - blocks_csv_text: contenido completo del CSV (mismo que en resources/)
+    Resumen legible: cuántos grupos (group_key), elementos por grupo, totales.
+    Complementa revit_groups.csv para ver de un vistazo el agrupamiento.
     """
-    revit_groups = []
+    lines = [
+        u"=== BTZ — Resumen de agrupación (Exportar grupos) ===",
+        u"Elementos exportados (instancias en el barrido): {0}".format(len(element_rows)),
+        u"Grupos distintos (group_key): {0}".format(len(groups)),
+        u"",
+        u"Formato group_key: macro|categoría|familia|tipo (ver build_group_key en el script).",
+        u"Si hay muchos grupos con count=1, el modelo fragmenta tipos/familias; n8n recibe un grupo por combinación.",
+        u"",
+        u"--- Lista por grupo (orden alfabético por group_key) ---",
+        u"count\tmacro_group\tcategory\tfamily\ttype\tgroup_key",
+    ]
     for g in groups:
-        revit_groups.append({
+        gk = g[u"group_key"].replace(u"\t", u" ")
+        lines.append(
+            u"{0}\t{1}\t{2}\t{3}\t{4}\t{5}".format(
+                g[u"count"],
+                g[u"macro_group"],
+                g[u"category_name"],
+                g[u"family_name"],
+                g[u"type_name"],
+                gk,
+            )
+        )
+    if groups:
+        counts = [int(g[u"count"]) for g in groups]
+        lines.append(u"")
+        lines.append(
+            u"Estadísticos count por grupo: min={0} max={1} media={2:.1f}".format(
+                min(counts),
+                max(counts),
+                float(sum(counts)) / len(counts),
+            )
+        )
+    with codecs.open(path, u"w", u"utf-8-sig") as fp:
+        fp.write(u"\n".join(lines) + u"\n")
+    log_lines.append(u"Resumen de grupos (legible): {0}".format(path))
+
+
+def build_group_payload(
+    doc,
+    groups,
+    blocks_struct,
+    blocks_csv_text,
+    enriched_revit_groups=None,
+    grouping_diagnostics=None,
+):
+    """
+    JSON para el webhook: mode, project_name, macro_groups,
+    blocks_rows, revit_groups, blocks_csv_text (sin cambios para n8n).
+
+    Campos aditivos (v2): enriched_revit_groups, grouping_diagnostics, payload_schema_version.
+    """
+    revit_groups_base = []
+    for g in groups:
+        revit_groups_base.append({
             u"group_key": g[u"group_key"],
             u"macro_group": g[u"macro_group"],
             u"count": int(g[u"count"]),
@@ -862,9 +960,38 @@ def build_group_payload(doc, groups, blocks_struct, blocks_csv_text):
             u"sample_element_ids": [int(x) for x in g[u"sample_element_ids"]],
         })
 
+    # n8n consume normalmente revit_groups. Si hay refinados, usarlos acá
+    # para que el mapeo salga por refined_group_key (más granular).
+    revit_groups = list(revit_groups_base)
+    if enriched_revit_groups:
+        revit_groups = []
+        for rg in enriched_revit_groups:
+            revit_groups.append({
+                u"group_key": rg.get(u"refined_group_key") or rg.get(u"base_group_key"),
+                u"base_group_key": rg.get(u"base_group_key"),
+                u"group_origin": rg.get(u"group_origin") or u"base",
+                u"macro_group": rg.get(u"macro_group") or u"",
+                u"count": int(rg.get(u"element_count") or 0),
+                u"category_name": rg.get(u"category_name") or u"",
+                u"family_name": rg.get(u"family_name") or u"",
+                u"type_name": rg.get(u"type_name") or u"",
+                u"level_names": [],
+                u"sample_element_ids": [int(x) for x in (rg.get(u"element_ids") or [])[:50]],
+                u"candidate_columns": rg.get(u"candidate_columns") or [],
+                u"candidate_btz": rg.get(u"candidate_btz") or [],
+                u"dominant_candidate": rg.get(u"dominant_candidate"),
+                u"dominant_confidence": rg.get(u"dominant_confidence"),
+                u"ambiguity_score": rg.get(u"ambiguity_score"),
+                u"needs_review": bool(rg.get(u"needs_review")),
+                u"split_reason": rg.get(u"split_reason") or u"",
+                u"blocks_supporting_rows": rg.get(u"blocks_supporting_rows") or [],
+                u"semantic_field_summary": rg.get(u"semantic_field_summary") or {},
+                u"group_summary": rg.get(u"group_summary") or u"",
+            })
+
     base = os.path.basename(BLOCKS_CSV_FILE) or u"blocks.csv"
 
-    return {
+    payload = {
         u"mode": u"analyze_revit_groups_against_blocks",
         u"project_name": _project_display_name(doc),
         u"macro_groups": list(MACRO_GROUPS_ORDER),
@@ -872,7 +999,14 @@ def build_group_payload(doc, groups, blocks_struct, blocks_csv_text):
         u"blocks_csv_filename": base,
         u"blocks_csv_text": blocks_csv_text,
         u"revit_groups": revit_groups,
+        u"revit_groups_base": revit_groups_base,
+        u"payload_schema_version": 2,
     }
+    if enriched_revit_groups is not None:
+        payload[u"enriched_revit_groups"] = enriched_revit_groups
+    if grouping_diagnostics is not None:
+        payload[u"grouping_diagnostics"] = grouping_diagnostics
+    return payload
 
 
 def save_payload_json(path, payload, log_lines):
@@ -883,31 +1017,6 @@ def save_payload_json(path, payload, log_lines):
     log_lines.append(u"Guardado: {0}".format(path))
 
 
-def load_payload_from_json_file(path, log_lines):
-    """
-    Carga el JSON que se enviará a n8n (p. ej. public/payload_groups.json).
-    utf-8-sig tolera BOM de Excel/Notepad.
-    """
-    if not path or not os.path.isfile(path):
-        raise IOError(u"No existe el archivo: {0}".format(path))
-    with codecs.open(path, u"r", u"utf-8-sig") as fp:
-        raw = fp.read()
-    log_lines.append(
-        u"Cargado {0} ({1} caracteres)".format(path, len(raw))
-    )
-    try:
-        return json.loads(raw)
-    except ValueError as e:
-        raise ValueError(
-            u"JSON inválido en {0}: {1}".format(path, e)
-        )
-
-
-def append_run_log(path, lines):
-    ts = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    block = u"\n[{0}]\n".format(ts) + u"\n".join(lines) + u"\n"
-    with codecs.open(path, u"a", u"utf-8") as fp:
-        fp.write(block)
 
 
 # =============================================================================
@@ -915,120 +1024,6 @@ def append_run_log(path, lines):
 # =============================================================================
 
 
-def _get_definition_map(def_file):
-    defs = {}
-    for group in def_file.Groups:
-        for definition in group.Definitions:
-            try:
-                name = definition.Name
-            except Exception:
-                name = None
-            if name:
-                defs[name] = definition
-    return defs
-
-
-def _build_model_category_set(doc):
-    catset = doc.Application.Create.NewCategorySet()
-    count = 0
-    for cat in doc.Settings.Categories:
-        try:
-            if cat is None or not cat.AllowsBoundParameters or cat.IsTagCategory:
-                continue
-            if cat.CategoryType != CategoryType.Model:
-                continue
-            catset.Insert(cat)
-            count += 1
-        except Exception:
-            pass
-    if count == 0:
-        raise ValueError(u"No se pudo armar CategorySet de categorías de modelo.")
-    return catset
-
-
-def _get_existing_binding_names(doc):
-    names = set()
-    it = doc.ParameterBindings.ForwardIterator()
-    it.Reset()
-    while it.MoveNext():
-        try:
-            definition = it.Key
-            if definition and definition.Name:
-                names.add(definition.Name)
-        except Exception:
-            pass
-    return names
-
-
-def ensure_btz_shared_parameters(doc, log_lines):
-    """Vincula shared parameters BTZ (incl. BTZ_Status, BTZ_Source, BTZ_Confidence)."""
-    if not SHARED_PARAMS_FILE or not os.path.isfile(SHARED_PARAMS_FILE):
-        raise IOError(u"No se encontró: {0}".format(SHARED_PARAMS_FILE))
-
-    app = doc.Application
-    app.SharedParametersFilename = SHARED_PARAMS_FILE
-    def_file = app.OpenSharedParameterFile()
-    if def_file is None:
-        raise IOError(u"Revit no pudo abrir el archivo de shared parameters.")
-
-    definition_map = _get_definition_map(def_file)
-    missing = [n for n in ALL_BIND_PARAMS if n not in definition_map]
-    if missing:
-        raise ValueError(
-            u"Faltan parámetros en el TXT: {0}".format(u", ".join(missing))
-        )
-
-    catset = _build_model_category_set(doc)
-    creator = doc.Application.Create
-    existing_names = _get_existing_binding_names(doc)
-
-    tx = Transaction(doc, u"BTZ | Vincular shared parameters (Exportar grupos)")
-    tx.Start()
-    try:
-        for name in ALL_BIND_PARAMS:
-            definition = definition_map[name]
-            binding = creator.NewInstanceBinding(catset)
-            if name in existing_names:
-                doc.ParameterBindings.ReInsert(
-                    definition, binding, GroupTypeId.Text
-                )
-            else:
-                ok = doc.ParameterBindings.Insert(
-                    definition, binding, GroupTypeId.Text
-                )
-                if not ok:
-                    doc.ParameterBindings.ReInsert(
-                        definition, binding, GroupTypeId.Text
-                    )
-        tx.Commit()
-    except Exception:
-        try:
-            tx.RollBack()
-        except Exception:
-            pass
-        raise
-
-    log_lines.append(u"Shared parameters BTZ vinculados ({0} defs).".format(
-        len(ALL_BIND_PARAMS)
-    ))
-
-
-# =============================================================================
-# Mapa group_key → elementos (misma clave que build_group_key / export)
-# =============================================================================
-
-
-def map_group_key_to_elements(element_rows):
-    """
-    Devuelve dict group_key → lista de element_id (int) para todos los elementos exportados.
-    Debe coincidir con la lógica de group_key usada en collect_revit_elements.
-    """
-    m = {}
-    for r in element_rows:
-        gk = r[u"group_key"]
-        eid = r[u"element_id"]
-        m.setdefault(gk, []).append(eid)
-    return m
 
 
 def save_group_key_element_ids_json(path, element_rows, log_lines):
@@ -1038,15 +1033,6 @@ def save_group_key_element_ids_json(path, element_rows, log_lines):
     log_lines.append(u"Guardado mapa group_key → ids: {0}".format(path))
 
 
-def load_group_key_element_ids_from_json(path, log_lines):
-    with codecs.open(path, u"r", u"utf-8-sig") as fp:
-        raw = fp.read()
-    data = json.loads(raw)
-    out = {}
-    for k, v in data.items():
-        out[unicode(k)] = [int(x) for x in v]
-    log_lines.append(u"Cargado mapa group_key desde {0}".format(path))
-    return out
 
 
 # =============================================================================
@@ -1054,26 +1040,6 @@ def load_group_key_element_ids_from_json(path, log_lines):
 # =============================================================================
 
 
-def load_group_mapping_response(parsed):
-    """
-    Valida JSON de n8n con mode=group_btz_mapping_result y devuelve group_mappings.
-    """
-    if not isinstance(parsed, dict):
-        raise ValueError(u"Respuesta no es un objeto JSON")
-
-    mode = parsed.get(u"mode") or parsed.get("mode")
-    if mode not in (u"group_btz_mapping_result", "group_btz_mapping_result"):
-        raise ValueError(
-            u"mode inesperado (esperado group_btz_mapping_result): {0}".format(mode)
-        )
-
-    gm = parsed.get(u"group_mappings") or parsed.get("group_mappings")
-    if gm is None:
-        raise ValueError(u"Falta group_mappings en la respuesta")
-    if not isinstance(gm, list):
-        raise ValueError(u"group_mappings debe ser una lista")
-
-    return gm
 
 
 def save_webhook_response(path, raw_text, log_lines):
@@ -1082,364 +1048,750 @@ def save_webhook_response(path, raw_text, log_lines):
     log_lines.append(u"Guardado: {0}".format(path))
 
 
+def export_elements(doc, log_lines):
+    """Alias de etapa pipeline: export_elements()."""
+    return collect_revit_elements(doc, log_lines)
+
+
+def build_base_groups(element_rows):
+    """Alias de etapa pipeline: build_base_groups()."""
+    return group_elements(element_rows)
+
+
+def _build_manifest_from_refined_ai(refined_list):
+    manifest = {}
+    for r in refined_list:
+        rk = r.get(u"refined_group_key")
+        if not rk:
+            continue
+        needs_review = bool(r.get(u"needs_review"))
+        origin = r.get(u"group_origin") or u"base"
+        manifest[rk] = {
+            u"base_group_key": r.get(u"base_group_key"),
+            u"classification_hint": r.get(u"classification_hint") or (
+                u"REVIEW" if needs_review else u"AUTO"
+            ),
+            u"btz_status_hint": u"REVIEW" if needs_review else (
+                u"SPLIT_AUTO" if origin in (u"ai_split", u"forced_test_split") else u"AUTO"
+            ),
+            u"btz_source_hint": u"LLM_ONLY",
+            u"dominant_code": u"",
+            u"group_origin": origin,
+            u"needs_review": needs_review,
+        }
+    return manifest
+
+
+def _build_forced_test_split_parts(base_key, base_group, group_rows, insight, log_lines):
+    """Split determinístico de prueba para validar el flujo end-to-end."""
+    rows = group_rows or []
+    if not rows:
+        log_lines.append(
+            u"[OPENAI-TEST] sin filas para split forzado en {0}".format(base_key[:100])
+        )
+        return []
+
+    buckets = {}
+    for r in rows:
+        try:
+            eid = int(r.get(u"element_id"))
+        except Exception:
+            continue
+        lvl = unicode(r.get(u"level_name") or u"").strip() or u"(sin_nivel)"
+        mk = unicode(r.get(u"mark") or u"").strip() or u"(sin_mark)"
+        buckets.setdefault((lvl, mk), []).append(eid)
+
+    if len(buckets) <= 1:
+        log_lines.append(
+            u"[OPENAI-TEST] split forzado omitido en {0}: solo 1 bucket level+mark".format(
+                base_key[:100]
+            )
+        )
+        return []
+
+    items = sorted(buckets.items(), key=lambda kv: len(kv[1]), reverse=True)
+    max_buckets = max(2, int(OPENAI_GROUPING_FORCE_SPLIT_MAX_BUCKETS or 2))
+    if len(items) > max_buckets:
+        kept = items[: max_buckets - 1]
+        rest_ids = []
+        for _, ids in items[max_buckets - 1 :]:
+            rest_ids.extend(ids)
+        kept.append(((u"(otros_niveles)", u"(otros_mark)"), rest_ids))
+        items = kept
+
+    parts = []
+    for (lvl, mk), ids in items:
+        if not ids:
+            continue
+        rk = u"{0}||ref|test:{1}__{2}".format(
+            base_key,
+            _slug_for_key(lvl),
+            _slug_for_key(mk),
+        )
+        parts.append({
+            u"base_group_key": base_key,
+            u"refined_group_key": rk,
+            u"group_origin": u"forced_test_split",
+            u"element_ids": ids,
+            u"element_count": len(ids),
+            u"macro_group": base_group.get(u"macro_group") or u"",
+            u"category_name": base_group.get(u"category_name") or u"",
+            u"family_name": base_group.get(u"family_name") or u"",
+            u"type_name": base_group.get(u"type_name") or u"",
+            u"candidate_columns": insight.get(u"candidate_columns") or [],
+            u"candidate_btz": insight.get(u"candidate_btz") or [],
+            u"dominant_candidate": insight.get(u"dominant_candidate"),
+            u"dominant_confidence": insight.get(u"dominant_confidence"),
+            u"ambiguity_score": insight.get(u"ambiguity_score"),
+            u"blocks_supporting_rows": insight.get(u"blocks_supporting_rows") or [],
+            u"existing_btz_values_detected": insight.get(u"existing_btz_values_detected") or [],
+            u"semantic_field_summary": {},
+            u"should_split": True,
+            u"split_reason": u"forced_test_split para validar pipeline",
+            u"split_axis": u"level+mark",
+            u"split_value": u"{0}|{1}".format(lvl, mk),
+            u"classification_hint": u"AUTO",
+            u"needs_review": False,
+            u"group_summary": u"forced_test_split level+mark | {0} elems".format(len(ids)),
+        })
+    return parts
+
+
+def verify_openai_grouping_runtime(log_lines):
+    issues = []
+    if not USE_OPENAI_GROUPING:
+        log_lines.append(u"[OPENAI] OpenAI grouping desactivado por configuración.")
+        return True
+
+    api_key = unicode(OPENAI_API_KEY or os.environ.get("OPENAI_API_KEY", u"")).strip()
+    if not api_key:
+        issues.append(u"OPENAI_API_KEY faltante o vacía")
+    else:
+        log_lines.append(u"[OPENAI] OPENAI_API_KEY detectada")
+
+    model_name = unicode(OPENAI_GROUPING_MODEL or u"").strip()
+    if not model_name:
+        issues.append(u"OPENAI_GROUPING_MODEL vacío")
+    else:
+        log_lines.append(u"[OPENAI] Modelo de agrupación: {0}".format(model_name))
+
+    if not os.path.exists(BLOCKS_CSV_FILE):
+        issues.append(u"blocks_normalized.csv no encontrado: {0}".format(BLOCKS_CSV_FILE))
+    else:
+        log_lines.append(
+            u"[OPENAI] Fuente normalizada encontrada: {0}".format(BLOCKS_CSV_FILE)
+        )
+
+    if int(OPENAI_GROUPING_MAX_ELEMENTS_PER_GROUP or 0) <= 0:
+        issues.append(u"OPENAI_GROUPING_MAX_ELEMENTS_PER_GROUP debe ser > 0")
+    if int(OPENAI_GROUPING_TIMEOUT_SEC or 0) <= 0:
+        issues.append(u"OPENAI_GROUPING_TIMEOUT_SEC debe ser > 0")
+    if int(OPENAI_GROUPING_MAX_CANDIDATE_BLOCKS or 0) <= 0:
+        issues.append(u"OPENAI_GROUPING_MAX_CANDIDATE_BLOCKS debe ser > 0")
+    if int(OPENAI_GROUPING_WORKER_TIMEOUT_BUFFER_SEC or 0) <= 0:
+        issues.append(u"OPENAI_GROUPING_WORKER_TIMEOUT_BUFFER_SEC debe ser > 0")
+
+    if OPENAI_GROUPING_USE_EXTERNAL_PYTHON:
+        if not os.path.isfile(OPENAI_GROUPING_HELPER_SCRIPT):
+            issues.append(
+                u"helper script no encontrado: {0}".format(
+                    OPENAI_GROUPING_HELPER_SCRIPT
+                )
+            )
+        else:
+            log_lines.append(
+                u"[OPENAI] Helper script: {0}".format(OPENAI_GROUPING_HELPER_SCRIPT)
+            )
+        ok, msg = _run_openai_worker_self_check(log_lines)
+        if not ok:
+            issues.append(msg)
+    else:
+        try:
+            import openai  # noqa: F401
+
+            log_lines.append(u"[OPENAI] SDK import local: OK")
+        except Exception as ex:
+            issues.append(u"openai package no disponible (local): {0}".format(ex))
+
+    if issues:
+        log_lines.append(u"[OPENAI] Verificación runtime FAILED")
+        for item in issues:
+            log_lines.append(u"[OPENAI] - {0}".format(item))
+        return False
+
+    log_lines.append(u"[OPENAI] Verificación runtime OK")
+    return True
+
+
+def _decode_bytes_to_unicode(value):
+    if value is None:
+        return u""
+    if isinstance(value, unicode):
+        return value
+    try:
+        return value.decode("utf-8")
+    except Exception:
+        try:
+            return value.decode("cp1252")
+        except Exception:
+            try:
+                return unicode(value)
+            except Exception:
+                return u""
+
+
+def _run_subprocess_with_timeout(cmd, timeout_sec, env=None):
+    proc = subprocess.Popen(
+        cmd,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        env=env,
+    )
+    deadline = time.time() + max(1.0, float(timeout_sec or 1))
+    while proc.poll() is None and time.time() < deadline:
+        time.sleep(0.1)
+    if proc.poll() is None:
+        try:
+            proc.kill()
+        except Exception:
+            pass
+    stdout, stderr = proc.communicate()
+    return (
+        int(proc.returncode if proc.returncode is not None else -1),
+        _decode_bytes_to_unicode(stdout),
+        _decode_bytes_to_unicode(stderr),
+    )
+
+
+def _run_openai_worker_self_check(log_lines):
+    if not OPENAI_GROUPING_USE_EXTERNAL_PYTHON:
+        return True, u"ok"
+    cmd = [
+        OPENAI_GROUPING_PYTHON_EXE,
+        OPENAI_GROUPING_HELPER_SCRIPT,
+        "--self-check",
+    ]
+    env = os.environ.copy()
+    if OPENAI_API_KEY:
+        env["OPENAI_API_KEY"] = OPENAI_API_KEY
+    rc, out, err = _run_subprocess_with_timeout(
+        cmd,
+        timeout_sec=float(OPENAI_GROUPING_TIMEOUT_SEC) + 10.0,
+        env=env,
+    )
+    if rc != 0:
+        return (
+            False,
+            u"worker self-check falló (python={0}) rc={1} err={2}".format(
+                OPENAI_GROUPING_PYTHON_EXE,
+                rc,
+                (err or out or u"").strip()[:220],
+            ),
+        )
+    if out.strip():
+        log_lines.append(u"[OPENAI] Worker self-check: {0}".format(out.strip()[:220]))
+    return True, u"ok"
+
+
+def _call_openai_grouping_worker(group_scenario, log_lines):
+    in_path = os.path.join(PUBLIC_DIR, "openai_grouping_worker_input.json")
+    out_path = os.path.join(PUBLIC_DIR, "openai_grouping_worker_output.json")
+    with codecs.open(in_path, u"w", u"utf-8") as fp:
+        fp.write(json.dumps(group_scenario, ensure_ascii=False, indent=2))
+
+    cmd = [
+        OPENAI_GROUPING_PYTHON_EXE,
+        OPENAI_GROUPING_HELPER_SCRIPT,
+        "--input",
+        in_path,
+        "--output",
+        out_path,
+        "--model",
+        unicode(OPENAI_GROUPING_MODEL),
+        "--timeout",
+        unicode(OPENAI_GROUPING_TIMEOUT_SEC),
+    ]
+    env = os.environ.copy()
+    if OPENAI_API_KEY:
+        env["OPENAI_API_KEY"] = OPENAI_API_KEY
+
+    total_timeout = float(OPENAI_GROUPING_TIMEOUT_SEC) + float(
+        OPENAI_GROUPING_WORKER_TIMEOUT_BUFFER_SEC
+    )
+    rc, out, err = _run_subprocess_with_timeout(cmd, timeout_sec=total_timeout, env=env)
+    if rc != 0:
+        raise RuntimeError(
+            u"worker OpenAI falló rc={0} err={1}".format(
+                rc, (err or out or u"").strip()[:320]
+            )
+        )
+    if not os.path.isfile(out_path):
+        raise RuntimeError(u"worker OpenAI no generó output: {0}".format(out_path))
+
+    with codecs.open(out_path, u"r", u"utf-8-sig") as fp:
+        worker_result = json.loads(fp.read())
+    if not isinstance(worker_result, dict):
+        raise RuntimeError(u"worker OpenAI devolvió payload inválido")
+    if not worker_result.get(u"ok"):
+        raise RuntimeError(
+            u"worker OpenAI reportó error: {0}".format(
+                worker_result.get(u"error") or u"(sin detalle)"
+            )
+        )
+    for line in worker_result.get(u"logs") or []:
+        log_lines.append(u"[OPENAI-WORKER] {0}".format(unicode(line)))
+    ai_result = worker_result.get(u"ai_result")
+    if not isinstance(ai_result, dict):
+        raise RuntimeError(u"worker OpenAI no devolvió ai_result válido")
+    return ai_result
+
+
+def _load_openai_grouping_cache(path, log_lines):
+    if not path or (not os.path.isfile(path)):
+        return {}
+    try:
+        with codecs.open(path, u"r", u"utf-8-sig") as fp:
+            data = json.loads(fp.read())
+        if isinstance(data, dict):
+            log_lines.append(u"[OPENAI] Cache cargada: {0} entradas".format(len(data)))
+            return data
+    except Exception as ex:
+        log_lines.append(u"[OPENAI] Cache inválida ({0}); se reinicia.".format(ex))
+    return {}
+
+
+def _save_openai_grouping_cache(path, cache_data, log_lines):
+    try:
+        with codecs.open(path, u"w", u"utf-8") as fp:
+            fp.write(json.dumps(cache_data, ensure_ascii=False, indent=2))
+        log_lines.append(u"[OPENAI] Cache guardada: {0}".format(path))
+    except Exception as ex:
+        log_lines.append(u"[OPENAI] No se pudo guardar cache: {0}".format(ex))
+
+
+def _norm_text(value):
+    return unicode(value or u"").strip()
+
+
+def _scenario_hash(scenario):
+    payload = json.dumps(scenario, ensure_ascii=False, sort_keys=True)
+    if isinstance(payload, unicode):
+        payload = payload.encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
+
+
+def _sha256_file(path):
+    h = hashlib.sha256()
+    with open(path, "rb") as fp:
+        while True:
+            chunk = fp.read(65536)
+            if not chunk:
+                break
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def _cache_ttl_seconds():
+    try:
+        days = float(OPENAI_GROUPING_CACHE_TTL_DAYS or 0)
+    except Exception:
+        days = 0.0
+    if days <= 0:
+        return 0
+    return int(days * 24 * 60 * 60)
+
+
+def _is_cache_entry_valid(
+    cache_entry,
+    expected_scenario_hash,
+    expected_model,
+    expected_prompt_version,
+    expected_blocks_hash,
+    now_epoch,
+):
+    if not isinstance(cache_entry, dict):
+        return False, u"cache_entry_invalida"
+    if cache_entry.get(u"scenario_hash") != expected_scenario_hash:
+        return False, u"scenario_hash_changed"
+    if _norm_text(cache_entry.get(u"model")) != _norm_text(expected_model):
+        return False, u"model_changed"
+    if _norm_text(cache_entry.get(u"prompt_version")) != _norm_text(
+        expected_prompt_version
+    ):
+        return False, u"prompt_version_changed"
+    if _norm_text(cache_entry.get(u"blocks_source_hash")) != _norm_text(
+        expected_blocks_hash
+    ):
+        return False, u"blocks_source_hash_changed"
+    ttl_sec = _cache_ttl_seconds()
+    if ttl_sec > 0:
+        try:
+            ts = int(cache_entry.get(u"timestamp_epoch") or 0)
+        except Exception:
+            ts = 0
+        if ts <= 0:
+            return False, u"timestamp_missing"
+        if (now_epoch - ts) > ttl_sec:
+            return False, u"ttl_expired"
+    if not isinstance(cache_entry.get(u"ai_result"), dict):
+        return False, u"ai_result_missing"
+    return True, u"ok"
+
+
+def _group_rows_by_base_group(refined_rows):
+    out = {}
+    for r in refined_rows:
+        bk = r.get(u"base_group_key") or u""
+        out.setdefault(bk, []).append(r)
+    return out
+
+
+def should_use_openai_for_group(group_insight):
+    element_count = int(group_insight.get(u"element_count", 0) or 0)
+    ambiguity_score = float(group_insight.get(u"ambiguity_score", 0) or 0)
+    dominant_conf = float(group_insight.get(u"dominant_confidence", 0) or 0)
+
+    if element_count <= 1:
+        return False, u"element_count<=1"
+    if OPENAI_GROUPING_AGGRESSIVE_MODE:
+        return True, u"aggressive_mode_all_groups"
+    if element_count > OPENAI_GROUPING_MAX_ELEMENTS_PER_GROUP:
+        return False, u"element_count>max_per_group"
+    if ambiguity_score >= float(OPENAI_GROUPING_AMBIGUITY_MIN):
+        return True, u"ambiguity_score>={0}".format(OPENAI_GROUPING_AMBIGUITY_MIN)
+    if dominant_conf < float(OPENAI_GROUPING_DOMINANT_CONF_MIN):
+        return True, u"dominant_conf<{0}".format(OPENAI_GROUPING_DOMINANT_CONF_MIN)
+    return False, u"grupo_obvio_por_heuristico"
+
+
+def _run_openai_grouping_pipeline(base_groups, revit_elements, blocks_csv_path, pipeline_log):
+    """
+    Pipeline:
+      load_normalized_blocks_csv()
+      build_grouping_scenarios()
+      analyze_grouping_with_openai()
+      build_refined_groups_from_ai()
+    """
+    normalized_blocks = load_normalized_blocks_csv(blocks_csv_path, pipeline_log)
+    scenarios = build_grouping_scenarios(
+        base_groups,
+        revit_elements,
+        normalized_blocks,
+        max_elements_per_group=OPENAI_GROUPING_MAX_ELEMENTS_PER_GROUP,
+        max_candidate_blocks=OPENAI_GROUPING_MAX_CANDIDATE_BLOCKS,
+        max_comment_chars=OPENAI_GROUPING_MAX_COMMENT_CHARS,
+        max_group_summary_chars=OPENAI_GROUPING_MAX_GROUP_SUMMARY_CHARS,
+        log_lines=pipeline_log,
+    )
+    project_cfg = load_project_config(pipeline_log)
+    cfg_issues = validate_project_config(project_cfg)
+    if cfg_issues:
+        for issue in cfg_issues:
+            pipeline_log.append(u"[PROJECT-CONFIG] warning: {0}".format(issue))
+    else:
+        pipeline_log.append(
+            u"[PROJECT-CONFIG] cargada. rule_mode={0}".format(
+                project_cfg.get(u"rule_mode")
+            )
+        )
+    for i, sc in enumerate(scenarios):
+        scenarios[i] = apply_project_soft_logic_to_scenario(sc, project_cfg, pipeline_log)
+
+    enriched = enrich_groups_with_blocks(
+        revit_elements, base_groups, {u"rows": normalized_blocks}, ALL_BTZ_PARAMS, pipeline_log
+    )
+    enriched_by_key = {e[u"base_group_key"]: e for e in enriched}
+
+    heuristic_log = []
+    heuristic_refined, heuristic_manifest, _heur_diag = split_ambiguous_groups(
+        enriched, revit_elements, heuristic_log
+    )
+    heuristic_refined_by_base = _group_rows_by_base_group(heuristic_refined)
+
+    client = None
+    if not OPENAI_GROUPING_USE_EXTERNAL_PYTHON:
+        try:
+            from openai import OpenAI
+
+            client = OpenAI(
+                api_key=OPENAI_API_KEY, timeout=float(OPENAI_GROUPING_TIMEOUT_SEC)
+            )
+        except Exception as ex:
+            pipeline_log.append(
+                u"[IA grouping] OpenAI SDK/cliente local no disponible: {0}. Se usará fallback.".format(
+                    ex
+                )
+            )
+            client = None
+        if not OPENAI_API_KEY:
+            pipeline_log.append(
+                u"[IA grouping] OPENAI_API_KEY no configurada en entorno; se usará fallback."
+            )
+            client = None
+
+    blocks_source_hash = u""
+    try:
+        blocks_source_hash = _sha256_file(blocks_csv_path)
+        pipeline_log.append(
+            u"[OPENAI] blocks_source_hash={0}".format(blocks_source_hash[:16])
+        )
+    except Exception as ex:
+        pipeline_log.append(u"[OPENAI] No se pudo calcular blocks_source_hash: {0}".format(ex))
+
+    cache = _load_openai_grouping_cache(OPENAI_GROUPING_CACHE_PATH, pipeline_log)
+    cache_changed = False
+    groups_by_key = {g[u"group_key"]: g for g in base_groups}
+    elements_by_id = {int(r[u"element_id"]): r for r in revit_elements}
+    elements_by_group = {}
+    for row in revit_elements:
+        gk = row.get(u"group_key")
+        if gk:
+            elements_by_group.setdefault(gk, []).append(row)
+
+    refined_all = []
+    split_groups = 0
+    fallback_groups = 0
+    forced_test_split_groups = 0
+    openai_groups = 0
+    cache_hits = 0
+    for scenario in scenarios:
+        base_key = scenario.get(u"base_group_key")
+        base_group = groups_by_key.get(base_key)
+        if base_group is None:
+            continue
+        insight = enriched_by_key.get(base_key, {})
+        use_ai, reason_ai = should_use_openai_for_group(insight)
+
+        element_count = int(insight.get(u"element_count") or scenario.get(u"element_count") or 0)
+        candidate_blocks_count = len(scenario.get(u"candidate_blocks") or [])
+        ambiguity_score = float(insight.get(u"ambiguity_score", 0) or 0)
+        dominant_conf = float(insight.get(u"dominant_confidence", 0) or 0)
+        pipeline_log.append(
+            u"[OPENAI] Base group {0}".format(base_key)
+        )
+        pipeline_log.append(
+            u"[OPENAI] element_count={0} candidate_blocks={1} ambiguity_score={2:.3f} dominant_conf={3:.3f}".format(
+                element_count,
+                candidate_blocks_count,
+                ambiguity_score,
+                dominant_conf,
+            )
+        )
+        pipeline_log.append(
+            u"[OPENAI] decision use_ai={0} reason={1}".format(use_ai, reason_ai)
+        )
+
+        parts = None
+        if use_ai and (OPENAI_GROUPING_USE_EXTERNAL_PYTHON or client is not None):
+            openai_groups += 1
+            shash = _scenario_hash(scenario)
+            cache_entry = cache.get(base_key) or {}
+            ai_result = None
+            now_epoch = int(time.time())
+            cache_ok, cache_reason = _is_cache_entry_valid(
+                cache_entry=cache_entry,
+                expected_scenario_hash=shash,
+                expected_model=OPENAI_GROUPING_MODEL,
+                expected_prompt_version=OPENAI_GROUPING_PROMPT_VERSION,
+                expected_blocks_hash=blocks_source_hash,
+                now_epoch=now_epoch,
+            )
+            if cache_ok and (not OPENAI_GROUPING_IGNORE_CACHE):
+                ai_result = cache_entry.get(u"ai_result")
+                cache_hits += 1
+                pipeline_log.append(
+                    u"[OPENAI] cache hit base_group_key={0}".format(base_key[:100])
+                )
+            else:
+                if OPENAI_GROUPING_IGNORE_CACHE:
+                    pipeline_log.append(
+                        u"[OPENAI] cache omitida por OPENAI_GROUPING_IGNORE_CACHE=True"
+                    )
+                if cache_entry:
+                    pipeline_log.append(
+                        u"[OPENAI] cache invalidado {0}: {1}".format(
+                            base_key[:100], cache_reason
+                        )
+                    )
+                pipeline_log.append(
+                    u"[OPENAI] scenario sent to model {0}".format(OPENAI_GROUPING_MODEL)
+                )
+                try:
+                    if OPENAI_GROUPING_USE_EXTERNAL_PYTHON:
+                        ai_result = _call_openai_grouping_worker(
+                            scenario, pipeline_log
+                        )
+                    else:
+                        ai_result = analyze_grouping_with_openai(
+                            scenario,
+                            client=client,
+                            model=OPENAI_GROUPING_MODEL,
+                            timeout_sec=OPENAI_GROUPING_TIMEOUT_SEC,
+                            log_lines=pipeline_log,
+                        )
+                except Exception as ex:
+                    pipeline_log.append(
+                        u"[OPENAI] invalid response/error: {0}".format(unicode(ex))
+                    )
+                    scenario_ids = []
+                    for _e in scenario.get(u"elements") or []:
+                        _id = unicode(_e.get(u"element_id") or u"").strip()
+                        if _id:
+                            scenario_ids.append(_id)
+                    ai_result = {
+                        u"base_group_key": base_key,
+                        u"should_split": False,
+                        u"group_count": 1,
+                        u"groups": [
+                            {
+                                u"refined_group_key": u"",
+                                u"label": u"base",
+                                u"reason": u"fallback por error worker OpenAI",
+                                u"element_ids": scenario_ids,
+                            }
+                        ],
+                        u"unassigned_element_ids": [],
+                        u"confidence": 0.0,
+                        u"summary": u"fallback por error worker OpenAI",
+                    }
+                    pipeline_log.append(
+                        u"[OPENAI] fallback applied: keep base group unchanged"
+                    )
+                cache[base_key] = {
+                    u"scenario_hash": shash,
+                    u"timestamp": datetime.datetime.utcnow().isoformat() + u"Z",
+                    u"timestamp_epoch": now_epoch,
+                    u"model": OPENAI_GROUPING_MODEL,
+                    u"prompt_version": OPENAI_GROUPING_PROMPT_VERSION,
+                    u"blocks_source_hash": blocks_source_hash,
+                    u"ai_result": ai_result,
+                }
+                cache_changed = True
+
+            parts = build_refined_groups_from_ai(
+                ai_result,
+                base_group,
+                elements_by_id,
+                log_lines=pipeline_log,
+            )
+            pipeline_log.append(
+                u"[OPENAI] result: should_split={0} group_count={1} confidence={2}".format(
+                    bool(ai_result.get(u"should_split")),
+                    int(ai_result.get(u"group_count") or len(ai_result.get(u"groups") or [])),
+                    ai_result.get(u"confidence"),
+                )
+            )
+            pipeline_log.append(
+                u"[OPENAI] refined groups created: {0}".format(len(parts))
+            )
+            if (
+                OPENAI_GROUPING_FORCE_SPLIT_FOR_TEST
+                and (not bool(ai_result.get(u"should_split")))
+                and len(parts) == 1
+                and ((parts[0].get(u"group_origin") or u"base") == u"base")
+                and element_count >= int(OPENAI_GROUPING_FORCE_SPLIT_MIN_GROUP_SIZE or 1)
+            ):
+                forced_parts = _build_forced_test_split_parts(
+                    base_key=base_key,
+                    base_group=base_group,
+                    group_rows=elements_by_group.get(base_key) or [],
+                    insight=insight or {},
+                    log_lines=pipeline_log,
+                )
+                if forced_parts:
+                    parts = forced_parts
+                    forced_test_split_groups += 1
+                    split_groups += 1
+                    pipeline_log.append(
+                        u"[OPENAI-TEST] forced_test_split aplicado en {0}: {1} subgrupos".format(
+                            base_key[:100], len(parts)
+                        )
+                    )
+            # Si la IA no separa y hay conflicto semantico del proyecto,
+            # aplicar split deterministico por token de proyecto.
+            if (
+                len(parts) == 1
+                and ((parts[0].get(u"group_origin") or u"base") == u"base")
+            ):
+                proj_parts = build_project_rule_split_parts(
+                    base_key=base_key,
+                    base_group=base_group,
+                    group_rows=elements_by_group.get(base_key) or [],
+                    scenario=scenario,
+                    insight=insight or {},
+                    project_cfg=project_cfg or {},
+                    log_lines=pipeline_log,
+                )
+                if proj_parts:
+                    parts = proj_parts
+                    split_groups += 1
+            if bool(ai_result.get(u"should_split")):
+                split_groups += 1
+            if any((p.get(u"group_origin") or u"") == u"base" for p in parts):
+                fallback_groups += 1
+        else:
+            parts = heuristic_refined_by_base.get(base_key) or []
+            if not parts:
+                ai_result = {
+                    u"base_group_key": base_key,
+                    u"should_split": False,
+                    u"group_count": 1,
+                    u"groups": [],
+                    u"confidence": 0.0,
+                    u"summary": u"fallback por grupo no ambiguo o runtime no disponible",
+                }
+                parts = build_refined_groups_from_ai(
+                    ai_result,
+                    base_group,
+                    elements_by_id,
+                    log_lines=pipeline_log,
+                )
+            pipeline_log.append(
+                u"[OPENAI] skip IA, usando heurístico directo ({0} refined)".format(
+                    len(parts)
+                )
+            )
+        refined_all.extend(parts)
+
+    if cache_changed:
+        _save_openai_grouping_cache(OPENAI_GROUPING_CACHE_PATH, cache, pipeline_log)
+
+    manifest_ai = _build_manifest_from_refined_ai(refined_all)
+    manifest = dict(heuristic_manifest)
+    manifest.update(manifest_ai)
+    diagnostics = {
+        u"base_groups_count": len(base_groups),
+        u"refined_groups_count": len(refined_all),
+        u"pipeline_mode": u"openai_grouping",
+        u"openai_model": OPENAI_GROUPING_MODEL,
+        u"split_base_groups_count": split_groups,
+        u"groups_with_base_fallback_count": fallback_groups,
+        u"openai_groups_count": openai_groups,
+        u"openai_cache_hits_count": cache_hits,
+        u"forced_test_split_groups_count": forced_test_split_groups,
+        u"project_config_rule_mode": project_cfg.get(u"rule_mode") if isinstance(project_cfg, dict) else u"",
+        u"status_hint_counts": {
+            u"AUTO": len([x for x in refined_all if not x.get(u"needs_review")]),
+            u"REVIEW": len([x for x in refined_all if x.get(u"needs_review")]),
+            u"SPLIT_AUTO": len(
+                [
+                    x
+                    for x in refined_all
+                    if (
+                        x.get(u"group_origin") in (u"ai_split", u"forced_test_split")
+                    ) and (not x.get(u"needs_review"))
+                ]
+            ),
+        },
+    }
+    return refined_all, manifest, diagnostics
+
+
 # =============================================================================
 # Aplicación por grupo (slots libres locales; sin checklist)
 # =============================================================================
 
 
-def _norm_key_btz(s):
-    return (s or u"").strip().lower()
-
-
-def _format_display_value_from_candidate(c):
-    disp = c.get(u"display_value")
-    if disp is None:
-        disp = c.get("display_value")
-    if disp is not None and unicode(disp).strip():
-        return unicode(disp).strip()
-    code = unicode(
-        c.get(u"matched_code") or c.get("matched_code") or u""
-    ).strip()
-    val = unicode(
-        c.get(u"suggested_value") or c.get("suggested_value") or u""
-    ).strip()
-    if code and val:
-        return u"{0} - {1}".format(code, val)
-    return val or code
-
-
-def get_free_btz_slots(element):
-    """BTZ_Description_01…13 vacíos, en orden."""
-    empty = []
-    for pname in PARAM_NUMERIC:
-        val = _param_value_as_string(element, pname)
-        if not (val or u"").strip():
-            empty.append(pname)
-    return empty
-
-
-def get_existing_btz_values(element):
-    """Valores no vacíos en BTZ_Description y _01…13 (para detectar duplicados)."""
-    vals = set()
-    for pname in ALL_BTZ_PARAMS:
-        raw = _param_value_as_string(element, pname)
-        s = (raw or u"").strip()
-        if s:
-            vals.add(_norm_key_btz(s))
-    return vals
-
-
-def choose_btz_candidates_for_element(element, candidate_btz_list):
-    """
-    Filtra candidate_btz: already_present false, confidence >= AUTO_APPLY_CONFIDENCE,
-    orden por confidence descendente, sin duplicar valor ya presente en el elemento.
-    """
-    existing = get_existing_btz_values(element)
-    picked = []
-    for c in candidate_btz_list:
-        if not isinstance(c, dict):
-            continue
-        alr = c.get(u"already_present", c.get("already_present", False))
-        if alr:
-            continue
-        try:
-            conf = float(c.get(u"confidence", c.get("confidence", 0)))
-        except Exception:
-            conf = 0.0
-        if conf < AUTO_APPLY_CONFIDENCE:
-            continue
-        disp = _format_display_value_from_candidate(c)
-        if not disp:
-            continue
-        nk = _norm_key_btz(disp)
-        if nk in existing:
-            continue
-        picked.append((conf, c, disp, nk))
-
-    picked.sort(key=lambda x: -x[0])
-    out = []
-    seen_disp = set()
-    for conf, c, disp, nk in picked:
-        if nk in seen_disp:
-            continue
-        seen_disp.add(nk)
-        out.append({u"c": c, u"disp": disp, u"conf": conf, u"nk": nk})
-    return out
-
-
-def set_text_parameter(element, param_name, value):
-    param = element.LookupParameter(param_name)
-    if param is None:
-        return False, u"sin parámetro: {0}".format(param_name)
-    if param.IsReadOnly:
-        return False, u"solo lectura: {0}".format(param_name)
-    try:
-        param.Set(value)
-        return True, None
-    except Exception as ex:
-        return False, unicode(ex)
-
-
-def _compute_slot_assignments(element, ordered_candidates):
-    """
-    ordered_candidates: salida de choose_btz_candidates_for_element (lista de dicts con disp, conf).
-    Asigna a los primeros slots libres sin pisar ocupados.
-    """
-    free_slots = get_free_btz_slots(element)
-    assignments = []
-    max_conf = 0.0
-    for item in ordered_candidates:
-        if not free_slots:
-            break
-        disp = item[u"disp"]
-        conf = item[u"conf"]
-        slot = free_slots.pop(0)
-        assignments.append((slot, disp, conf))
-        if conf > max_conf:
-            max_conf = conf
-    return assignments, max_conf
-
-
-def apply_group_mapping_to_elements(doc, mapping, group_key_to_ids, log_lines, apply_rows):
-    """
-    Aplica un item de group_mappings a todos los element_id de ese group_key.
-    """
-    local = {
-        u"elements_updated": 0,
-        u"elements_skipped": 0,
-        u"btz_written": 0,
-        u"errors": [],
-        u"group_applied": False,
-    }
-
-    gk = mapping.get(u"group_key") or mapping.get("group_key")
-    if gk is None:
-        local[u"errors"].append(u"Mapping sin group_key")
-        return local
-    gk = unicode(gk)
-
-    cands = mapping.get(u"candidate_btz") or mapping.get("candidate_btz") or []
-    if not isinstance(cands, list) or not cands:
-        return local
-
-    ids = group_key_to_ids.get(gk)
-    if not ids:
-        local[u"errors"].append(
-            u"group_key sin elementos en export actual: {0}".format(gk[:120])
-        )
-        return local
-
-    for eid in ids:
-        try:
-            eid_obj = ElementId(int(eid))
-        except Exception:
-            local[u"errors"].append(u"Id inválido: {0}".format(eid))
-            continue
-
-        el = doc.GetElement(eid_obj)
-        if el is None:
-            local[u"errors"].append(u"Elemento no encontrado: {0}".format(eid))
-            local[u"elements_skipped"] += 1
-            continue
-
-        ordered_raw = choose_btz_candidates_for_element(el, cands)
-        if not ordered_raw:
-            local[u"elements_skipped"] += 1
-            continue
-
-        assignments, max_conf = _compute_slot_assignments(el, ordered_raw)
-        if not assignments:
-            local[u"elements_skipped"] += 1
-            continue
-
-        tx = Transaction(doc, u"BTZ | Auto grupo n8n")
-        tx.Start()
-        err_tx = None
-        try:
-            for slot, disp, _cconf in assignments:
-                ok, err = set_text_parameter(el, slot, disp)
-                if not ok:
-                    err_tx = err
-                    break
-
-            if err_tx:
-                tx.RollBack()
-                local[u"errors"].append(
-                    u"Id {0}: {1}".format(eid, err_tx)
-                )
-                continue
-
-            ok, err = set_text_parameter(el, PARAM_BASE, u"*")
-            if not ok:
-                tx.RollBack()
-                local[u"errors"].append(u"Id {0} *: {1}".format(eid, err))
-                continue
-            ok, err = set_text_parameter(el, PARAM_STATUS, u"Suggested")
-            if not ok:
-                tx.RollBack()
-                local[u"errors"].append(u"Id {0} Status: {1}".format(eid, err))
-                continue
-            ok, err = set_text_parameter(el, PARAM_SOURCE, u"AI")
-            if not ok:
-                tx.RollBack()
-                local[u"errors"].append(u"Id {0} Source: {1}".format(eid, err))
-                continue
-            conf_str = u"{0:.4f}".format(max_conf)
-            ok, err = set_text_parameter(el, PARAM_CONFIDENCE, conf_str)
-            if not ok:
-                tx.RollBack()
-                local[u"errors"].append(u"Id {0} Confidence: {1}".format(eid, err))
-                continue
-
-            tx.Commit()
-        except Exception as ex:
-            try:
-                tx.RollBack()
-            except Exception:
-                pass
-            local[u"errors"].append(u"Id {0}: {1}".format(eid, unicode(ex)))
-            continue
-
-        local[u"elements_updated"] += 1
-        local[u"btz_written"] += len(assignments)
-        local[u"group_applied"] = True
-        apply_rows.append({
-            u"group_key": gk,
-            u"element_id": eid,
-            u"slots": len(assignments),
-            u"max_confidence": max_conf,
-        })
-
-    return local
-
-
-def apply_all_group_mappings(doc, group_mappings, group_key_to_ids, log_lines):
-    """
-    Recorre group_mappings; no corta la corrida ante error en un grupo/elemento.
-    """
-    stats = {
-        u"groups_received": len(group_mappings),
-        u"groups_with_candidates": 0,
-        u"groups_applied": 0,
-        u"elements_updated": 0,
-        u"elements_skipped": 0,
-        u"btz_slots_written": 0,
-        u"errors": [],
-    }
-    apply_rows = []
-
-    for mapping in group_mappings:
-        if not isinstance(mapping, dict):
-            continue
-        cands = mapping.get(u"candidate_btz") or mapping.get("candidate_btz") or []
-        if isinstance(cands, list) and len(cands) > 0:
-            stats[u"groups_with_candidates"] += 1
-
-        loc = apply_group_mapping_to_elements(
-            doc, mapping, group_key_to_ids, log_lines, apply_rows
-        )
-        stats[u"elements_updated"] += loc[u"elements_updated"]
-        stats[u"elements_skipped"] += loc[u"elements_skipped"]
-        stats[u"btz_slots_written"] += loc[u"btz_written"]
-        stats[u"errors"].extend(loc[u"errors"])
-        if loc[u"group_applied"]:
-            stats[u"groups_applied"] += 1
-
-    return stats, apply_rows
-
-
-def export_apply_results_txt(path, apply_rows, log_lines):
-    lines = [
-        u"element_id\tgroup_key\tslots\tmax_confidence",
-    ]
-    for r in apply_rows:
-        lines.append(
-            u"{0}\t{1}\t{2}\t{3}".format(
-                r[u"element_id"],
-                r[u"group_key"].replace(u"\t", u" "),
-                r[u"slots"],
-                r[u"max_confidence"],
-            )
-        )
-    with codecs.open(path, u"w", u"utf-8-sig") as fp:
-        fp.write(u"\n".join(lines) + u"\n")
-    log_lines.append(u"Guardado: {0}".format(path))
-
-
-def show_apply_summary(stats, log_lines):
-    msg = (
-        u"--- Aplicación BTZ (n8n por grupo) ---\n"
-        u"Grupos recibidos: {groups_received}\n"
-        u"Grupos con candidate_btz: {groups_with_candidates}\n"
-        u"Grupos con al menos un elemento actualizado: {groups_applied}\n"
-        u"Elementos actualizados: {elements_updated}\n"
-        u"Elementos sin cambios / sin slots: {elements_skipped}\n"
-        u"Slots BTZ escritos (01–13): {btz_slots_written}\n"
-        u"Errores (lista): {err_count}"
-    ).format(
-        groups_received=stats[u"groups_received"],
-        groups_with_candidates=stats[u"groups_with_candidates"],
-        groups_applied=stats[u"groups_applied"],
-        elements_updated=stats[u"elements_updated"],
-        elements_skipped=stats[u"elements_skipped"],
-        btz_slots_written=stats[u"btz_slots_written"],
-        err_count=len(stats[u"errors"]),
-    )
-    if stats[u"errors"]:
-        msg += u"\n\n" + u"\n".join(stats[u"errors"][:40])
-        if len(stats[u"errors"]) > 40:
-            msg += u"\n… ({0} más)".format(len(stats[u"errors"]) - 40)
-
-    log_lines.append(msg)
-    print(msg)
-    forms.alert(msg, title=u"BTZ — aplicación automática", warn_icon=bool(stats[u"errors"]))
-
-
-def try_apply_webhook_response(doc, parsed, element_rows, log_lines):
-    """
-    Vincula shared params, valida group_btz_mapping_result, aplica por grupo.
-    element_rows: si None, se usa group_key_element_ids.json (mismo export).
-    """
-    if not APPLY_WEBHOOK_RESULTS:
-        return
-    if parsed is None:
-        log_lines.append(u"APPLY_WEBHOOK_RESULTS: sin respuesta JSON.")
-        return
-
-    try:
-        ensure_btz_shared_parameters(doc, log_lines)
-        gms = load_group_mapping_response(parsed)
-    except Exception as ex:
-        log_lines.append(u"Validación / shared params: {0}".format(ex))
-        forms.alert(
-            u"No se pudo preparar la aplicación:\n{0}".format(ex),
-            title=u"BTZ — aplicación",
-            warn_icon=True,
-        )
-        return
-
-    if element_rows is not None:
-        gk_map = map_group_key_to_elements(element_rows)
-    else:
-        if not os.path.isfile(GROUP_KEY_ELEMENT_IDS_JSON_PATH):
-            forms.alert(
-                u"Falta el mapa de grupos:\n{0}\n\n"
-                u"Ejecutá export completo (SEND_PAYLOAD_FILE_ONLY=False) antes.".format(
-                    GROUP_KEY_ELEMENT_IDS_JSON_PATH
-                ),
-                title=u"BTZ — aplicación",
-                warn_icon=True,
-            )
-            return
-        gk_map = load_group_key_element_ids_from_json(
-            GROUP_KEY_ELEMENT_IDS_JSON_PATH, log_lines
-        )
-
-    stats, apply_rows = apply_all_group_mappings(doc, gms, gk_map, log_lines)
-    path_apply = os.path.join(PUBLIC_DIR, u"apply_results.txt")
-    if EXPORT_APPLY_RESULTS_TXT:
-        export_apply_results_txt(path_apply, apply_rows, log_lines)
-    show_apply_summary(stats, log_lines)
 
 
 # =============================================================================
@@ -1447,9 +1799,43 @@ def try_apply_webhook_response(doc, parsed, element_rows, log_lines):
 # =============================================================================
 
 
+def _format_webhook_exception(ex):
+    """
+    Mensaje claro para timeouts .NET (10060), n8n caído, firewall, etc.
+    """
+    try:
+        msg = unicode(ex)
+    except Exception:
+        msg = u"(sin mensaje)"
+    try:
+        if hasattr(ex, u"InnerException") and ex.InnerException is not None:
+            msg += u" | " + unicode(ex.InnerException)
+    except Exception:
+        pass
+    low = msg.lower()
+    if (
+        u"10060" in msg
+        or u"timed out" in low
+        or u"timeout" in low
+        or u"no properly respond" in low
+        or u"failed to respond" in low
+    ):
+        return (
+            u"Timeout o sin respuesta del servidor (n8n / red). "
+            u"Revisá: internet, firewall, VPN, que el workflow en n8n esté ACTIVO, "
+            u"y probá subir N8N_TIMEOUT_SEC (ahora {0}s). "
+            u"El payload ya quedó en public/payload_groups.json para enviar a mano.\n\n"
+            u"Detalle técnico: {1}"
+        ).format(N8N_TIMEOUT_SEC, msg[:450])
+    return u"Error al llamar al webhook:\n{0}".format(msg[:600])
+
+
 def call_webhook(payload, log_lines):
     """
     POST JSON al webhook. Lanza ValueError ante timeout, HTTP != 200, vacío o JSON inválido.
+
+    En IronPython, los timeouts suelen aparecer como System.IO.IOException (socket 10060),
+    no siempre como urllib2.URLError.
     """
     url = N8N_WEBHOOK_URL
     if not url:
@@ -1465,6 +1851,9 @@ def call_webhook(payload, log_lines):
         headers={u"Content-Type": u"application/json; charset=utf-8"},
     )
 
+    log_lines.append(
+        u"Webhook: POST (timeout {0}s) → {1}".format(N8N_TIMEOUT_SEC, url)
+    )
     print(u"[ExportarGrupos] POST {0}".format(url))
     try:
         resp = urllib2.urlopen(req, timeout=N8N_TIMEOUT_SEC)
@@ -1479,7 +1868,12 @@ def call_webhook(payload, log_lines):
         raise ValueError(u"n8n HTTP {0}".format(e.code))
     except urllib2.URLError as e:
         msg = unicode(e.reason) if e.reason else u"red"
-        raise ValueError(u"Error de conexión: {0}".format(msg))
+        raise ValueError(_format_webhook_exception(e))
+    except IOError as e:
+        raise ValueError(_format_webhook_exception(e))
+    except Exception as e:
+        # IronPython: System.IO.IOException, SocketException 10060, etc.
+        raise ValueError(_format_webhook_exception(e))
 
     raw = resp.read()
     if hasattr(raw, u"decode"):
@@ -1596,9 +1990,41 @@ def main():
             EXPORT_ONLY, SEND_TO_WEBHOOK, APPLY_WEBHOOK_RESULTS
         )
     )
+    log_lines.append(
+        u"USE_OPENAI_GROUPING={0} OPENAI_GROUPING_MODEL={1}".format(
+            USE_OPENAI_GROUPING, OPENAI_GROUPING_MODEL
+        )
+    )
+    log_lines.append(
+        u"OPENAI_GROUPING_PROMPT_VERSION={0} CACHE_TTL_DAYS={1}".format(
+            OPENAI_GROUPING_PROMPT_VERSION, OPENAI_GROUPING_CACHE_TTL_DAYS
+        )
+    )
+    log_lines.append(
+        u"OPENAI_GROUPING_AGGRESSIVE_MODE={0} IGNORE_CACHE={1} MAX_ELEMENTS_PER_GROUP={2}".format(
+            OPENAI_GROUPING_AGGRESSIVE_MODE,
+            OPENAI_GROUPING_IGNORE_CACHE,
+            OPENAI_GROUPING_MAX_ELEMENTS_PER_GROUP,
+        )
+    )
+    log_lines.append(
+        u"OPENAI_GROUPING_FORCE_SPLIT_FOR_TEST={0} MIN_GROUP_SIZE={1} MAX_BUCKETS={2}".format(
+            OPENAI_GROUPING_FORCE_SPLIT_FOR_TEST,
+            OPENAI_GROUPING_FORCE_SPLIT_MIN_GROUP_SIZE,
+            OPENAI_GROUPING_FORCE_SPLIT_MAX_BUCKETS,
+        )
+    )
+    log_lines.append(
+        u"OPENAI_GROUPING_USE_EXTERNAL_PYTHON={0} PYTHON_EXE={1}".format(
+            OPENAI_GROUPING_USE_EXTERNAL_PYTHON, OPENAI_GROUPING_PYTHON_EXE
+        )
+    )
+    log_lines.append(u"BLOCKS_CSV_FILE={0}".format(BLOCKS_CSV_FILE))
 
     try:
         _ensure_public_dir()
+        ensure_project_config_files(log_lines)
+        refresh_blocks_semantic_from_csv(BLOCKS_CSV_FILE, log_lines)
     except Exception as ex:
         forms.alert(
             u"No se pudo crear public/: {0}".format(ex),
@@ -1615,27 +2041,110 @@ def main():
     path_webhook_resp = WEBHOOK_RESPONSE_JSON_PATH
     path_gk_ids = GROUP_KEY_ELEMENT_IDS_JSON_PATH
 
+    openai_runtime_ok = verify_openai_grouping_runtime(log_lines)
+    if USE_OPENAI_GROUPING and not openai_runtime_ok:
+        log_lines.append(
+            u"[OPENAI] Fallback a agrupación heurística porque runtime OpenAI no está listo."
+        )
+
     try:
-        element_rows = collect_revit_elements(doc, log_lines)
-        groups = group_elements(element_rows)
+        element_rows = export_elements(doc, log_lines)
+        groups = build_base_groups(element_rows)
 
         export_revit_elements_csv(path_elements, element_rows, log_lines)
         export_revit_groups_csv(path_groups, groups, log_lines)
+        path_groups_summary = os.path.join(PUBLIC_DIR, u"groups_summary.txt")
+        save_groups_summary_txt(path_groups_summary, groups, element_rows, log_lines)
         save_group_key_element_ids_json(path_gk_ids, element_rows, log_lines)
+        log_lines.append(
+            u"Agrupación: {0} elementos → {1} grupos (group_key). Detalle: groups_summary.txt y revit_groups.csv.".format(
+                len(element_rows),
+                len(groups),
+            )
+        )
 
         blocks_struct = load_blocks_csv(BLOCKS_CSV_FILE, log_lines)
         blocks_csv_text = read_blocks_csv_raw(BLOCKS_CSV_FILE, log_lines)
         save_blocks_snapshot(path_blocks_snapshot, blocks_csv_text, log_lines)
 
-        payload = build_group_payload(doc, groups, blocks_struct, blocks_csv_text)
+        # build_grouping_scenarios() + analyze_grouping_with_openai() + build_refined_groups_from_ai()
+        pipeline_log = []
+        if USE_OPENAI_GROUPING and openai_runtime_ok:
+            refined_list, manifest, diagnostics = _run_openai_grouping_pipeline(
+                groups, element_rows, BLOCKS_CSV_FILE, pipeline_log
+            )
+        else:
+            if not USE_OPENAI_GROUPING:
+                pipeline_log.append(
+                    u"[IA grouping] desactivado (USE_OPENAI_GROUPING=False), se usa split heurístico."
+                )
+            else:
+                pipeline_log.append(
+                    u"[IA grouping] runtime no disponible, se usa split heurístico."
+                )
+            enriched = enrich_groups_with_blocks(
+                element_rows, groups, blocks_struct, ALL_BTZ_PARAMS, pipeline_log
+            )
+            refined_list, manifest, diagnostics = split_ambiguous_groups(
+                enriched, element_rows, pipeline_log
+            )
+        save_refined_group_key_element_ids(
+            REFINED_GROUP_KEY_ELEMENT_IDS_JSON_PATH, refined_list, pipeline_log
+        )
+        save_refined_groups_manifest(
+            REFINED_GROUPS_MANIFEST_JSON_PATH, manifest, pipeline_log
+        )
+        pl_header = [
+            u"--- {0} (agrupación BTZ) ---".format(
+                datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            ),
+            u"Grupos base: {0} | Refinados: {1}".format(
+                diagnostics[u"base_groups_count"],
+                diagnostics[u"refined_groups_count"],
+            ),
+            u"Pipeline mode: {0}".format(
+                diagnostics.get(u"pipeline_mode", u"heuristic_grouping")
+            ),
+            u"Hints status (preflight): {0}".format(
+                diagnostics.get(u"status_hint_counts", {})
+            ),
+        ]
+        save_grouping_pipeline_log(GROUPING_PIPELINE_LOG_PATH, pl_header, pipeline_log)
+        log_lines.extend(pipeline_log)
+
+        enriched_payload = build_enriched_revit_groups_for_payload(refined_list)
+        payload = build_group_payload(
+            doc,
+            groups,
+            blocks_struct,
+            blocks_csv_text,
+            enriched_revit_groups=enriched_payload,
+            grouping_diagnostics=diagnostics,
+        )
         save_payload_json(path_payload, payload, log_lines)
 
         parsed = None
         webhook_raw = None
         if not EXPORT_ONLY and SEND_TO_WEBHOOK:
-            parsed, webhook_raw = call_webhook(payload, log_lines)
-            if SAVE_WEBHOOK_RESPONSE and webhook_raw is not None:
-                save_webhook_response(path_webhook_resp, webhook_raw, log_lines)
+            try:
+                parsed, webhook_raw = call_webhook(payload, log_lines)
+                if SAVE_WEBHOOK_RESPONSE and webhook_raw is not None:
+                    save_webhook_response(path_webhook_resp, webhook_raw, log_lines)
+            except Exception as ex:
+                log_lines.append(u"--- Webhook: falló (la exportación en public/ ya está guardada) ---")
+                log_lines.append(unicode(ex))
+                try:
+                    forms.alert(
+                        u"{0}\n\n"
+                        u"Los CSV y payload_groups.json ya están en public/. "
+                        u"Podés reenviar el JSON a n8n a mano o ejecutar de nuevo.".format(
+                            unicode(ex)
+                        ),
+                        title=u"Exportar grupos — webhook",
+                        warn_icon=True,
+                    )
+                except Exception:
+                    pass
         elif EXPORT_ONLY:
             log_lines.append(
                 u"EXPORT_ONLY=True: no se envía al webhook (payload ya en disco)."
@@ -1674,25 +2183,38 @@ def main():
         u"• {0}\n"
         u"• {1}\n"
         u"• {2}\n"
-        u"• {3} (copia de resources/blocks.csv)\n"
-        u"\nElementos: {4} | Grupos: {5}"
+        u"• {3} (copia de blocks_normalized.csv)\n"
+        u"• {4}\n"
+        u"• {5}\n"
+        u"• {6}\n"
+        u"\nElementos: {7} | Grupos base (group_key): {8}"
     ).format(
         path_elements,
         path_groups,
         path_payload,
         path_blocks_snapshot,
+        REFINED_GROUP_KEY_ELEMENT_IDS_JSON_PATH,
+        REFINED_GROUPS_MANIFEST_JSON_PATH,
+        GROUPING_PIPELINE_LOG_PATH,
         len(element_rows),
         len(groups),
     )
     if not EXPORT_ONLY and SEND_TO_WEBHOOK:
         summary += u"\n\nRespuesta webhook: {0}".format(path_webhook_resp)
     summary += u"\n\nMapa group_key→ids: {0}".format(path_gk_ids)
+    summary += u"\nResumen de grupos (conteos): {0}".format(
+        os.path.join(PUBLIC_DIR, u"groups_summary.txt")
+    )
     if EXPORT_APPLY_RESULTS_TXT:
         summary += u"\nResultados aplicados (si hubo): {0}".format(
             os.path.join(PUBLIC_DIR, u"apply_results.txt")
         )
 
     if not APPLY_WEBHOOK_RESULTS:
+        summary += (
+            u"\n\nSiguiente paso: botón «Ejecutar automático» para aplicar BTZ "
+            u"desde public/webhook_response.json al modelo."
+        )
         forms.alert(summary, title=u"Exportar grupos", warn_icon=False)
     else:
         log_lines.append(summary)

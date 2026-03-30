@@ -1,0 +1,179 @@
+{
+  "element_count": 14, 
+  "category_name": "Generic Models", 
+  "macro_group": "otros", 
+  "candidate_prefixes": [], 
+  "elements": [
+    {
+      "existing_btz": {}, 
+      "element_id": "343066", 
+      "mark": "", 
+      "family_name": "Familia1", 
+      "type_name": "Familia1", 
+      "level": "Muro de cimentación T.O", 
+      "category_name": "Generic Models", 
+      "type_comments": "", 
+      "comments": "S0"
+    }, 
+    {
+      "existing_btz": {}, 
+      "element_id": "343145", 
+      "mark": "", 
+      "family_name": "Familia1", 
+      "type_name": "Familia1", 
+      "level": "Muro de cimentación T.O", 
+      "category_name": "Generic Models", 
+      "type_comments": "", 
+      "comments": "S1"
+    }, 
+    {
+      "existing_btz": {}, 
+      "element_id": "343677", 
+      "mark": "", 
+      "family_name": "Familia1", 
+      "type_name": "Familia1", 
+      "level": "Muro de cimentación T.O", 
+      "category_name": "Generic Models", 
+      "type_comments": "", 
+      "comments": "CAM_N04;CIR_01_V01;CIR_01_V02;CIR_01_V03;CIR_01_V04;CIR_01_V05;CIR_01_V06;CIR_03_V01;CIR_04_V01;CIR_06_V01"
+    }, 
+    {
+      "existing_btz": {}, 
+      "element_id": "343933", 
+      "mark": "", 
+      "family_name": "Familia1", 
+      "type_name": "Familia1", 
+      "level": "Muro de cimentación T.O", 
+      "category_name": "Generic Models", 
+      "type_comments": "", 
+      "comments": "S3"
+    }, 
+    {
+      "existing_btz": {}, 
+      "element_id": "344217", 
+      "mark": "", 
+      "family_name": "Familia1", 
+      "type_name": "Familia1", 
+      "level": "Muro de cimentación T.O", 
+      "category_name": "Generic Models", 
+      "type_comments": "", 
+      "comments": "S4"
+    }, 
+    {
+      "existing_btz": {}, 
+      "element_id": "344452", 
+      "mark": "", 
+      "family_name": "Familia1", 
+      "type_name": "Familia1", 
+      "level": "Muro de cimentación T.O", 
+      "category_name": "Generic Models", 
+      "type_comments": "", 
+      "comments": ""
+    }, 
+    {
+      "existing_btz": {}, 
+      "element_id": "344733", 
+      "mark": "", 
+      "family_name": "Familia1", 
+      "type_name": "Familia1", 
+      "level": "Muro de cimentación T.O", 
+      "category_name": "Generic Models", 
+      "type_comments": "", 
+      "comments": "S5"
+    }, 
+    {
+      "existing_btz": {}, 
+      "element_id": "345035", 
+      "mark": "", 
+      "family_name": "Familia1", 
+      "type_name": "Familia1", 
+      "level": "Muro de cimentación T.O", 
+      "category_name": "Generic Models", 
+      "type_comments": "", 
+      "comments": ""
+    }, 
+    {
+      "existing_btz": {}, 
+      "element_id": "345038", 
+      "mark": "", 
+      "family_name": "Familia1", 
+      "type_name": "Familia1", 
+      "level": "Muro de cimentación T.O", 
+      "category_name": "Generic Models", 
+      "type_comments": "", 
+      "comments": "S10"
+    }, 
+    {
+      "existing_btz": {}, 
+      "element_id": "356166", 
+      "mark": "", 
+      "family_name": "Familia1", 
+      "type_name": "Familia1", 
+      "level": "Nivel 1", 
+      "category_name": "Generic Models", 
+      "type_comments": "", 
+      "comments": "S6"
+    }, 
+    {
+      "existing_btz": {}, 
+      "element_id": "356604", 
+      "mark": "", 
+      "family_name": "Familia1", 
+      "type_name": "Familia1", 
+      "level": "Nivel 1", 
+      "category_name": "Generic Models", 
+      "type_comments": "", 
+      "comments": "S7"
+    }, 
+    {
+      "existing_btz": {}, 
+      "element_id": "357054", 
+      "mark": "", 
+      "family_name": "Familia1", 
+      "type_name": "Familia1", 
+      "level": "Nivel 1", 
+      "category_name": "Generic Models", 
+      "type_comments": "", 
+      "comments": "S8"
+    }, 
+    {
+      "existing_btz": {}, 
+      "element_id": "357907", 
+      "mark": "", 
+      "family_name": "Familia1", 
+      "type_name": "Familia1", 
+      "level": "Nivel 1", 
+      "category_name": "Generic Models", 
+      "type_comments": "", 
+      "comments": "S9"
+    }, 
+    {
+      "existing_btz": {}, 
+      "element_id": "358391", 
+      "mark": "", 
+      "family_name": "Familia1", 
+      "type_name": "Familia1", 
+      "level": "Nivel 1", 
+      "category_name": "Generic Models", 
+      "type_comments": "", 
+      "comments": "S9"
+    }
+  ], 
+  "candidate_tags": [], 
+  "group_summary": "otros|Generic Models|Familia1|Familia1 | 14 elems | niveles=2 | tipos=1 | btz_existentes=0", 
+  "base_group_key": "otros|Generic Models|Familia1|Familia1", 
+  "family_name": "Familia1", 
+  "type_name": "Familia1", 
+  "candidate_blocks": [], 
+  "project_context": {
+    "project_prompt": "es una obra de fabrica de cerdos de columnas prefabricadas, insertas metalicas dentro de bloquees de hrmigon esos bloquees de hormigon son BASES no plateas estan sosteniendo una cubierta de chapa que esta montada sobre una estructura de cabreado metalico, aca en este revit no hay dibujado ningun vestuario ni nada de gas ni siquiera esta el suelo ni las chapas, solo la estructura", 
+    "conflict_pairs": [], 
+    "rule_mode": "soft", 
+    "detected_tokens": [], 
+    "soft_penalty": 0.0
+  }, 
+  "ambiguity_hints": [
+    "multiples niveles detectados (2)", 
+    "sin bloques candidatos evidentes desde blocks_normalized.csv"
+  ]
+}

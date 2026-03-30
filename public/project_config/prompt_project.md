@@ -1,0 +1,1 @@
+es una obra de fabrica de cerdos de columnas prefabricadas, insertas metalicas dentro de bloquees de hrmigon esos bloquees de hormigon son BASES no plateas estan sosteniendo una cubierta de chapa que esta montada sobre una estructura de cabreado metalico, aca en este revit no hay dibujado ningun vestuario ni nada de gas ni siquiera esta el suelo ni las chapas, solo la estructura

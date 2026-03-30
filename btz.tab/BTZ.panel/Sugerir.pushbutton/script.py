@@ -65,11 +65,45 @@ from pyrevit import revit, forms
 
 # -----------------------------------------------------------------------------
 # Rutas y CSV (misma convención que AsignarBTZ)
+# pyRevit puede ejecutar desde %TEMP%; no usar solo __file__ para llegar a resources.
 # -----------------------------------------------------------------------------
-BASE_DIR = os.path.dirname(__file__)
-EXT_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "..", ".."))
-RESOURCES_DIR = os.path.join(EXT_DIR, "resources")
-BLOCKS_CSV_FILE = os.path.join(RESOURCES_DIR, "blocks.csv")
+def _resolve_btz_extension_paths():
+    found_txt = None
+    try:
+        from pyrevit import script
+        bpaths = script.get_bundle_paths()
+        if bpaths:
+            for bp in bpaths:
+                bp = os.path.abspath(bp)
+                ext = os.path.normpath(os.path.join(bp, u"..", u"..", u".."))
+                candidate = os.path.join(ext, u"resources", u"BTZ_SharedParameters.txt")
+                if os.path.isfile(candidate):
+                    found_txt = os.path.normpath(os.path.abspath(candidate))
+                    break
+    except Exception:
+        pass
+    if not found_txt:
+        d = os.path.dirname(os.path.abspath(__file__))
+        for _ in range(14):
+            candidate = os.path.join(d, u"resources", u"BTZ_SharedParameters.txt")
+            if os.path.isfile(candidate):
+                found_txt = os.path.normpath(os.path.abspath(candidate))
+                break
+            parent = os.path.dirname(d)
+            if parent == d:
+                break
+            d = parent
+    if not found_txt:
+        base = os.path.dirname(os.path.abspath(__file__))
+        ext = os.path.normpath(os.path.abspath(os.path.join(base, u"..", u"..", u"..")))
+        found_txt = os.path.normpath(os.path.join(ext, u"resources", u"BTZ_SharedParameters.txt"))
+    res_dir = os.path.dirname(found_txt)
+    ext_dir = os.path.dirname(res_dir)
+    return ext_dir, res_dir, found_txt
+
+
+EXT_DIR, RESOURCES_DIR, _ = _resolve_btz_extension_paths()
+BLOCKS_CSV_FILE = os.path.normpath(os.path.join(RESOURCES_DIR, u"blocks.csv"))
 
 CSV_CODE_COL = "code"
 CSV_DESC_COL = "description"

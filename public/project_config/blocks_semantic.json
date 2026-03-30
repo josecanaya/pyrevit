@@ -1,0 +1,3764 @@
+{
+  "items": [
+    {
+      "code": "010UT", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MONTAJE EQUIPOS INSTALACION GAS", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION GAS", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_MONTAJE EQUIPOS INSTALACION GAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010VD", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "SISTEMA DE LLUVIAS", 
+      "description_prefix": "IS1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION SANITARIA", 
+        "INTERSALA 1", 
+        "NAVE 1"
+      ], 
+      "description": "IS1_SISTEMA DE LLUVIAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "010SD", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CONEXIONES DE AGUA PARA LAVADO", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION SANITARIA", 
+        "NAVE 1"
+      ], 
+      "description": "N1_CONEXIONES DE AGUA PARA LAVADO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010TG", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CARGADOR", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_CARGADOR", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010US", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CONDUCTOS INSTALACION GAS", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION GAS", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_CONDUCTOS INSTALACION GAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010SM", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "APLICACION ESPUMA POLIURETANO", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "AISLACIONES", 
+        "C7 POLIURETANO", 
+        "GENERAL", 
+        "NAVE 1"
+      ], 
+      "description": "N1_APLICACION ESPUMA POLIURETANO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010TR", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "VERIFICACION PUESTA EN MARCHA GAS", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION GAS", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_VERIFICACION PUESTA EN MARCHA GAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010UM", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CAMARA DE INSPECCION 3", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_CAMARA DE INSPECCION 3", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010V0", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MONTAJE TEJIDOS ANTIPAJAROS", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_MONTAJE TEJIDOS ANTIPAJAROS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010VT", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PRUEBA HERMETICIDAD DESAGUE 6", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "CHECKPOINTS", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "PRUEBAS HERMETICIDAD", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_PRUEBA HERMETICIDAD DESAGUE 6", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "00T9C", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "TRONCAL DE EFLUENTES", 
+      "description_prefix": "", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INFRAESTRUCTURA EXTERIOR", 
+        "INSTALACION DESAGUE"
+      ], 
+      "description": "TRONCAL DE EFLUENTES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "00T9F", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "TENDIDO DE GAS EXTERNO", 
+      "description_prefix": "", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INFRAESTRUCTURA EXTERIOR", 
+        "INSTALACION GAS"
+      ], 
+      "description": "TENDIDO DE GAS EXTERNO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "00WV1", 
+      "project_zone_hint": "PA", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "TANQUE DOSIFICADOR DESINFECTANTE", 
+      "description_prefix": "PA", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION SANITARIA", 
+        "PLANTA AGUA"
+      ], 
+      "description": "PA_TANQUE DOSIFICADOR DESINFECTANTE", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "PA"
+      ]
+    }, 
+    {
+      "code": "00WVQ", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PISO DUCHAS", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_PISO DUCHAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "010SS", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "COMPRA REJAS CORRALES", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C8 COMPRAS", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1"
+      ], 
+      "description": "N1_COMPRA REJAS CORRALES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010TC", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PISO FOSA LONJA OESTE", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_PISO FOSA LONJA OESTE", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010UW", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MONTAJE CORTINAS", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_MONTAJE CORTINAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010VH", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CONTROLADOR", 
+      "description_prefix": "IS1", 
+      "active_tags": [
+        "C5 INSTALACION ELECTRICA", 
+        "GENERAL", 
+        "INSTALACION ELECTRICA", 
+        "INTERSALA 1", 
+        "NAVE 1"
+      ], 
+      "description": "IS1_CONTROLADOR", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "00WUV", 
+      "project_zone_hint": "PA", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MOVIMIENTO SUELO", 
+      "description_prefix": "PA", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C1 MOVIMIENTO DE SUELO", 
+        "GENERAL", 
+        "MOVIMIENTO DE SUELO", 
+        "PLANTA AGUA"
+      ], 
+      "description": "PA_MOVIMIENTO SUELO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "PA"
+      ]
+    }, 
+    {
+      "code": "00WVI", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "GRUPO ELECTROGENO", 
+      "description_prefix": "ST", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C5 INSTALACION ELECTRICA", 
+        "GENERAL", 
+        "INSTALACION ELECTRICA", 
+        "SALA TABLEROS"
+      ], 
+      "description": "ST_GRUPO ELECTROGENO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "00WVN", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PISO PLATEA DE FUNDACION", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_PISO PLATEA DE FUNDACION", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "010TQ", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MONTAJE EQUIPOS INSTALACION GAS", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION GAS", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_MONTAJE EQUIPOS INSTALACION GAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010VB", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CERRAMIENTO TIMPANO", 
+      "description_prefix": "IS1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INTERSALA 1", 
+        "NAVE 1"
+      ], 
+      "description": "IS1_CERRAMIENTO TIMPANO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "010VF", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "REJA DE TRASPASO", 
+      "description_prefix": "IS1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INTERSALA 1", 
+        "MONTAJE", 
+        "NAVE 1"
+      ], 
+      "description": "IS1_REJA DE TRASPASO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "010S1", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "TRAMO COLECTOR 3", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "NAVE 1"
+      ], 
+      "description": "N1_TRAMO COLECTOR 3", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010S7", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CUBIERTA CHAPA", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C3 GALPONERO", 
+        "ESTRUCTURA", 
+        "GENERAL", 
+        "NAVE 1"
+      ], 
+      "description": "N1_CUBIERTA CHAPA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010T9", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MURO FOSA INTERIOR", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_MURO FOSA INTERIOR", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010SP", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "COMPRA SLATS", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C8 COMPRAS", 
+        "GENERAL", 
+        "NAVE 1"
+      ], 
+      "description": "N1_COMPRA SLATS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010TZ", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MONTAJE TEJIDOS ANTIPAJAROS", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_MONTAJE TEJIDOS ANTIPAJAROS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010UB", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "INSTALACION SLATS", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_INSTALACION SLATS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010UK", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "HORMIGONADO COLUMNAS", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_HORMIGONADO COLUMNAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010VQ", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PRUEBA HERMETICIDAD DESAGUE 3", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "CHECKPOINTS", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "PRUEBAS HERMETICIDAD", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_PRUEBA HERMETICIDAD DESAGUE 3", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "00S39", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "ESTACION DE BOMBEO", 
+      "description_prefix": "", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INFRAESTRUCTURA EXTERIOR", 
+        "INSTALACION DESAGUE"
+      ], 
+      "description": "ESTACION DE BOMBEO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "00WUZ", 
+      "project_zone_hint": "PA", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "BOMBAS", 
+      "description_prefix": "PA", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION SANITARIA", 
+        "PLANTA AGUA"
+      ], 
+      "description": "PA_BOMBAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "PA"
+      ]
+    }, 
+    {
+      "code": "00WVF", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CHAPA", 
+      "description_prefix": "ST", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "SALA TABLEROS"
+      ], 
+      "description": "ST_CHAPA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "010VU", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PRUEBA HERMETICIDAD DESAGUE 7", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "CHECKPOINTS", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "PRUEBAS HERMETICIDAD", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_PRUEBA HERMETICIDAD DESAGUE 7", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010VW", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CHEQUEO REPLANTEO MUROS", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "CHECKPOINTS", 
+        "GENERAL", 
+        "REPLANTEO MUROS NAVE", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_CHEQUEO REPLANTEO MUROS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "00WW6", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "LUMINARIAS EXTERIORES", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C5 INSTALACION ELECTRICA", 
+        "GENERAL", 
+        "INSTALACION ELECTRICA", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_LUMINARIAS EXTERIORES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "010SA", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CANERIAS LLENADO FOSA", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION SANITARIA", 
+        "NAVE 1"
+      ], 
+      "description": "N1_CANERIAS LLENADO FOSA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010TN", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "BABERO DE CHAPA", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C3 GALPONERO", 
+        "ESTRUCTURA", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_BABERO DE CHAPA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010V3", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "COMPRA COMEDEROS Y TAPETES", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "C8 COMPRAS", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_COMPRA COMEDEROS Y TAPETES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "00S38", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "VEREDAS DE SERVICIOS", 
+      "description_prefix": "", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INFRAESTRUCTURA EXTERIOR"
+      ], 
+      "description": "VEREDAS DE SERVICIOS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "00WUX", 
+      "project_zone_hint": "PA", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PLATEA", 
+      "description_prefix": "PA", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "PLANTA AGUA"
+      ], 
+      "description": "PA_PLATEA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "PA"
+      ]
+    }, 
+    {
+      "code": "00WV8", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MEMBRANA GEOTEXTIL", 
+      "description_prefix": "LAGUNA", 
+      "active_tags": [
+        "AISLACIONES", 
+        "AREAS COMUNES", 
+        "C10 INSTALADOR GEOTEXTIL", 
+        "GENERAL", 
+        "LAGUNA"
+      ], 
+      "description": "LAGUNA_MEMBRANA GEOTEXTIL", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "010TY", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MONTAJE SILOS", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_MONTAJE SILOS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010UZ", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MONTAJE SILOS", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_MONTAJE SILOS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010VV", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PRUEBA HERMETICIDAD DESAGUE 8", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "CHECKPOINTS", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "PRUEBAS HERMETICIDAD", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_PRUEBA HERMETICIDAD DESAGUE 8", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "00WV5", 
+      "project_zone_hint": "PG", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "INSTALACIONES", 
+      "description_prefix": "PG", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION GAS", 
+        "PLANTA GAS"
+      ], 
+      "description": "PG_INSTALACIONES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "PG"
+      ]
+    }, 
+    {
+      "code": "010S0", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "TRAMO COLECTOR 2", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "NAVE 1"
+      ], 
+      "description": "N1_TRAMO COLECTOR 2", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010SG", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MONTAJE BANDEJAS PORTACABLES", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1"
+      ], 
+      "description": "N1_MONTAJE BANDEJAS PORTACABLES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010UR", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "INSTALACION DESAGUES 8", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_INSTALACION DESAGUES 8", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010RZ", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "TRAMO COLECTOR 1", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "NAVE 1"
+      ], 
+      "description": "N1_TRAMO COLECTOR 1", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010UF", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MURO FOSA INTERIOR", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_MURO FOSA INTERIOR", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010UJ", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PLATEA SILOS", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_PLATEA SILOS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010SV", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "LOGISTICA INSTALACION GAS", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C9 LOGISTICA", 
+        "GENERAL", 
+        "INSTALACION GAS", 
+        "NAVE 1"
+      ], 
+      "description": "N1_LOGISTICA INSTALACION GAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010TU", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MONTAJE CORTINAS", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_MONTAJE CORTINAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "00WV2", 
+      "project_zone_hint": "PA", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "TANQUES", 
+      "description_prefix": "PA", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION SANITARIA", 
+        "PLANTA AGUA"
+      ], 
+      "description": "PA_TANQUES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "PA"
+      ]
+    }, 
+    {
+      "code": "00WV7", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MOVIMIENTO DE TIERRA", 
+      "description_prefix": "LAGUNA", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C1 MOVIMIENTO DE SUELO", 
+        "GENERAL", 
+        "LAGUNA", 
+        "MOVIMIENTO DE SUELO"
+      ], 
+      "description": "LAGUNA_MOVIMIENTO DE TIERRA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "010S5", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "COLOCACION COLUMNAS RETICULADAS", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C3 GALPONERO", 
+        "ESTRUCTURA", 
+        "GENERAL", 
+        "NAVE 1"
+      ], 
+      "description": "N1_COLOCACION COLUMNAS RETICULADAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010RX", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MOVIMIENTO SUELO SUBBASE", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C1 MOVIMIENTO DE SUELO", 
+        "GENERAL", 
+        "MOVIMIENTO DE SUELO", 
+        "NAVE 1"
+      ], 
+      "description": "N1_MOVIMIENTO SUELO SUBBASE", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010SF", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "INSTALACION CADENA Y VELAS", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1"
+      ], 
+      "description": "N1_INSTALACION CADENA Y VELAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010UE", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MURO COMPUESTO SUR", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_MURO COMPUESTO SUR", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010VA", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PISO HORMIGON", 
+      "description_prefix": "IS1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INTERSALA 1", 
+        "NAVE 1"
+      ], 
+      "description": "IS1_PISO HORMIGON", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "010VR", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PRUEBA HERMETICIDAD DESAGUE 4", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "CHECKPOINTS", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "PRUEBAS HERMETICIDAD", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_PRUEBA HERMETICIDAD DESAGUE 4", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "00WVD", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PUERTA", 
+      "description_prefix": "ST", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "SALA TABLEROS"
+      ], 
+      "description": "ST_PUERTA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "00WVO", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MAMPOSTERIA", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_MAMPOSTERIA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "00WW1", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "VENTILACION GAS", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION GAS", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_VENTILACION GAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "010SU", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "COMPRA SISTEMA DISTRIBUCION ALIMENTOS", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C8 COMPRAS", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1"
+      ], 
+      "description": "N1_COMPRA SISTEMA DISTRIBUCION ALIMENTOS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010U1", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "INSTALACION ELECTROMECANICA CORTINAS", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C5 INSTALACION ELECTRICA", 
+        "GENERAL", 
+        "INSTALACION ELECTRICA", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_INSTALACION ELECTROMECANICA CORTINAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "00WV6", 
+      "project_zone_hint": "PG", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "GRANEL", 
+      "description_prefix": "PG", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION GAS", 
+        "PLANTA GAS"
+      ], 
+      "description": "PG_GRANEL", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "PG"
+      ]
+    }, 
+    {
+      "code": "00WVH", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "ESTRUCTURA METALICA", 
+      "description_prefix": "ST", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C3 GALPONERO", 
+        "ESTRUCTURA", 
+        "GENERAL", 
+        "SALA TABLEROS"
+      ], 
+      "description": "ST_ESTRUCTURA METALICA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "00WW0", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "INSTALACION GAS", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION GAS", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_INSTALACION GAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "010U6", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "LOGISTICA COMEDEROS Y TAPETES", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C9 LOGISTICA", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_LOGISTICA COMEDEROS Y TAPETES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "00WVL", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "REJILLA", 
+      "description_prefix": "ST", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "SALA TABLEROS"
+      ], 
+      "description": "ST_REJILLA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "010TH", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CAMARA DE INSPECCION 1", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_CAMARA DE INSPECCION 1", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010TM", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "INSTALACION DESAGUES 4", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_INSTALACION DESAGUES 4", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010T1", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "LOGISTICA REJAS CUBRE CORTINAS", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C9 LOGISTICA", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1"
+      ], 
+      "description": "N1_LOGISTICA REJAS CUBRE CORTINAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010V5", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "COMPRA TAPONES FOSA", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C8 COMPRAS", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_COMPRA TAPONES FOSA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "00WUU", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "SUBESTACION TRANSFORMADORA", 
+      "description_prefix": "", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C5 INSTALACION ELECTRICA", 
+        "GENERAL", 
+        "INFRAESTRUCTURA EXTERIOR", 
+        "INSTALACION ELECTRICA"
+      ], 
+      "description": "SUBESTACION TRANSFORMADORA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "010SQ", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "COMPRA ESPUMA POLIURETANO", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "AISLACIONES", 
+        "C8 COMPRAS", 
+        "GENERAL", 
+        "NAVE 1"
+      ], 
+      "description": "N1_COMPRA ESPUMA POLIURETANO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010SW", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "LOGISTICA EQUIPOS INSTALACION GAS", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C9 LOGISTICA", 
+        "GENERAL", 
+        "INSTALACION GAS", 
+        "NAVE 1"
+      ], 
+      "description": "N1_LOGISTICA EQUIPOS INSTALACION GAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010SC", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CHUPETES DE CONSUMO", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION SANITARIA", 
+        "NAVE 1"
+      ], 
+      "description": "N1_CHUPETES DE CONSUMO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010T0", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "LOGISTICA REJAS CORRALES", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C9 LOGISTICA", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1"
+      ], 
+      "description": "N1_LOGISTICA REJAS CORRALES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010UH", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PISO FOSA LONJA ESTE", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_PISO FOSA LONJA ESTE", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010V2", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "INSTALACION ELECTROMECANICA CORTINAS", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "C5 INSTALACION ELECTRICA", 
+        "GENERAL", 
+        "INSTALACION ELECTRICA", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_INSTALACION ELECTROMECANICA CORTINAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010VN", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PRUEBA HERMETICIDAD GAS", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "CHECKPOINTS", 
+        "GENERAL", 
+        "INSTALACION GAS", 
+        "PRUEBAS HERMETICIDAD", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_PRUEBA HERMETICIDAD GAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "00S2D", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CAMINO", 
+      "description_prefix": "", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C1 MOVIMIENTO DE SUELO", 
+        "GENERAL", 
+        "INFRAESTRUCTURA EXTERIOR", 
+        "MOVIMIENTO DE SUELO"
+      ], 
+      "description": "CAMINO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "00S3A", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CANERIA DE IMPULSION", 
+      "description_prefix": "", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INFRAESTRUCTURA EXTERIOR", 
+        "INSTALACION DESAGUE"
+      ], 
+      "description": "CANERIA DE IMPULSION", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "010S3", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "EXCAVACION FUNDACION COLUMNAS", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C3 GALPONERO", 
+        "ESTRUCTURA", 
+        "GENERAL", 
+        "NAVE 1"
+      ], 
+      "description": "N1_EXCAVACION FUNDACION COLUMNAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010VS", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PRUEBA HERMETICIDAD DESAGUE 5", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "CHECKPOINTS", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "PRUEBAS HERMETICIDAD", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_PRUEBA HERMETICIDAD DESAGUE 5", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "00WW4", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "INSTALACION SANITARIA", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION SANITARIA", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_INSTALACION SANITARIA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "010SE", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "EXTRACTORES", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1"
+      ], 
+      "description": "N1_EXTRACTORES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010TW", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MONTAJE REJAS CORRALES", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_MONTAJE REJAS CORRALES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010TX", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MONTAJE REJAS CUBRE CORTINAS", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_MONTAJE REJAS CUBRE CORTINAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "00T9D", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CERCO OLIMPICO", 
+      "description_prefix": "", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "ARQUITECTURA", 
+        "C6 ALAMBRADOR", 
+        "GENERAL", 
+        "INFRAESTRUCTURA EXTERIOR"
+      ], 
+      "description": "CERCO OLIMPICO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "00WV4", 
+      "project_zone_hint": "PG", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PLATEA", 
+      "description_prefix": "PG", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "PLANTA GAS"
+      ], 
+      "description": "PG_PLATEA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "PG"
+      ]
+    }, 
+    {
+      "code": "00WVA", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PLATEA", 
+      "description_prefix": "ST", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "SALA TABLEROS"
+      ], 
+      "description": "ST_PLATEA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "010UQ", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "INSTALACION DESAGUES 7", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_INSTALACION DESAGUES 7", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010UV", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MONTAJE COMEDEROS Y TAPETES", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_MONTAJE COMEDEROS Y TAPETES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010VI", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "TABLEROS COMANDOS DE POTENCIA", 
+      "description_prefix": "IS1", 
+      "active_tags": [
+        "C5 INSTALACION ELECTRICA", 
+        "GENERAL", 
+        "INSTALACION ELECTRICA", 
+        "INTERSALA 1", 
+        "NAVE 1"
+      ], 
+      "description": "IS1_TABLEROS COMANDOS DE POTENCIA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "010VK", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MOTORES SOPORTE DE CORTINAS", 
+      "description_prefix": "IS1", 
+      "active_tags": [
+        "C5 INSTALACION ELECTRICA", 
+        "GENERAL", 
+        "INSTALACION ELECTRICA", 
+        "INTERSALA 1", 
+        "NAVE 1"
+      ], 
+      "description": "IS1_MOTORES SOPORTE DE CORTINAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "00T9E", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "SOPORTE DE SERVICIOS", 
+      "description_prefix": "", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C3 GALPONERO", 
+        "ESTRUCTURA", 
+        "GENERAL", 
+        "INFRAESTRUCTURA EXTERIOR"
+      ], 
+      "description": "SOPORTE DE SERVICIOS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "00WVR", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "VENTANAS", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_VENTANAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "010SO", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "COMPRA INSTALACION GAS", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C8 COMPRAS", 
+        "GENERAL", 
+        "INSTALACION GAS", 
+        "NAVE 1"
+      ], 
+      "description": "N1_COMPRA INSTALACION GAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010UG", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PISO FOSA LONJA CENTRAL", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_PISO FOSA LONJA CENTRAL", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010VC", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "TANQUES", 
+      "description_prefix": "IS1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION SANITARIA", 
+        "INTERSALA 1", 
+        "NAVE 1"
+      ], 
+      "description": "IS1_TANQUES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "010VM", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CHEQUEO NIVEL DE PISOS", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "CHECKPOINTS", 
+        "CHEQUEO NIVEL PISOS NAVE", 
+        "GENERAL", 
+        "NAVE 1"
+      ], 
+      "description": "N1_CHEQUEO NIVEL DE PISOS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010T8", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MURO COMPUESTO SUR", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_MURO COMPUESTO SUR", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010U2", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "COMPRA COMEDEROS Y TAPETES", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C8 COMPRAS", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_COMPRA COMEDEROS Y TAPETES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010U3", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "COMPRA CORTINAS", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C8 COMPRAS", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_COMPRA CORTINAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010T3", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CERRAMIENTO TIMPANO EXTERIOR", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_CERRAMIENTO TIMPANO EXTERIOR", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010UD", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MURO COMPUESTO NORTE", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_MURO COMPUESTO NORTE", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010UO", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "INSTALACION DESAGUES 5", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_INSTALACION DESAGUES 5", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010TF", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "HORMIGONADO COLUMNAS", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_HORMIGONADO COLUMNAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010TL", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "INSTALACION DESAGUES 3", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_INSTALACION DESAGUES 3", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010UU", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MONTAJE CANERIAS MOTORES DIST ALIMENTOS", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_MONTAJE CANERIAS MOTORES DIST ALIMENTOS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010VX", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CHEQUEO REPLANTEO MUROS", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "CHECKPOINTS", 
+        "GENERAL", 
+        "REPLANTEO MUROS NAVE", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_CHEQUEO REPLANTEO MUROS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "00WUW", 
+      "project_zone_hint": "PA", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "ZANJA BOMBAS SUMERGIBLES", 
+      "description_prefix": "PA", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C1 MOVIMIENTO DE SUELO", 
+        "GENERAL", 
+        "MOVIMIENTO DE SUELO", 
+        "PLANTA AGUA"
+      ], 
+      "description": "PA_ZANJA BOMBAS SUMERGIBLES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "PA"
+      ]
+    }, 
+    {
+      "code": "00WVB", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MUROS", 
+      "description_prefix": "ST", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "SALA TABLEROS"
+      ], 
+      "description": "ST_MUROS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "00WVM", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "TERRAPLEN SUELO CAL", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C1 MOVIMIENTO DE SUELO", 
+        "GENERAL", 
+        "MOVIMIENTO DE SUELO", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_TERRAPLEN SUELO CAL", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "010VL", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CHEQUEO NIVELACION DE TERRAPLEN", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "CHECKPOINTS", 
+        "GENERAL", 
+        "MOVIMIENTO DE SUELO", 
+        "NAVE 1", 
+        "NIVELACION TERRAPLEN"
+      ], 
+      "description": "N1_CHEQUEO NIVELACION DE TERRAPLEN", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010VP", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PRUEBA HERMETICIDAD DESAGUE 2", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "CHECKPOINTS", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "PRUEBAS HERMETICIDAD", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_PRUEBA HERMETICIDAD DESAGUE 2", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "00WVJ", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "TABLEROS Y ENERGIA", 
+      "description_prefix": "ST", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C5 INSTALACION ELECTRICA", 
+        "GENERAL", 
+        "INSTALACION ELECTRICA", 
+        "SALA TABLEROS"
+      ], 
+      "description": "ST_TABLEROS Y ENERGIA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "010V6", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "LOGISTICA COMEDEROS Y TAPETES", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "C9 LOGISTICA", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_LOGISTICA COMEDEROS Y TAPETES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010VG", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "DOSIFICADORES", 
+      "description_prefix": "IS1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INTERSALA 1", 
+        "MONTAJE", 
+        "NAVE 1"
+      ], 
+      "description": "IS1_DOSIFICADORES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "010SB", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CANERIAS REFRIGERACION", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION SANITARIA", 
+        "NAVE 1"
+      ], 
+      "description": "N1_CANERIAS REFRIGERACION", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010SL", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "TABLEROS AUXILIARES", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C5 INSTALACION ELECTRICA", 
+        "GENERAL", 
+        "INSTALACION ELECTRICA", 
+        "NAVE 1"
+      ], 
+      "description": "N1_TABLEROS AUXILIARES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010ST", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "COMPRA REJAS CUBRE CORTINAS", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C8 COMPRAS", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1"
+      ], 
+      "description": "N1_COMPRA REJAS CUBRE CORTINAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010TD", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PLATEA SILOS", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_PLATEA SILOS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "00WVE", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "VEREDA", 
+      "description_prefix": "ST", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "SALA TABLEROS"
+      ], 
+      "description": "ST_VEREDA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "00WVW", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CONEXION A RED CLOACAL", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_CONEXION A RED CLOACAL", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "00WVX", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CAMARAS DE INSPECCION", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_CAMARAS DE INSPECCION", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "00WW7", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "APLICACION DE POLIURETANO", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AISLACIONES", 
+        "AREAS COMUNES", 
+        "C7 POLIURETANO", 
+        "GENERAL", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_APLICACION DE POLIURETANO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "010S9", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CANERIAS LAVADO A PRESION", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION SANITARIA", 
+        "NAVE 1"
+      ], 
+      "description": "N1_CANERIAS LAVADO A PRESION", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010SJ", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CABLEADO", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C5 INSTALACION ELECTRICA", 
+        "GENERAL", 
+        "INSTALACION ELECTRICA", 
+        "NAVE 1"
+      ], 
+      "description": "N1_CABLEADO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010SR", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "COMPRA INSTALACION SANITARIA", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C8 COMPRAS", 
+        "GENERAL", 
+        "INSTALACION SANITARIA", 
+        "NAVE 1"
+      ], 
+      "description": "N1_COMPRA INSTALACION SANITARIA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010TP", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "INST REGULADOR SEGUNDA ETAPA", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION GAS", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_INST REGULADOR SEGUNDA ETAPA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "00WVK", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "REJA", 
+      "description_prefix": "ST", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "SALA TABLEROS"
+      ], 
+      "description": "ST_REJA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "00WVV", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "INSTALACION CLOACAL BAJO PLATEA", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_INSTALACION CLOACAL BAJO PLATEA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "00WW3", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "INSTALACION MOBILIARIO", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_INSTALACION MOBILIARIO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "010U0", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CUADRO MANIOBRA", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C5 INSTALACION ELECTRICA", 
+        "GENERAL", 
+        "INSTALACION ELECTRICA", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_CUADRO MANIOBRA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010U9", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "DESCANSO CARGADORES", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_DESCANSO CARGADORES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010V9", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "BANQUINAS Y PILARES", 
+      "description_prefix": "IS1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INTERSALA 1", 
+        "NAVE 1"
+      ], 
+      "description": "IS1_BANQUINAS Y PILARES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "010TS", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MONTAJE CANERIAS MOTORES DIST ALIMENTOS", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_MONTAJE CANERIAS MOTORES DIST ALIMENTOS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010UP", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "INSTALACION DESAGUES 6", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_INSTALACION DESAGUES 6", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "00WVT", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PUERTAS", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_PUERTAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "010S6", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CABREADAS CORREAS", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C3 GALPONERO", 
+        "ESTRUCTURA", 
+        "GENERAL", 
+        "NAVE 1"
+      ], 
+      "description": "N1_CABREADAS CORREAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010T6", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "INSTALACION SLATS", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_INSTALACION SLATS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010SZ", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "LOGISTICA ESTRUCTURA TECHO", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C9 LOGISTICA", 
+        "ESTRUCTURA", 
+        "GENERAL", 
+        "NAVE 1"
+      ], 
+      "description": "N1_LOGISTICA ESTRUCTURA TECHO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010T5", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "EJECUCION TAPONES FOSA", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_EJECUCION TAPONES FOSA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010T7", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MURO COMPUESTO NORTE", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_MURO COMPUESTO NORTE", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "00WVU", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "ESPORADO Y PINTURA", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_ESPORADO Y PINTURA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "00WW2", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "TERMOTANQUE", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION GAS", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_TERMOTANQUE", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "010SI", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "RELEVO SISTEMA DE DISTRIBUCION", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1"
+      ], 
+      "description": "N1_RELEVO SISTEMA DE DISTRIBUCION", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010TJ", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "INSTALACION DESAGUES 1", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_INSTALACION DESAGUES 1", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010TT", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MONTAJE COMEDEROS Y TAPETES", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_MONTAJE COMEDEROS Y TAPETES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010UI", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PISO FOSA LONJA OESTE", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_PISO FOSA LONJA OESTE", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010V4", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "COMPRA CORTINAS", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "C8 COMPRAS", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_COMPRA CORTINAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010VJ", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "TABLEROS SISTEMA DE DISTRIBUCION", 
+      "description_prefix": "IS1", 
+      "active_tags": [
+        "C5 INSTALACION ELECTRICA", 
+        "GENERAL", 
+        "INSTALACION ELECTRICA", 
+        "INTERSALA 1", 
+        "NAVE 1"
+      ], 
+      "description": "IS1_TABLEROS SISTEMA DE DISTRIBUCION", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "010SH", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CONEXION REMOVEDORES DE AIRE", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1"
+      ], 
+      "description": "N1_CONEXION REMOVEDORES DE AIRE", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010TA", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PISO FOSA LONJA CENTRAL", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_PISO FOSA LONJA CENTRAL", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010TB", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PISO FOSA LONJA ESTE", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_PISO FOSA LONJA ESTE", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010RY", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MOVIMIENTO SUELO BASE", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C1 MOVIMIENTO DE SUELO", 
+        "GENERAL", 
+        "MOVIMIENTO DE SUELO", 
+        "NAVE 1"
+      ], 
+      "description": "N1_MOVIMIENTO SUELO BASE", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010SX", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "LOGISTICA SLATS", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C9 LOGISTICA", 
+        "GENERAL", 
+        "NAVE 1"
+      ], 
+      "description": "N1_LOGISTICA SLATS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010T4", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "DESCANSO CARGADORES", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_DESCANSO CARGADORES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010TV", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MONTAJE INLETS", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_MONTAJE INLETS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010U4", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "COMPRA INLETS", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C8 COMPRAS", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_COMPRA INLETS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "00WV3", 
+      "project_zone_hint": "PG", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MOVIMIENTO DE SUELO", 
+      "description_prefix": "PG", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C1 MOVIMIENTO DE SUELO", 
+        "GENERAL", 
+        "MOVIMIENTO DE SUELO", 
+        "PLANTA GAS"
+      ], 
+      "description": "PG_MOVIMIENTO DE SUELO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "PG"
+      ]
+    }, 
+    {
+      "code": "00WVC", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PISO", 
+      "description_prefix": "ST", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "SALA TABLEROS"
+      ], 
+      "description": "ST_PISO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "00WW5", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "LUMINARIAS", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C5 INSTALACION ELECTRICA", 
+        "GENERAL", 
+        "INSTALACION ELECTRICA", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_LUMINARIAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "010UL", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CARGADOR", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_CARGADOR", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010UN", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CAMARA DE INSPECCION 4", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_CAMARA DE INSPECCION 4", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010UX", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MONTAJE REJAS CORRALES", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_MONTAJE REJAS CORRALES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010VO", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PRUEBA HERMETICIDAD DESAGUE 1", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "CHECKPOINTS", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "PRUEBAS HERMETICIDAD", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_PRUEBA HERMETICIDAD DESAGUE 1", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "00WVP", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "ALERO", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_ALERO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "010RW", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MOVIMIENTO SUELO DESMONTE", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C1 MOVIMIENTO DE SUELO", 
+        "GENERAL", 
+        "MOVIMIENTO DE SUELO", 
+        "NAVE 1"
+      ], 
+      "description": "N1_MOVIMIENTO SUELO DESMONTE", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010UC", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PUERTAS", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_PUERTAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "00WVY", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "ARTEFACTOS SANITARIOS", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_ARTEFACTOS SANITARIOS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "010S4", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "FUNDACION COLUMNAS RETICULADAS", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C3 GALPONERO", 
+        "ESTRUCTURA", 
+        "GENERAL", 
+        "NAVE 1"
+      ], 
+      "description": "N1_FUNDACION COLUMNAS RETICULADAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010TE", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "PUERTAS", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_PUERTAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010TK", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "INSTALACION DESAGUES 2", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_INSTALACION DESAGUES 2", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010UA", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "EJECUCION TAPONES FOSA", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_EJECUCION TAPONES FOSA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "00WUY", 
+      "project_zone_hint": "PA", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MONTAJE METALICO", 
+      "description_prefix": "PA", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C3 GALPONERO", 
+        "ESTRUCTURA", 
+        "GENERAL", 
+        "PLANTA AGUA"
+      ], 
+      "description": "PA_MONTAJE METALICO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "PA"
+      ]
+    }, 
+    {
+      "code": "00WV0", 
+      "project_zone_hint": "PA", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "INSTALACIONES", 
+      "description_prefix": "PA", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION SANITARIA", 
+        "PLANTA AGUA"
+      ], 
+      "description": "PA_INSTALACIONES", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "PA"
+      ]
+    }, 
+    {
+      "code": "00WV9", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "TERRAPLEN SUELO CAL", 
+      "description_prefix": "ST", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C1 MOVIMIENTO DE SUELO", 
+        "GENERAL", 
+        "MOVIMIENTO DE SUELO", 
+        "SALA TABLEROS"
+      ], 
+      "description": "ST_TERRAPLEN SUELO CAL", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "010V1", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CUADRO MANIOBRA", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "C5 INSTALACION ELECTRICA", 
+        "GENERAL", 
+        "INSTALACION ELECTRICA", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_CUADRO MANIOBRA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "00WVZ", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "ESTRUCTURA TECHO Y CUBIERTA", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "C2 OOCC Y DESAGUES", 
+        "ESTRUCTURA", 
+        "GENERAL", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_ESTRUCTURA TECHO Y CUBIERTA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "010SY", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "LOGISTICA ESPUMA POLIURETANO", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "AISLACIONES", 
+        "C9 LOGISTICA", 
+        "GENERAL", 
+        "NAVE 1"
+      ], 
+      "description": "N1_LOGISTICA ESPUMA POLIURETANO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010TO", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CONDUCTOS INSTALACION GAS", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION GAS", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_CONDUCTOS INSTALACION GAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010S8", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CANERIAS CONSUMO", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION SANITARIA", 
+        "NAVE 1"
+      ], 
+      "description": "N1_CANERIAS CONSUMO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010TI", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CAMARA DE INSPECCION 2", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_CAMARA DE INSPECCION 2", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010U5", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "COMPRA TAPONES FOSA", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C8 COMPRAS", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_COMPRA TAPONES FOSA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010U7", 
+      "project_zone_hint": "SR1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "LOGISTICA TAPONES FOSA", 
+      "description_prefix": "SR1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C9 LOGISTICA", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA RECEPCION 1"
+      ], 
+      "description": "SR1_LOGISTICA TAPONES FOSA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "SR1"
+      ]
+    }, 
+    {
+      "code": "010U8", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CERRAMIENTO TIMPANO EXTERIOR", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_CERRAMIENTO TIMPANO EXTERIOR", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "00WVG", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "CUBIERTA", 
+      "description_prefix": "ST", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "SALA TABLEROS"
+      ], 
+      "description": "ST_CUBIERTA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "00WVS", 
+      "project_zone_hint": "VESTUARIOS", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "VEREDA", 
+      "description_prefix": "VESTUARIOS", 
+      "active_tags": [
+        "AREAS COMUNES", 
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "VESTUARIOS"
+      ], 
+      "description": "VESTUARIOS_VEREDA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "VESTUARIOS"
+      ]
+    }, 
+    {
+      "code": "010S2", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "TRAMO COLECTOR 4", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INSTALACION DESAGUE", 
+        "NAVE 1"
+      ], 
+      "description": "N1_TRAMO COLECTOR 4", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010V7", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "LOGISTICA TAPONES FOSA", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C9 LOGISTICA", 
+        "GENERAL", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_LOGISTICA TAPONES FOSA", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010VE", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "BOMBAS CENTRIFUGAS", 
+      "description_prefix": "IS1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "INSTALACION SANITARIA", 
+        "INTERSALA 1", 
+        "NAVE 1"
+      ], 
+      "description": "IS1_BOMBAS CENTRIFUGAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "010UY", 
+      "project_zone_hint": "ST1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "MONTAJE REJAS CUBRE CORTINAS", 
+      "description_prefix": "ST1", 
+      "active_tags": [
+        "C4 MONTAJES", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1", 
+        "SALA TERMINACION 1"
+      ], 
+      "description": "ST1_MONTAJE REJAS CUBRE CORTINAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "ST1"
+      ]
+    }, 
+    {
+      "code": "010V8", 
+      "project_zone_hint": "", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "RELLENO DE SUELO CONFINADO", 
+      "description_prefix": "IS1", 
+      "active_tags": [
+        "ARQUITECTURA", 
+        "C2 OOCC Y DESAGUES", 
+        "GENERAL", 
+        "INTERSALA 1", 
+        "NAVE 1"
+      ], 
+      "description": "IS1_RELLENO DE SUELO CONFINADO", 
+      "project_sector_hint": "", 
+      "inferred_tokens": []
+    }, 
+    {
+      "code": "010SK", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "LUMINARIAS", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C5 INSTALACION ELECTRICA", 
+        "GENERAL", 
+        "INSTALACION ELECTRICA", 
+        "NAVE 1"
+      ], 
+      "description": "N1_LUMINARIAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010SN", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "COMPRA EQUIPOS INSTALACION GAS", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C8 COMPRAS", 
+        "GENERAL", 
+        "INSTALACION GAS", 
+        "NAVE 1"
+      ], 
+      "description": "N1_COMPRA EQUIPOS INSTALACION GAS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }, 
+    {
+      "code": "010T2", 
+      "project_zone_hint": "N1", 
+      "forbidden_tokens_suggested": [], 
+      "description_name": "LOGISTICA SISTEMA DISTRIBUCION ALIMENTOS", 
+      "description_prefix": "N1", 
+      "active_tags": [
+        "C9 LOGISTICA", 
+        "GENERAL", 
+        "MONTAJE", 
+        "NAVE 1"
+      ], 
+      "description": "N1_LOGISTICA SISTEMA DISTRIBUCION ALIMENTOS", 
+      "project_sector_hint": "", 
+      "inferred_tokens": [
+        "N1"
+      ]
+    }
+  ], 
+  "generated_at_utc": "2026-03-30T14:08:27.397000Z"
+}

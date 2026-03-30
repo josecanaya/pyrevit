@@ -1,4 +1,4 @@
-# This is a Revit shared parameter file.
+﻿# This is a Revit shared parameter file.
 # Do not edit manually.
 *META	VERSION	MINVERSION
 META	2	1

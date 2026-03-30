@@ -1,0 +1,2123 @@
+# -*- coding: utf-8 -*-
+"""
+pyRevit — Exportar grupos Revit vs blocks (sin IA en Revit)
+
+Recorre el modelo, agrupa por group_key, exporta a public/ y envía payload a n8n.
+La aplicación de BTZ en el modelo se hace con el botón aparte «Ejecutar automático».
+"""
+from __future__ import print_function
+
+__title__ = "Exportar grupos"
+__doc__ = (
+    "Exporta grupos y envía payload a n8n. Para aplicar BTZ usá el botón «Ejecutar automático»."
+)
+__author__ = "btz.extension"
+
+import os
+import csv
+import codecs
+import clr
+import json
+import re
+import urllib2
+import datetime
+
+clr.AddReference("RevitAPI")
+clr.AddReference("RevitAPIUI")
+
+from Autodesk.Revit.DB import (
+    ElementId,
+    FilteredElementCollector,
+    FamilyInstance,
+    FamilySymbol,
+    BuiltInParameter,
+    Transaction,
+    CategoryType,
+    GroupTypeId,
+)
+
+from pyrevit import revit, forms
+
+
+# =============================================================================
+# CONFIGURACIÓN (editar aquí)
+# =============================================================================
+
+# Origen de la ruta a resources/ (para el log)
+_BTZ_PATH_SOURCE = u""
+
+
+def _resolve_btz_extension_paths():
+    """
+    Encuentra resources/ y BTZ_SharedParameters.txt de forma fiable.
+
+    pyRevit suele copiar el script a %TEMP%; en ese caso __file__ NO apunta a la
+    extensión instalada y join(.../resources/...) abre un TXT inexistente o vacío:
+    Revit carga 0 definiciones y parece que «faltan todos» los parámetros.
+    Se usa primero pyrevit.script.get_bundle_paths() (ruta real del .pushbutton).
+    """
+    global _BTZ_PATH_SOURCE
+    found_txt = None
+
+    try:
+        from pyrevit import script
+        bpaths = script.get_bundle_paths()
+        if bpaths:
+            for bp in bpaths:
+                bp = os.path.abspath(bp)
+                ext = os.path.normpath(os.path.join(bp, u"..", u"..", u".."))
+                candidate = os.path.join(ext, u"resources", u"BTZ_SharedParameters.txt")
+                if os.path.isfile(candidate):
+                    found_txt = os.path.normpath(os.path.abspath(candidate))
+                    _BTZ_PATH_SOURCE = u"pyrevit.script.get_bundle_paths() → {0}".format(bp)
+                    break
+    except Exception:
+        pass
+
+    if not found_txt:
+        d = os.path.dirname(os.path.abspath(__file__))
+        for _ in range(14):
+            candidate = os.path.join(d, u"resources", u"BTZ_SharedParameters.txt")
+            if os.path.isfile(candidate):
+                found_txt = os.path.normpath(os.path.abspath(candidate))
+                _BTZ_PATH_SOURCE = u"recorrido desde __file__: {0}".format(d)
+                break
+            parent = os.path.dirname(d)
+            if parent == d:
+                break
+            d = parent
+
+    if not found_txt:
+        base = os.path.dirname(os.path.abspath(__file__))
+        ext = os.path.normpath(os.path.abspath(os.path.join(base, u"..", u"..", u"..")))
+        found_txt = os.path.normpath(os.path.join(ext, u"resources", u"BTZ_SharedParameters.txt"))
+        _BTZ_PATH_SOURCE = u"fallback 3 niveles desde __file__ (puede fallar si __file__ está en TEMP)"
+
+    res_dir = os.path.dirname(found_txt)
+    ext_dir = os.path.dirname(res_dir)
+    return ext_dir, res_dir, found_txt
+
+
+EXT_DIR, RESOURCES_DIR, SHARED_PARAMS_FILE = _resolve_btz_extension_paths()
+
+# Carpeta de salida: dentro de la extensión (se crea si no existe)
+PUBLIC_DIR = os.path.normpath(os.path.join(EXT_DIR, u"public"))
+
+# JSON que se envía a n8n en modo “solo enviar archivo” (por defecto = public/payload_groups.json)
+PAYLOAD_GROUPS_JSON_PATH = os.path.join(PUBLIC_DIR, u"payload_groups.json")
+
+# Respuesta n8n (group_btz_mapping_result) y mapa grupo→elementos para reaplicar sin re-exportar
+WEBHOOK_RESPONSE_JSON_PATH = os.path.join(PUBLIC_DIR, u"webhook_response.json")
+GROUP_KEY_ELEMENT_IDS_JSON_PATH = os.path.join(PUBLIC_DIR, u"group_key_element_ids.json")
+
+# Si True: no recorre Revit; lee PAYLOAD_GROUPS_JSON_PATH y hace POST al webhook
+# Si False: flujo completo (export + payload + opcional webhook + aplicar)
+SEND_PAYLOAD_FILE_ONLY = False
+
+# CSV de obra (misma convención que Sugerir / AsignarBTZ)
+BLOCKS_CSV_FILE = os.path.join(RESOURCES_DIR, "blocks.csv")
+
+# Webhook n8n (clasificador BTZ — payload agrupado + blocks.csv embebido)
+N8N_WEBHOOK_URL = "https://jrcontrera.app.n8n.cloud/webhook/revit-btz-classifier"
+# Payloads grandes o n8n lento: subir (segundos). Error 10060 = timeout de red.
+N8N_TIMEOUT_SEC = 300
+
+# Si True: solo exporta a public/ (CSV + JSON); no hace POST al webhook
+EXPORT_ONLY = False
+
+# Si True y EXPORT_ONLY es False: tras guardar payload_groups.json, envía POST
+SEND_TO_WEBHOOK = True
+
+# Máximo de elementos a procesar (None = sin límite; usar con cuidado en modelos grandes)
+LIMIT_ELEMENTS = None
+
+# --- Respuesta n8n (group_btz_mapping_result) → aplicación en Revit ---
+# Mínimo de confianza para escribir un candidate_btz en un slot libre (0.0–1.0)
+AUTO_APPLY_CONFIDENCE = 0.75
+
+# Si True: el botón «Exportar grupos» también aplicaría BTZ al terminar (desaconsejado: usá «Ejecutar automático»).
+APPLY_WEBHOOK_RESULTS = False
+
+# Obsoleto: usar el botón «Ejecutar automático» en el panel.
+APPLY_ONLY_FROM_SAVED_WEBHOOK = False
+
+# Si True: guarda la respuesta cruda del webhook en public/webhook_response.json
+SAVE_WEBHOOK_RESPONSE = True
+
+# Opcional: exporta public/apply_results.txt con filas aplicadas
+EXPORT_APPLY_RESULTS_TXT = True
+
+# --- Filtro de categorías (reduce ruido: Views, Materials, Levels, etc.) ---
+# True (recomendado): solo se escanean categorías de obra listadas abajo.
+# False: se escanean todas las instancias con categoría, excepto EXCLUDED_CATEGORY_NAMES.
+USE_CATEGORY_WHITELIST = True
+
+# Si USE_CATEGORY_WHITELIST y esta lista NO está vacía: solo estas categorías (sobrescribe el default).
+# Si está vacía: se usan CATEGORY_TO_MACROGROUP + ADDITIONAL_INCLUDED_CATEGORIES.
+TARGET_CATEGORIES = []
+
+# Categorías extra de modelo/obra (añadir aquí si hace falta; nombres como en el explorador de Revit).
+ADDITIONAL_INCLUDED_CATEGORIES = [
+    u"Generic Models",
+]
+
+# Nunca exportar estos nombres de categoría (comparación sin distinguir mayúsculas).
+# Si tu plantilla está en español, añade también "Vistas", "Materiales", "Niveles", etc.
+EXCLUDED_CATEGORY_NAMES = [
+    u"Views",
+    u"Materials",
+    u"Levels",
+    u"RVT Links",
+    u"Revit Links",
+    u"Analytical Nodes",
+    u"Analytical Members",
+    u"Analytical Foundations",
+    u"Analytical Walls",
+    u"Analytical Floors",
+    u"Analytical Braces",
+    u"Project Information",
+    u"Schedules",
+    u"Sheets",
+    u"Drawing Sheets",
+    u"Cameras",
+    u"Raster Images",
+    u"Scope Boxes",
+    u"Imports in DWG",
+    u"Lines",
+    u"Line Patterns",
+    u"Fill Patterns",
+    u"Text Notes",
+    u"Dimensions",
+    u"Grids",
+    u"Reference Planes",
+]
+
+# Mapa: nombre de categoría Revit -> id de macrogrupo (reglas fijas, sin IA).
+# Ajustar según el proyecto; claves en el idioma de la plantilla (p. ej. inglés).
+CATEGORY_TO_MACROGROUP = {
+    u"Structural Foundations": u"estructura",
+    u"Structural Columns": u"estructura",
+    u"Structural Framing": u"estructura",
+    u"Structural Connections": u"estructura",
+    u"Walls": u"obra_gris",
+    u"Floors": u"obra_gris",
+    u"Structural Walls": u"obra_gris",
+    u"Ceilings": u"terminaciones",
+    u"Doors": u"terminaciones",
+    u"Windows": u"terminaciones",
+    u"Pipes": u"instalaciones",
+    u"Ducts": u"instalaciones",
+    u"Pipe Fittings": u"instalaciones",
+    u"Duct Fittings": u"instalaciones",
+    u"Mechanical Equipment": u"instalaciones",
+    u"Electrical Equipment": u"instalaciones",
+    u"Electrical Fixtures": u"instalaciones",
+    u"Plumbing Fixtures": u"instalaciones",
+}
+
+# Orden fijo de macrogrupos en el payload
+MACRO_GROUPS_ORDER = [
+    u"estructura",
+    u"obra_gris",
+    u"terminaciones",
+    u"instalaciones",
+    u"otros",
+]
+
+# Parámetros BTZ (igual que el resto de herramientas BTZ)
+PARAM_BASE = u"BTZ_Description"
+PARAM_NUMERIC = [
+    u"BTZ_Description_01",
+    u"BTZ_Description_02",
+    u"BTZ_Description_03",
+    u"BTZ_Description_04",
+    u"BTZ_Description_05",
+    u"BTZ_Description_06",
+    u"BTZ_Description_07",
+    u"BTZ_Description_08",
+    u"BTZ_Description_09",
+    u"BTZ_Description_10",
+    u"BTZ_Description_11",
+    u"BTZ_Description_12",
+    u"BTZ_Description_13",
+]
+ALL_BTZ_PARAMS = [PARAM_BASE] + PARAM_NUMERIC
+
+# Metadatos sugerencia IA (mismo TXT que BTZ_Description; vincular con ensure_btz_shared_parameters)
+PARAM_STATUS = u"BTZ_Status"
+PARAM_SOURCE = u"BTZ_Source"
+PARAM_CONFIDENCE = u"BTZ_Confidence"
+ALL_BIND_PARAMS = ALL_BTZ_PARAMS + [PARAM_STATUS, PARAM_SOURCE, PARAM_CONFIDENCE]
+
+# Columnas base del CSV blocks (misma lógica que Sugerir)
+CSV_CODE_COL = "code"
+CSV_DESC_COL = "description"
+CSV_LAST_BASE_COL = "displacement_date"
+
+# Máx. IDs de muestra por grupo en JSON/CSV
+MAX_SAMPLE_IDS = 50
+
+# Separador interno para group_key (si un nombre contiene "|", se reemplaza)
+GROUP_KEY_SEP = u"|"
+
+
+# =============================================================================
+# Utilidades Revit / BTZ
+# =============================================================================
+
+
+def _element_id_as_int(element_id):
+    try:
+        return element_id.IntegerValue
+    except AttributeError:
+        return int(element_id.Value)
+
+
+def _safe_type_display_name(elem):
+    if elem is None:
+        return u""
+    try:
+        n = elem.Name
+        if n is not None:
+            return unicode(n)
+    except Exception:
+        pass
+    for bip in (
+        BuiltInParameter.ALL_MODEL_TYPE_NAME,
+        BuiltInParameter.SYMBOL_NAME_PARAM,
+    ):
+        try:
+            p = elem.get_Parameter(bip)
+            if p is not None and p.HasValue:
+                s = p.AsString()
+                if s:
+                    return unicode(s)
+        except Exception:
+            pass
+    return u""
+
+
+def _safe_family_display_name(fam):
+    if fam is None:
+        return u""
+    try:
+        n = fam.Name
+        if n is not None:
+            return unicode(n)
+    except Exception:
+        pass
+    try:
+        p = fam.get_Parameter(BuiltInParameter.ALL_MODEL_FAMILY_NAME)
+        if p is not None and p.HasValue:
+            s = p.AsString()
+            if s:
+                return unicode(s)
+    except Exception:
+        pass
+    return u""
+
+
+def _param_value_as_string(element, param_name):
+    p = element.LookupParameter(param_name)
+    if p is None or not p.HasValue:
+        return u""
+    try:
+        st = p.AsString()
+        if st is not None:
+            return unicode(st)
+    except Exception:
+        pass
+    try:
+        vs = p.AsValueString()
+        return unicode(vs or u"")
+    except Exception:
+        pass
+    return u""
+
+
+def _safe_category_name(element):
+    cat = element.Category
+    return unicode(cat.Name) if cat is not None else u""
+
+
+def _family_and_type_names(doc, element):
+    family_name = u""
+    type_name = u""
+    tid = element.GetTypeId()
+    if tid and tid != ElementId.InvalidElementId:
+        et = doc.GetElement(tid)
+        if et is not None:
+            type_name = _safe_type_display_name(et)
+            if isinstance(et, FamilySymbol):
+                fam = et.Family
+                family_name = _safe_family_display_name(fam)
+                if not family_name:
+                    try:
+                        p = et.get_Parameter(
+                            BuiltInParameter.SYMBOL_FAMILY_NAME_PARAM
+                        )
+                        if p is not None and p.HasValue:
+                            family_name = unicode(p.AsString() or u"")
+                    except Exception:
+                        pass
+    return family_name, type_name
+
+
+def _level_name(doc, element):
+    if isinstance(element, FamilyInstance):
+        lvl_id = element.LevelId
+        if lvl_id and lvl_id != ElementId.InvalidElementId:
+            lvl = doc.GetElement(lvl_id)
+            if lvl is not None:
+                return unicode(lvl.Name or u"")
+
+    try:
+        p = element.get_Parameter(BuiltInParameter.LEVEL_PARAM)
+        if p is not None and p.HasValue:
+            lid = p.AsElementId()
+            if lid and lid != ElementId.InvalidElementId:
+                lvl = doc.GetElement(lid)
+                if lvl is not None:
+                    return unicode(lvl.Name or u"")
+    except Exception:
+        pass
+
+    for alt in (u"Nivel", u"Level", u"Reference Level", u"Nivel de referencia"):
+        v = _param_value_as_string(element, alt)
+        if v:
+            return v
+    return u""
+
+
+def _element_instance_name(element):
+    """Nombre visible del elemento si existe (instancia)."""
+    try:
+        n = element.Name
+        if n:
+            return unicode(n)
+    except Exception:
+        pass
+    try:
+        p = element.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_NAME)
+        if p is not None and p.HasValue:
+            s = p.AsString()
+            if s:
+                return unicode(s)
+    except Exception:
+        pass
+    return u""
+
+
+def _project_display_name(doc):
+    try:
+        t = doc.Title
+        if t:
+            return unicode(t)
+    except Exception:
+        pass
+    try:
+        p = doc.PathName
+        if p:
+            return unicode(os.path.splitext(os.path.basename(p))[0])
+    except Exception:
+        pass
+    return u"(sin título)"
+
+
+def _norm_cat_key(name):
+    return (name or u"").strip()
+
+
+def _build_category_lookup():
+    """Índice insensible a mayúsculas para CATEGORY_TO_MACROGROUP."""
+    d = {}
+    for k, v in CATEGORY_TO_MACROGROUP.items():
+        d[_norm_cat_key(k).lower()] = v
+    return d
+
+
+_CATEGORY_LOOKUP = None
+
+
+def assign_macro_group(category_name):
+    """
+    Asigna un id de macrogrupo según el nombre de categoría Revit.
+    Reglas fijas en CATEGORY_TO_MACROGROUP; si no coincide -> 'otros'.
+    """
+    global _CATEGORY_LOOKUP
+    if _CATEGORY_LOOKUP is None:
+        _CATEGORY_LOOKUP = _build_category_lookup()
+    key = _norm_cat_key(category_name).lower()
+    return _CATEGORY_LOOKUP.get(key, u"otros")
+
+
+def _sanitize_group_field(s):
+    """Evita romper group_key si el texto contiene el separador."""
+    t = (s or u"").strip()
+    return t.replace(GROUP_KEY_SEP, u" ")
+
+
+def build_group_key(macro_group, category_name, family_name, type_name):
+    """
+    Clave compuesta para agrupar instancias repetidas.
+
+    Formato: macro_group|category_name|family_name|type_name
+    (campos sanitizados para no contener el separador '|').
+    """
+    parts = [
+        _sanitize_group_field(macro_group),
+        _sanitize_group_field(category_name),
+        _sanitize_group_field(family_name),
+        _sanitize_group_field(type_name),
+    ]
+    return GROUP_KEY_SEP.join(parts)
+
+
+# =============================================================================
+# Recolección y agrupación
+# =============================================================================
+
+_EXCLUDED_LOWER_CACHE = None
+_WHITELIST_LOWER_CACHE = None
+
+
+def _excluded_categories_lower():
+    """Nombres de categoría excluidos (minúsculas, normalizados)."""
+    global _EXCLUDED_LOWER_CACHE
+    if _EXCLUDED_LOWER_CACHE is None:
+        _EXCLUDED_LOWER_CACHE = set(
+            _norm_cat_key(x).lower() for x in EXCLUDED_CATEGORY_NAMES
+        )
+    return _EXCLUDED_LOWER_CACHE
+
+
+def _whitelist_allowed_lower():
+    """Conjunto permitido en modo whitelist (minúsculas)."""
+    global _WHITELIST_LOWER_CACHE
+    if _WHITELIST_LOWER_CACHE is None:
+        if TARGET_CATEGORIES:
+            src = TARGET_CATEGORIES
+        else:
+            src = list(CATEGORY_TO_MACROGROUP.keys()) + list(
+                ADDITIONAL_INCLUDED_CATEGORIES
+            )
+        _WHITELIST_LOWER_CACHE = set(_norm_cat_key(x).lower() for x in src)
+    return _WHITELIST_LOWER_CACHE
+
+
+def _category_passes_scan_filters(cat_name):
+    """
+    True si la categoría debe incluirse en el barrido.
+    - Siempre se excluyen EXCLUDED_CATEGORY_NAMES.
+    - Con USE_CATEGORY_WHITELIST: solo categorías del mapa + adicionales o TARGET_CATEGORIES.
+    - Sin whitelist: todas las categorías salvo excluidas; si TARGET_CATEGORIES no vacío, solo esas.
+    """
+    k = _norm_cat_key(cat_name).lower()
+    if k in _excluded_categories_lower():
+        return False
+    if USE_CATEGORY_WHITELIST:
+        return k in _whitelist_allowed_lower()
+    if TARGET_CATEGORIES:
+        allow = set(_norm_cat_key(x).lower() for x in TARGET_CATEGORIES)
+        return k in allow
+    return True
+
+
+def collect_revit_elements(doc, log_lines):
+    """
+    Recorre instancias del modelo y devuelve una lista de dicts por elemento.
+
+    Campos: element_id, unique_id, category_name, family_name, type_name,
+    level_name, element_name, macro_group, group_key, BTZ_*
+    """
+    if USE_CATEGORY_WHITELIST:
+        log_lines.append(
+            u"Filtro: whitelist ON — {0} categorías permitidas".format(
+                len(_whitelist_allowed_lower())
+            )
+        )
+    else:
+        log_lines.append(
+            u"Filtro: whitelist OFF — categorías según TARGET o todas; "
+            u"excluidas fijas: {0}".format(len(_excluded_categories_lower()))
+        )
+
+    rows = []
+    col = FilteredElementCollector(doc).WhereElementIsNotElementType()
+    count = 0
+    for el in col:
+        if LIMIT_ELEMENTS is not None and count >= LIMIT_ELEMENTS:
+            break
+        cat = el.Category
+        if cat is None:
+            continue
+        cat_name = unicode(cat.Name or u"")
+        if not _category_passes_scan_filters(cat_name):
+            continue
+
+        macro = assign_macro_group(cat_name)
+        fam, typ = _family_and_type_names(doc, el)
+        gkey = build_group_key(macro, cat_name, fam, typ)
+        lvl = _level_name(doc, el)
+        ename = _element_instance_name(el)
+
+        uid = u""
+        try:
+            uid = unicode(el.UniqueId or u"")
+        except Exception:
+            pass
+
+        rec = {
+            u"element_id": _element_id_as_int(el.Id),
+            u"unique_id": uid,
+            u"category_name": cat_name,
+            u"family_name": fam,
+            u"type_name": typ,
+            u"level_name": lvl,
+            u"element_name": ename,
+            u"macro_group": macro,
+            u"group_key": gkey,
+        }
+        for pname in ALL_BTZ_PARAMS:
+            rec[pname] = _param_value_as_string(el, pname)
+
+        rows.append(rec)
+        count += 1
+
+    log_lines.append(
+        u"Elementos recolectados: {0} (límite {1})".format(
+            len(rows),
+            LIMIT_ELEMENTS if LIMIT_ELEMENTS is not None else u"ninguno",
+        )
+    )
+    return rows
+
+
+def group_elements(element_rows):
+    """
+    Agrupa filas por group_key.
+
+    Devuelve lista de dicts: group_key, macro_group, count, category_name,
+    family_name, type_name, level_names (lista), sample_element_ids (lista).
+    """
+    buckets = {}
+    for r in element_rows:
+        gk = r[u"group_key"]
+        if gk not in buckets:
+            buckets[gk] = {
+                u"group_key": gk,
+                u"macro_group": r[u"macro_group"],
+                u"category_name": r[u"category_name"],
+                u"family_name": r[u"family_name"],
+                u"type_name": r[u"type_name"],
+                u"level_names": set(),
+                u"element_ids": [],
+                u"count": 0,
+            }
+        b = buckets[gk]
+        b[u"count"] += 1
+        ln = (r.get(u"level_name") or u"").strip()
+        if ln:
+            b[u"level_names"].add(ln)
+        eid = r[u"element_id"]
+        if len(b[u"element_ids"]) < MAX_SAMPLE_IDS:
+            b[u"element_ids"].append(eid)
+
+    out = []
+    for gk in sorted(buckets.keys()):
+        b = buckets[gk]
+        levels = sorted(b[u"level_names"], key=lambda x: x.lower())
+        out.append({
+            u"group_key": gk,
+            u"macro_group": b[u"macro_group"],
+            u"count": b[u"count"],
+            u"category_name": b[u"category_name"],
+            u"family_name": b[u"family_name"],
+            u"type_name": b[u"type_name"],
+            u"level_names": levels,
+            u"sample_element_ids": list(b[u"element_ids"]),
+        })
+    return out
+
+
+# =============================================================================
+# CSV blocks (obra) — reutiliza lógica alineada a Sugerir
+# =============================================================================
+
+
+def _cell_flag_01(cell):
+    v = unicode(cell or u"").strip()
+    return 1 if v == u"1" else 0
+
+
+def load_blocks_csv(csv_path, log_lines):
+    """
+    Lee blocks.csv: devuelve estructura con rows (code, description, …, flags).
+
+    Para el payload solo se usan code, description y flags en blocks_rows.
+    """
+    if not csv_path or not os.path.isfile(csv_path):
+        raise IOError(u"No se encontró el CSV: {0}".format(csv_path))
+
+    encodings = [u"utf-8-sig", u"utf-8", u"cp1252", u"latin1"]
+    last_error = None
+
+    for enc in encodings:
+        try:
+            with codecs.open(csv_path, u"r", enc) as fp:
+                sample = fp.read(4096)
+                fp.seek(0)
+                try:
+                    dialect = csv.Sniffer().sniff(sample, delimiters=u";,")
+                    delimiter = dialect.delimiter
+                except Exception:
+                    delimiter = u";" if sample.count(u";") > sample.count(u",") else u","
+
+                reader = csv.DictReader(fp, delimiter=delimiter)
+                if not reader.fieldnames:
+                    continue
+
+                fields = [f.strip() for f in reader.fieldnames]
+                code_field = None
+                desc_field = None
+                displ_field = None
+
+                for f in fields:
+                    low = f.lower().strip()
+                    if low == CSV_CODE_COL:
+                        code_field = f
+                    if low == CSV_DESC_COL:
+                        desc_field = f
+                    if low == CSV_LAST_BASE_COL.lower():
+                        displ_field = f
+
+                if not desc_field:
+                    raise ValueError(u"El CSV no tiene columna description")
+
+                dd_idx = None
+                for i, f in enumerate(fields):
+                    if displ_field and f == displ_field:
+                        dd_idx = i
+                        break
+                    if f.lower().strip() == CSV_LAST_BASE_COL.lower():
+                        dd_idx = i
+                        break
+
+                if dd_idx is None:
+                    raise ValueError(
+                        u"El CSV no tiene columna {0}".format(CSV_LAST_BASE_COL)
+                    )
+
+                thematic_columns = [
+                    fields[j] for j in range(dd_idx + 1, len(fields)) if fields[j]
+                ]
+
+                rows = []
+                seen = set()
+                for row in reader:
+                    code = (row.get(code_field, u"") if code_field else u"").strip()
+                    desc = (row.get(desc_field, u"") if desc_field else u"").strip()
+                    if not desc:
+                        continue
+
+                    flags = {}
+                    for tc in thematic_columns:
+                        flags[tc] = _cell_flag_01(row.get(tc, u""))
+
+                    key = (code, desc)
+                    if key in seen:
+                        continue
+                    seen.add(key)
+
+                    rows.append({
+                        u"code": code,
+                        u"description": desc,
+                        u"flags": flags,
+                    })
+
+                rows.sort(key=lambda x: (x[u"description"] or u"").lower())
+                if not rows:
+                    raise ValueError(u"El CSV no tiene filas útiles")
+
+                log_lines.append(
+                    u"blocks.csv: {0} filas, {1} columnas temáticas".format(
+                        len(rows), len(thematic_columns)
+                    )
+                )
+                return {
+                    u"thematic_columns": thematic_columns,
+                    u"rows": rows,
+                }
+        except Exception as ex:
+            last_error = ex
+            continue
+
+    raise ValueError(
+        u"No se pudo leer blocks.csv. Error: {0}".format(last_error)
+    )
+
+
+def blocks_rows_for_payload(blocks_struct):
+    """Lista blocks_rows para el JSON (solo code, description, flags)."""
+    out = []
+    for r in blocks_struct[u"rows"]:
+        out.append({
+            u"code": r[u"code"],
+            u"description": r[u"description"],
+            u"flags": dict(r[u"flags"]),
+        })
+    return out
+
+
+def read_blocks_csv_raw(csv_path, log_lines):
+    """
+    Lee el CSV de resources (blocks.csv) completo como texto Unicode.
+    Se envía en el payload como blocks_csv_text para n8n.
+    """
+    if not csv_path or not os.path.isfile(csv_path):
+        raise IOError(u"No se encontró el CSV: {0}".format(csv_path))
+
+    encodings = [u"utf-8-sig", u"utf-8", u"cp1252", u"latin1"]
+    last_error = None
+    for enc in encodings:
+        try:
+            with codecs.open(csv_path, u"r", enc) as fp:
+                txt = fp.read()
+            if not isinstance(txt, unicode):
+                txt = unicode(txt)
+            log_lines.append(
+                u"blocks.csv (raw): {0} caracteres, encoding={1}".format(
+                    len(txt), enc
+                )
+            )
+            return txt
+        except Exception as ex:
+            last_error = ex
+            continue
+
+    raise ValueError(
+        u"No se pudo leer blocks.csv como texto: {0}".format(last_error)
+    )
+
+
+def save_blocks_snapshot(path, blocks_csv_text, log_lines):
+    """Copia el mismo contenido que se manda al webhook en public/ para inspección."""
+    with codecs.open(path, u"w", u"utf-8") as fp:
+        fp.write(blocks_csv_text)
+    log_lines.append(u"Copia resources/blocks.csv → {0}".format(path))
+
+
+# =============================================================================
+# Exportación a disco
+# =============================================================================
+
+
+def _ensure_public_dir():
+    if not os.path.isdir(PUBLIC_DIR):
+        os.makedirs(PUBLIC_DIR)
+
+
+def export_revit_elements_csv(path, element_rows, log_lines):
+    """Exporta revit_elements.csv (UTF-8 con BOM para Excel)."""
+    if not element_rows:
+        fieldnames = [
+            u"element_id",
+            u"unique_id",
+            u"category_name",
+            u"family_name",
+            u"type_name",
+            u"level_name",
+            u"element_name",
+            u"macro_group",
+            u"group_key",
+        ] + ALL_BTZ_PARAMS
+    else:
+        fieldnames = list(element_rows[0].keys())
+
+    with codecs.open(path, u"w", u"utf-8-sig") as fp:
+        w = csv.DictWriter(
+            fp,
+            fieldnames=fieldnames,
+            extrasaction="ignore",
+            lineterminator="\n",
+        )
+        w.writeheader()
+        for r in element_rows:
+            row = {}
+            for k in fieldnames:
+                v = r.get(k, u"")
+                if isinstance(v, (int, long)):
+                    row[k] = v
+                else:
+                    row[k] = v if v is not None else u""
+            w.writerow(row)
+
+    log_lines.append(u"Guardado: {0}".format(path))
+
+
+def export_revit_groups_csv(path, groups, log_lines):
+    """
+    revit_groups.csv: group_key, macro_group, count, category, family, type,
+    level_names, sample_element_ids (listas como texto separado por ;).
+    """
+    fieldnames = [
+        u"group_key",
+        u"macro_group",
+        u"count",
+        u"category_name",
+        u"family_name",
+        u"type_name",
+        u"level_names",
+        u"sample_element_ids",
+    ]
+    with codecs.open(path, u"w", u"utf-8-sig") as fp:
+        w = csv.DictWriter(
+            fp,
+            fieldnames=fieldnames,
+            lineterminator="\n",
+        )
+        w.writeheader()
+        for g in groups:
+            w.writerow({
+                u"group_key": g[u"group_key"],
+                u"macro_group": g[u"macro_group"],
+                u"count": g[u"count"],
+                u"category_name": g[u"category_name"],
+                u"family_name": g[u"family_name"],
+                u"type_name": g[u"type_name"],
+                u"level_names": u";".join(g[u"level_names"]),
+                u"sample_element_ids": u";".join(
+                    unicode(x) for x in g[u"sample_element_ids"]
+                ),
+            })
+
+    log_lines.append(u"Guardado: {0}".format(path))
+
+
+def build_group_payload(doc, groups, blocks_struct, blocks_csv_text):
+    """
+    JSON exacto para el webhook: mode, project_name, macro_groups,
+    blocks_rows, revit_groups, y el CSV de obra tal cual (resources/blocks.csv).
+
+    n8n recibe además:
+    - blocks_csv_filename: nombre del archivo (p. ej. blocks.csv)
+    - blocks_csv_text: contenido completo del CSV (mismo que en resources/)
+    """
+    revit_groups = []
+    for g in groups:
+        revit_groups.append({
+            u"group_key": g[u"group_key"],
+            u"macro_group": g[u"macro_group"],
+            u"count": int(g[u"count"]),
+            u"category_name": g[u"category_name"],
+            u"family_name": g[u"family_name"],
+            u"type_name": g[u"type_name"],
+            u"level_names": list(g[u"level_names"]),
+            u"sample_element_ids": [int(x) for x in g[u"sample_element_ids"]],
+        })
+
+    base = os.path.basename(BLOCKS_CSV_FILE) or u"blocks.csv"
+
+    return {
+        u"mode": u"analyze_revit_groups_against_blocks",
+        u"project_name": _project_display_name(doc),
+        u"macro_groups": list(MACRO_GROUPS_ORDER),
+        u"blocks_rows": blocks_rows_for_payload(blocks_struct),
+        u"blocks_csv_filename": base,
+        u"blocks_csv_text": blocks_csv_text,
+        u"revit_groups": revit_groups,
+    }
+
+
+def save_payload_json(path, payload, log_lines):
+    with codecs.open(path, u"w", u"utf-8") as fp:
+        fp.write(
+            json.dumps(payload, ensure_ascii=False, indent=2)
+        )
+    log_lines.append(u"Guardado: {0}".format(path))
+
+
+def load_payload_from_json_file(path, log_lines):
+    """
+    Carga el JSON que se enviará a n8n (p. ej. public/payload_groups.json).
+    utf-8-sig tolera BOM de Excel/Notepad.
+    """
+    if not path or not os.path.isfile(path):
+        raise IOError(u"No existe el archivo: {0}".format(path))
+    with codecs.open(path, u"r", u"utf-8-sig") as fp:
+        raw = fp.read()
+    log_lines.append(
+        u"Cargado {0} ({1} caracteres)".format(path, len(raw))
+    )
+    try:
+        return json.loads(raw)
+    except ValueError as e:
+        raise ValueError(
+            u"JSON inválido en {0}: {1}".format(path, e)
+        )
+
+
+def append_run_log(path, lines):
+    ts = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    block = u"\n[{0}]\n".format(ts) + u"\n".join(lines) + u"\n"
+    with codecs.open(path, u"a", u"utf-8") as fp:
+        fp.write(block)
+
+
+# =============================================================================
+# Shared parameters (BTZ + Status / Source / Confidence)
+# =============================================================================
+
+
+def _unicode_name(obj):
+    """Normaliza nombres desde Revit / IronPython (str, unicode, System.String)."""
+    if obj is None:
+        return u""
+    try:
+        return unicode(obj).strip()
+    except Exception:
+        try:
+            return unicode(str(obj)).strip()
+        except Exception:
+            return u""
+
+
+def _parse_param_names_from_txt(txt_path, log_lines):
+    """
+    Lee el TXT en disco y lista nombres en líneas PARAM\\t... (sin depender de Revit).
+    Sirve para diagnosticar si el archivo en disco coincide con lo que esperamos.
+    """
+    names = []
+    if not txt_path or not os.path.isfile(txt_path):
+        return names
+    encodings = [
+        u"utf-8-sig",
+        u"utf-8",
+        u"utf-16",
+        u"utf-16-le",
+        u"utf-16-be",
+        u"cp1252",
+        u"latin1",
+    ]
+    used_enc = None
+    for enc in encodings:
+        try:
+            with codecs.open(txt_path, u"r", enc) as fp:
+                for line in fp:
+                    line = line.strip(u"\r\n")
+                    if not line.startswith(u"PARAM") and not line.startswith("PARAM"):
+                        continue
+                    parts = line.split(u"\t")
+                    if len(parts) >= 3:
+                        pname = _unicode_name(parts[2])
+                        if pname:
+                            names.append(pname)
+            used_enc = enc
+            break
+        except Exception as ex:
+            if log_lines is not None:
+                log_lines.append(
+                    u"parse TXT encoding {0} falló: {1}".format(enc, ex)
+                )
+            continue
+    if log_lines is not None and used_enc:
+        log_lines.append(u"Parse TXT: encoding usado = {0}".format(used_enc))
+    return names
+
+
+def _get_definition_map(def_file):
+    """
+    Mapa nombre → Definition. Claves siempre unicode para coincidir con ALL_BIND_PARAMS.
+    """
+    defs = {}
+    for group in def_file.Groups:
+        for definition in group.Definitions:
+            key = _unicode_name(definition.Name)
+            if key:
+                defs[key] = definition
+    return defs
+
+
+def _build_model_category_set(doc):
+    catset = doc.Application.Create.NewCategorySet()
+    count = 0
+    for cat in doc.Settings.Categories:
+        try:
+            if cat is None or not cat.AllowsBoundParameters or cat.IsTagCategory:
+                continue
+            if cat.CategoryType != CategoryType.Model:
+                continue
+            catset.Insert(cat)
+            count += 1
+        except Exception:
+            pass
+    if count == 0:
+        raise ValueError(u"No se pudo armar CategorySet de categorías de modelo.")
+    return catset
+
+
+def _get_existing_binding_names(doc):
+    names = set()
+    it = doc.ParameterBindings.ForwardIterator()
+    it.Reset()
+    while it.MoveNext():
+        try:
+            definition = it.Key
+            if definition and definition.Name:
+                names.add(_unicode_name(definition.Name))
+        except Exception:
+            pass
+    return names
+
+
+def log_shared_params_diagnostics(log_lines):
+    """Registra ruta efectiva del TXT y existencia (antes de abrir en Revit)."""
+    log_lines.append(u"--- Diagnóstico SHARED_PARAMS_FILE ---")
+    log_lines.append(u"Ruta efectiva (absoluta): {0}".format(SHARED_PARAMS_FILE))
+    log_lines.append(u"¿Existe el archivo?: {0}".format(os.path.isfile(SHARED_PARAMS_FILE)))
+    if os.path.isfile(SHARED_PARAMS_FILE):
+        try:
+            sz = os.path.getsize(SHARED_PARAMS_FILE)
+            log_lines.append(u"Tamaño en disco: {0} bytes".format(sz))
+        except Exception:
+            pass
+    log_lines.append(u"Cómo se resolvió la ruta: {0}".format(_BTZ_PATH_SOURCE or u"(sin dato)"))
+    names_in_txt = _parse_param_names_from_txt(SHARED_PARAMS_FILE, log_lines)
+    log_lines.append(
+        u"Parámetros encontrados en el TXT (líneas PARAM): {0}".format(len(names_in_txt))
+    )
+    if names_in_txt:
+        log_lines.append(u"Lista (TXT): {0}".format(u", ".join(names_in_txt)))
+
+    req = [_unicode_name(x) for x in ALL_BIND_PARAMS]
+    txt_set = set(names_in_txt)
+    req_set = set(req)
+    missing_in_txt_parse = sorted(req_set - txt_set)
+    extra_in_txt = sorted(txt_set - req_set)
+    if missing_in_txt_parse:
+        log_lines.append(
+            u"Respecto al script, faltan en el TXT (parse): {0}".format(
+                u", ".join(missing_in_txt_parse)
+            )
+        )
+    else:
+        log_lines.append(
+            u"Parse del TXT: cubre los {0} parámetros requeridos.".format(len(req_set))
+        )
+    if extra_in_txt:
+        log_lines.append(
+            u"Parámetros extra en el TXT (no usados por este script): {0}".format(
+                u", ".join(extra_in_txt)
+            )
+        )
+    log_lines.append(u"--- Fin diagnóstico SHARED_PARAMS_FILE ---")
+
+
+def ensure_btz_shared_parameters(doc, log_lines):
+    """Vincula shared parameters BTZ (incl. BTZ_Status, BTZ_Source, BTZ_Confidence)."""
+    log_shared_params_diagnostics(log_lines)
+
+    if not SHARED_PARAMS_FILE or not os.path.isfile(SHARED_PARAMS_FILE):
+        raise IOError(
+            u"No se encontró el archivo de shared parameters:\n{0}".format(
+                SHARED_PARAMS_FILE
+            )
+        )
+
+    app = doc.Application
+    app.SharedParametersFilename = SHARED_PARAMS_FILE
+    def_file = app.OpenSharedParameterFile()
+    if def_file is None:
+        raise IOError(
+            u"Revit no pudo abrir/parsear el shared parameter file.\n"
+            u"Comprobá formato TAB, encoding UTF-8 y que el archivo no esté corrupto:\n{0}".format(
+                SHARED_PARAMS_FILE
+            )
+        )
+
+    definition_map = _get_definition_map(def_file)
+    names_revit = sorted(definition_map.keys())
+    log_lines.append(
+        u"Parámetros cargados por Revit (Definition.Name): {0}".format(len(names_revit))
+    )
+    if names_revit:
+        log_lines.append(u"Lista (Revit): {0}".format(u", ".join(names_revit)))
+
+    missing = []
+    for n in ALL_BIND_PARAMS:
+        nu = _unicode_name(n)
+        if nu not in definition_map:
+            missing.append(nu)
+
+    if missing:
+        log_lines.append(
+            u"Parámetros requeridos por el script que NO están en el mapa de Revit: {0}".format(
+                u", ".join(missing)
+            )
+        )
+        raise ValueError(
+            u"Faltan parámetros en el shared parameter file (según Revit): {0}".format(
+                u", ".join(missing)
+            )
+        )
+
+    catset = _build_model_category_set(doc)
+    creator = doc.Application.Create
+    existing_names = _get_existing_binding_names(doc)
+
+    tx = Transaction(doc, u"BTZ | Vincular shared parameters (Exportar grupos)")
+    tx.Start()
+    try:
+        for name in ALL_BIND_PARAMS:
+            nu = _unicode_name(name)
+            definition = definition_map[nu]
+            binding = creator.NewInstanceBinding(catset)
+            if nu in existing_names:
+                doc.ParameterBindings.ReInsert(
+                    definition, binding, GroupTypeId.Text
+                )
+            else:
+                ok = doc.ParameterBindings.Insert(
+                    definition, binding, GroupTypeId.Text
+                )
+                if not ok:
+                    doc.ParameterBindings.ReInsert(
+                        definition, binding, GroupTypeId.Text
+                    )
+        tx.Commit()
+    except Exception:
+        try:
+            tx.RollBack()
+        except Exception:
+            pass
+        raise
+
+    log_lines.append(
+        u"Shared parameters BTZ vinculados correctamente ({0} definiciones).".format(
+            len(ALL_BIND_PARAMS)
+        )
+    )
+
+
+# =============================================================================
+# Mapa group_key → elementos (misma clave que build_group_key / export)
+# =============================================================================
+
+
+def map_group_key_to_elements(element_rows):
+    """
+    Devuelve dict group_key → lista de element_id (int) para todos los elementos exportados.
+    Debe coincidir con la lógica de group_key usada en collect_revit_elements.
+    """
+    m = {}
+    for r in element_rows:
+        gk = r[u"group_key"]
+        eid = r[u"element_id"]
+        m.setdefault(gk, []).append(eid)
+    return m
+
+
+def save_group_key_element_ids_json(path, element_rows, log_lines):
+    m = map_group_key_to_elements(element_rows)
+    with codecs.open(path, u"w", u"utf-8") as fp:
+        fp.write(json.dumps(m, ensure_ascii=False, indent=2))
+    log_lines.append(u"Guardado mapa group_key → ids: {0}".format(path))
+
+
+def load_group_key_element_ids_from_json(path, log_lines):
+    with codecs.open(path, u"r", u"utf-8-sig") as fp:
+        raw = fp.read()
+    data = json.loads(raw)
+    out = {}
+    for k, v in data.items():
+        out[unicode(k)] = [int(x) for x in v]
+    log_lines.append(u"Cargado mapa group_key desde {0}".format(path))
+    return out
+
+
+# =============================================================================
+# Respuesta n8n (group_btz_mapping_result)
+# =============================================================================
+
+
+def _repair_duplicate_reason_confidence_in_json(s):
+    """
+    Repara JSON roto por el LLM: repite confidence+reason con el mismo texto que reason previo.
+    Se aplica en bucle por si hay más de un bloque defectuoso.
+    """
+    pat = ur'("reason"\s*:\s*"((?:[^"\\]|\\.)*)")\s*,\s*\n\s*"confidence"\s*:\s*[^,]+,\s*\n\s*"reason"\s*:\s*"\2"'
+    prev = None
+    while prev != s:
+        prev = s
+        s = re.sub(pat, ur"\1\n        }", s)
+    return s
+
+
+def _parse_json_from_raw_output(raw, log_lines):
+    """
+    Parsea el string en raw_output (n8n). Si el JSON es inválido, intenta reparación heurística.
+    """
+    raw_str = unicode(raw).strip()
+    if not raw_str:
+        return None
+    try:
+        return json.loads(raw_str)
+    except Exception as ex:
+        if log_lines is not None:
+            log_lines.append(u"raw_output: JSON inválido ({0}); intentando reparar…".format(ex))
+    try:
+        repaired = _repair_duplicate_reason_confidence_in_json(raw_str)
+        return json.loads(repaired)
+    except Exception as ex2:
+        if log_lines is not None:
+            log_lines.append(u"raw_output: sigue sin parsear: {0}".format(ex2))
+        return None
+
+
+def normalize_webhook_response(parsed, log_lines=None):
+    """
+    - Lista raíz [ {...} ]: primer dict o merge de group_mappings.
+    - n8n a veces devuelve group_mappings vacío y el JSON real en raw_output (string).
+    """
+    if isinstance(parsed, list):
+        if not parsed:
+            raise ValueError(u"Respuesta JSON: lista vacía en la raíz")
+        merged = None
+        for item in parsed:
+            if not isinstance(item, dict):
+                continue
+            if merged is None:
+                merged = dict(item)
+            else:
+                gm_a = merged.get(u"group_mappings")
+                if gm_a is None:
+                    gm_a = merged.get("group_mappings")
+                if gm_a is None:
+                    gm_a = []
+                gm_b = item.get(u"group_mappings")
+                if gm_b is None:
+                    gm_b = item.get("group_mappings")
+                if gm_b is None:
+                    gm_b = []
+                if isinstance(gm_a, list) and isinstance(gm_b, list):
+                    merged[u"group_mappings"] = gm_a + gm_b
+        if merged is None:
+            raise ValueError(u"Respuesta JSON: lista sin objetos válidos")
+        parsed = merged
+
+    if not isinstance(parsed, dict):
+        raise ValueError(u"Respuesta no es un objeto JSON")
+
+    gm = parsed.get(u"group_mappings")
+    if gm is None:
+        gm = parsed.get("group_mappings")
+    if gm is None:
+        gm = []
+    if not isinstance(gm, list):
+        gm = []
+
+    if len(gm) == 0:
+        raw = parsed.get(u"raw_output")
+        if raw is None:
+            raw = parsed.get("raw_output")
+        if raw:
+            inner = _parse_json_from_raw_output(raw, log_lines)
+            if isinstance(inner, list):
+                inner = inner[0] if (len(inner) and isinstance(inner[0], dict)) else None
+            if isinstance(inner, dict):
+                gm2 = inner.get(u"group_mappings")
+                if gm2 is None:
+                    gm2 = inner.get("group_mappings")
+                if isinstance(gm2, list) and len(gm2) > 0:
+                    if log_lines is not None:
+                        log_lines.append(
+                            u"Respuesta n8n: group_mappings vacío en raíz; se usó raw_output ({0} grupos).".format(
+                                len(gm2)
+                            )
+                        )
+                    out = {
+                        u"mode": inner.get(u"mode")
+                        or inner.get("mode")
+                        or u"group_btz_mapping_result",
+                        u"group_mappings": gm2,
+                    }
+                    pn = inner.get(u"project_name")
+                    if pn is None:
+                        pn = inner.get("project_name")
+                    if pn is not None:
+                        out[u"project_name"] = pn
+                    return out
+
+    return parsed
+
+
+def load_group_mapping_response(parsed, log_lines=None):
+    """
+    Valida JSON de n8n con mode=group_btz_mapping_result y devuelve group_mappings.
+    """
+    parsed = normalize_webhook_response(parsed, log_lines)
+
+    if not isinstance(parsed, dict):
+        raise ValueError(u"Respuesta no es un objeto JSON")
+
+    mode = parsed.get(u"mode") or parsed.get("mode")
+    if mode not in (u"group_btz_mapping_result", "group_btz_mapping_result"):
+        raise ValueError(
+            u"mode inesperado (esperado group_btz_mapping_result): {0}".format(mode)
+        )
+
+    gm = parsed.get(u"group_mappings")
+    if gm is None:
+        gm = parsed.get("group_mappings")
+    if gm is None:
+        raise ValueError(u"Falta group_mappings en la respuesta")
+    if not isinstance(gm, list):
+        raise ValueError(u"group_mappings debe ser una lista")
+
+    return gm
+
+
+def save_webhook_response(path, raw_text, log_lines):
+    with codecs.open(path, u"w", u"utf-8") as fp:
+        fp.write(raw_text)
+    log_lines.append(u"Guardado: {0}".format(path))
+
+
+# =============================================================================
+# Aplicación por grupo (slots libres locales; sin checklist)
+# =============================================================================
+
+
+def _norm_key_btz(s):
+    return (s or u"").strip().lower()
+
+
+def _format_display_value_from_candidate(c):
+    disp = c.get(u"display_value")
+    if disp is None:
+        disp = c.get("display_value")
+    if disp is not None and unicode(disp).strip():
+        return unicode(disp).strip()
+    code = unicode(
+        c.get(u"matched_code") or c.get("matched_code") or u""
+    ).strip()
+    val = unicode(
+        c.get(u"suggested_value") or c.get("suggested_value") or u""
+    ).strip()
+    if code and val:
+        return u"{0} - {1}".format(code, val)
+    return val or code
+
+
+def get_free_btz_slots(element):
+    """BTZ_Description_01…13 vacíos, en orden."""
+    empty = []
+    for pname in PARAM_NUMERIC:
+        val = _param_value_as_string(element, pname)
+        if not (val or u"").strip():
+            empty.append(pname)
+    return empty
+
+
+def get_existing_btz_values(element):
+    """Valores no vacíos en BTZ_Description y _01…13 (para detectar duplicados)."""
+    vals = set()
+    for pname in ALL_BTZ_PARAMS:
+        raw = _param_value_as_string(element, pname)
+        s = (raw or u"").strip()
+        if s:
+            vals.add(_norm_key_btz(s))
+    return vals
+
+
+def choose_btz_candidates_for_element(element, candidate_btz_list):
+    """
+    Filtra candidate_btz: already_present false, confidence >= AUTO_APPLY_CONFIDENCE,
+    orden por confidence descendente, sin duplicar valor ya presente en el elemento.
+    """
+    existing = get_existing_btz_values(element)
+    picked = []
+    for c in candidate_btz_list:
+        if not isinstance(c, dict):
+            continue
+        alr = c.get(u"already_present", c.get("already_present", False))
+        if alr:
+            continue
+        try:
+            conf = float(c.get(u"confidence", c.get("confidence", 0)))
+        except Exception:
+            conf = 0.0
+        if conf < AUTO_APPLY_CONFIDENCE:
+            continue
+        disp = _format_display_value_from_candidate(c)
+        if not disp:
+            continue
+        nk = _norm_key_btz(disp)
+        if nk in existing:
+            continue
+        picked.append((conf, c, disp, nk))
+
+    picked.sort(key=lambda x: -x[0])
+    out = []
+    seen_disp = set()
+    for conf, c, disp, nk in picked:
+        if nk in seen_disp:
+            continue
+        seen_disp.add(nk)
+        out.append({u"c": c, u"disp": disp, u"conf": conf, u"nk": nk})
+    return out
+
+
+def set_text_parameter(element, param_name, value):
+    param = element.LookupParameter(param_name)
+    if param is None:
+        return False, u"sin parámetro: {0}".format(param_name)
+    if param.IsReadOnly:
+        return False, u"solo lectura: {0}".format(param_name)
+    try:
+        param.Set(value)
+        return True, None
+    except Exception as ex:
+        return False, unicode(ex)
+
+
+def _compute_slot_assignments(element, ordered_candidates):
+    """
+    ordered_candidates: salida de choose_btz_candidates_for_element (lista de dicts con disp, conf).
+    Asigna a los primeros slots libres sin pisar ocupados.
+    """
+    free_slots = get_free_btz_slots(element)
+    assignments = []
+    max_conf = 0.0
+    for item in ordered_candidates:
+        if not free_slots:
+            break
+        disp = item[u"disp"]
+        conf = item[u"conf"]
+        slot = free_slots.pop(0)
+        assignments.append((slot, disp, conf))
+        if conf > max_conf:
+            max_conf = conf
+    return assignments, max_conf
+
+
+def apply_group_mapping_to_elements(doc, mapping, group_key_to_ids, log_lines, apply_rows):
+    """
+    Aplica un item de group_mappings a todos los element_id de ese group_key.
+    """
+    local = {
+        u"elements_updated": 0,
+        u"elements_skipped": 0,
+        u"btz_written": 0,
+        u"errors": [],
+        u"group_applied": False,
+    }
+
+    gk = mapping.get(u"group_key") or mapping.get("group_key")
+    if gk is None:
+        local[u"errors"].append(u"Mapping sin group_key")
+        return local
+    gk = unicode(gk)
+
+    cands = mapping.get(u"candidate_btz") or mapping.get("candidate_btz") or []
+    if not isinstance(cands, list) or not cands:
+        return local
+
+    ids = group_key_to_ids.get(gk)
+    if not ids:
+        local[u"errors"].append(
+            u"group_key sin elementos en export actual: {0}".format(gk[:120])
+        )
+        return local
+
+    for eid in ids:
+        try:
+            eid_obj = ElementId(int(eid))
+        except Exception:
+            local[u"errors"].append(u"Id inválido: {0}".format(eid))
+            continue
+
+        el = doc.GetElement(eid_obj)
+        if el is None:
+            local[u"errors"].append(u"Elemento no encontrado: {0}".format(eid))
+            local[u"elements_skipped"] += 1
+            continue
+
+        ordered_raw = choose_btz_candidates_for_element(el, cands)
+        if not ordered_raw:
+            local[u"elements_skipped"] += 1
+            continue
+
+        assignments, max_conf = _compute_slot_assignments(el, ordered_raw)
+        if not assignments:
+            local[u"elements_skipped"] += 1
+            continue
+
+        tx = Transaction(doc, u"BTZ | Auto grupo n8n")
+        tx.Start()
+        err_tx = None
+        try:
+            for slot, disp, _cconf in assignments:
+                ok, err = set_text_parameter(el, slot, disp)
+                if not ok:
+                    err_tx = err
+                    break
+
+            if err_tx:
+                tx.RollBack()
+                local[u"errors"].append(
+                    u"Id {0}: {1}".format(eid, err_tx)
+                )
+                continue
+
+            ok, err = set_text_parameter(el, PARAM_BASE, u"*")
+            if not ok:
+                tx.RollBack()
+                local[u"errors"].append(u"Id {0} *: {1}".format(eid, err))
+                continue
+            ok, err = set_text_parameter(el, PARAM_STATUS, u"Suggested")
+            if not ok:
+                tx.RollBack()
+                local[u"errors"].append(u"Id {0} Status: {1}".format(eid, err))
+                continue
+            ok, err = set_text_parameter(el, PARAM_SOURCE, u"AI")
+            if not ok:
+                tx.RollBack()
+                local[u"errors"].append(u"Id {0} Source: {1}".format(eid, err))
+                continue
+            conf_str = u"{0:.4f}".format(max_conf)
+            ok, err = set_text_parameter(el, PARAM_CONFIDENCE, conf_str)
+            if not ok:
+                tx.RollBack()
+                local[u"errors"].append(u"Id {0} Confidence: {1}".format(eid, err))
+                continue
+
+            tx.Commit()
+        except Exception as ex:
+            try:
+                tx.RollBack()
+            except Exception:
+                pass
+            local[u"errors"].append(u"Id {0}: {1}".format(eid, unicode(ex)))
+            continue
+
+        local[u"elements_updated"] += 1
+        local[u"btz_written"] += len(assignments)
+        local[u"group_applied"] = True
+        apply_rows.append({
+            u"group_key": gk,
+            u"element_id": eid,
+            u"slots": len(assignments),
+            u"max_confidence": max_conf,
+        })
+
+    return local
+
+
+def apply_all_group_mappings(doc, group_mappings, group_key_to_ids, log_lines):
+    """
+    Recorre group_mappings; no corta la corrida ante error en un grupo/elemento.
+    """
+    stats = {
+        u"groups_received": len(group_mappings),
+        u"groups_with_candidates": 0,
+        u"groups_applied": 0,
+        u"elements_updated": 0,
+        u"elements_skipped": 0,
+        u"btz_slots_written": 0,
+        u"errors": [],
+    }
+    apply_rows = []
+
+    for mapping in group_mappings:
+        if not isinstance(mapping, dict):
+            continue
+        cands = mapping.get(u"candidate_btz") or mapping.get("candidate_btz") or []
+        if isinstance(cands, list) and len(cands) > 0:
+            stats[u"groups_with_candidates"] += 1
+
+        loc = apply_group_mapping_to_elements(
+            doc, mapping, group_key_to_ids, log_lines, apply_rows
+        )
+        stats[u"elements_updated"] += loc[u"elements_updated"]
+        stats[u"elements_skipped"] += loc[u"elements_skipped"]
+        stats[u"btz_slots_written"] += loc[u"btz_written"]
+        stats[u"errors"].extend(loc[u"errors"])
+        if loc[u"group_applied"]:
+            stats[u"groups_applied"] += 1
+
+    return stats, apply_rows
+
+
+def export_apply_results_txt(path, apply_rows, log_lines):
+    lines = [
+        u"element_id\tgroup_key\tslots\tmax_confidence",
+    ]
+    for r in apply_rows:
+        lines.append(
+            u"{0}\t{1}\t{2}\t{3}".format(
+                r[u"element_id"],
+                r[u"group_key"].replace(u"\t", u" "),
+                r[u"slots"],
+                r[u"max_confidence"],
+            )
+        )
+    with codecs.open(path, u"w", u"utf-8-sig") as fp:
+        fp.write(u"\n".join(lines) + u"\n")
+    log_lines.append(u"Guardado: {0}".format(path))
+
+
+def show_apply_summary(stats, log_lines):
+    msg = (
+        u"--- Aplicación BTZ (n8n por grupo) ---\n"
+        u"Grupos recibidos: {groups_received}\n"
+        u"Grupos con candidate_btz: {groups_with_candidates}\n"
+        u"Grupos con al menos un elemento actualizado: {groups_applied}\n"
+        u"Elementos actualizados: {elements_updated}\n"
+        u"Elementos sin cambios / sin slots: {elements_skipped}\n"
+        u"Slots BTZ escritos (01–13): {btz_slots_written}\n"
+        u"Errores (lista): {err_count}"
+    ).format(
+        groups_received=stats[u"groups_received"],
+        groups_with_candidates=stats[u"groups_with_candidates"],
+        groups_applied=stats[u"groups_applied"],
+        elements_updated=stats[u"elements_updated"],
+        elements_skipped=stats[u"elements_skipped"],
+        btz_slots_written=stats[u"btz_slots_written"],
+        err_count=len(stats[u"errors"]),
+    )
+    if stats[u"errors"]:
+        msg += u"\n\n" + u"\n".join(stats[u"errors"][:40])
+        if len(stats[u"errors"]) > 40:
+            msg += u"\n… ({0} más)".format(len(stats[u"errors"]) - 40)
+
+    log_lines.append(msg)
+    print(msg)
+    forms.alert(msg, title=u"BTZ — aplicación automática", warn_icon=bool(stats[u"errors"]))
+
+
+def try_apply_webhook_response(doc, parsed, element_rows, log_lines, force_apply=False):
+    """
+    Vincula shared params, valida group_btz_mapping_result, aplica por grupo.
+    element_rows: si None, se usa group_key_element_ids.json (mismo export).
+    force_apply: si True, aplica aunque APPLY_WEBHOOK_RESULTS sea False (botón «Ejecutar automático»).
+    """
+    if not force_apply and not APPLY_WEBHOOK_RESULTS:
+        return
+    if parsed is None:
+        log_lines.append(u"APPLY_WEBHOOK_RESULTS: sin respuesta JSON.")
+        return
+
+    try:
+        ensure_btz_shared_parameters(doc, log_lines)
+        gms = load_group_mapping_response(parsed, log_lines)
+    except Exception as ex:
+        log_lines.append(u"Validación / shared params: {0}".format(ex))
+        forms.alert(
+            u"No se pudo preparar la aplicación:\n{0}".format(ex),
+            title=u"BTZ — aplicación",
+            warn_icon=True,
+        )
+        return
+
+    if element_rows is not None:
+        gk_map = map_group_key_to_elements(element_rows)
+    else:
+        if not os.path.isfile(GROUP_KEY_ELEMENT_IDS_JSON_PATH):
+            forms.alert(
+                u"Falta el mapa de grupos:\n{0}\n\n"
+                u"Ejecutá export completo (SEND_PAYLOAD_FILE_ONLY=False) antes.".format(
+                    GROUP_KEY_ELEMENT_IDS_JSON_PATH
+                ),
+                title=u"BTZ — aplicación",
+                warn_icon=True,
+            )
+            return
+        gk_map = load_group_key_element_ids_from_json(
+            GROUP_KEY_ELEMENT_IDS_JSON_PATH, log_lines
+        )
+
+    stats, apply_rows = apply_all_group_mappings(doc, gms, gk_map, log_lines)
+    path_apply = os.path.join(PUBLIC_DIR, u"apply_results.txt")
+    if EXPORT_APPLY_RESULTS_TXT:
+        export_apply_results_txt(path_apply, apply_rows, log_lines)
+    show_apply_summary(stats, log_lines)
+
+
+# =============================================================================
+# Webhook
+# =============================================================================
+
+
+def _format_webhook_exception(ex):
+    """
+    Mensaje claro para timeouts .NET (10060), n8n caído, firewall, etc.
+    """
+    try:
+        msg = unicode(ex)
+    except Exception:
+        msg = u"(sin mensaje)"
+    try:
+        if hasattr(ex, u"InnerException") and ex.InnerException is not None:
+            msg += u" | " + unicode(ex.InnerException)
+    except Exception:
+        pass
+    low = msg.lower()
+    if (
+        u"10060" in msg
+        or u"timed out" in low
+        or u"timeout" in low
+        or u"no properly respond" in low
+        or u"failed to respond" in low
+    ):
+        return (
+            u"Timeout o sin respuesta del servidor (n8n / red). "
+            u"Revisá: internet, firewall, VPN, que el workflow en n8n esté ACTIVO, "
+            u"y probá subir N8N_TIMEOUT_SEC (ahora {0}s). "
+            u"El payload ya quedó en public/payload_groups.json para enviar a mano.\n\n"
+            u"Detalle técnico: {1}"
+        ).format(N8N_TIMEOUT_SEC, msg[:450])
+    return u"Error al llamar al webhook:\n{0}".format(msg[:600])
+
+
+def call_webhook(payload, log_lines):
+    """
+    POST JSON al webhook. Lanza ValueError ante timeout, HTTP != 200, vacío o JSON inválido.
+
+    En IronPython, los timeouts suelen aparecer como System.IO.IOException (socket 10060),
+    no siempre como urllib2.URLError.
+    """
+    url = N8N_WEBHOOK_URL
+    if not url:
+        raise ValueError(u"N8N_WEBHOOK_URL vacía")
+
+    data = json.dumps(payload, ensure_ascii=False)
+    if isinstance(data, unicode):
+        data = data.encode(u"utf-8")
+
+    req = urllib2.Request(
+        url,
+        data,
+        headers={u"Content-Type": u"application/json; charset=utf-8"},
+    )
+
+    log_lines.append(
+        u"Webhook: POST (timeout {0}s) → {1}".format(N8N_TIMEOUT_SEC, url)
+    )
+    print(u"[ExportarGrupos] POST {0}".format(url))
+    try:
+        resp = urllib2.urlopen(req, timeout=N8N_TIMEOUT_SEC)
+    except urllib2.HTTPError as e:
+        try:
+            body = e.read()
+            if hasattr(body, u"decode"):
+                body = body.decode(u"utf-8")
+        except Exception:
+            body = u""
+        log_lines.append(u"HTTP {0}: {1}".format(e.code, body[:500]))
+        raise ValueError(u"n8n HTTP {0}".format(e.code))
+    except urllib2.URLError as e:
+        msg = unicode(e.reason) if e.reason else u"red"
+        raise ValueError(_format_webhook_exception(e))
+    except IOError as e:
+        raise ValueError(_format_webhook_exception(e))
+    except Exception as e:
+        # IronPython: System.IO.IOException, SocketException 10060, etc.
+        raise ValueError(_format_webhook_exception(e))
+
+    raw = resp.read()
+    if hasattr(raw, u"decode"):
+        raw = raw.decode(u"utf-8")
+
+    code = resp.getcode()
+    if code != 200:
+        raise ValueError(u"HTTP {0}".format(code))
+    if not (raw or u"").strip():
+        raise ValueError(u"Respuesta vacía")
+
+    try:
+        parsed = json.loads(raw)
+    except ValueError as e:
+        raise ValueError(u"JSON inválido: {0}".format(e))
+
+    log_lines.append(u"Webhook OK, respuesta {0} caracteres".format(len(raw)))
+    return parsed, raw
+
+
+# =============================================================================
+# main
+# =============================================================================
+
+
+def main_apply_saved_webhook_only():
+    """
+    Solo aplica candidatos BTZ desde public/webhook_response.json.
+    No recorre el modelo ni hace POST al webhook.
+    (Invocado desde el botón «Ejecutar automático».)
+    """
+    log_lines = []
+    log_lines.append(u"Modo: aplicar solo desde public/webhook_response.json")
+    log_lines.append(u"PUBLIC_DIR={0}".format(PUBLIC_DIR))
+
+    doc = revit.doc
+    path_log = os.path.join(PUBLIC_DIR, u"run_log.txt")
+    path_webhook_resp = WEBHOOK_RESPONSE_JSON_PATH
+
+    try:
+        _ensure_public_dir()
+    except Exception as ex:
+        forms.alert(
+            u"No se pudo acceder a public/: {0}".format(ex),
+            title=u"Ejecutar automático",
+            warn_icon=True,
+        )
+        return
+
+    if not os.path.isfile(path_webhook_resp):
+        forms.alert(
+            u"No hay respuesta guardada:\n{0}\n\n"
+            u"Ejecutá antes «Exportar grupos» (envío a n8n) o pegá ahí el JSON de la respuesta.".format(
+                path_webhook_resp
+            ),
+            title=u"Ejecutar automático",
+            warn_icon=True,
+        )
+        return
+
+    try:
+        parsed = load_payload_from_json_file(path_webhook_resp, log_lines)
+        try_apply_webhook_response(doc, parsed, None, log_lines, force_apply=True)
+        log_lines.append(u"Fin OK")
+    except Exception as ex:
+        log_lines.append(u"ERROR: {0}".format(ex))
+        append_run_log(path_log, log_lines)
+        forms.alert(
+            u"{0}\n\nDetalle en run_log.txt".format(ex),
+            title=u"Ejecutar automático",
+            warn_icon=True,
+        )
+        print(u"\n".join(log_lines))
+        return
+
+    append_run_log(path_log, log_lines)
+    print(u"\n".join(log_lines))
+
+
+def main_send_payload_file_only():
+    """
+    Solo envía a n8n el contenido de PAYLOAD_GROUPS_JSON_PATH (sin barrer el modelo).
+    """
+    log_lines = []
+    log_lines.append(u"Modo: enviar JSON desde disco → n8n")
+    log_lines.append(u"Archivo: {0}".format(PAYLOAD_GROUPS_JSON_PATH))
+    log_lines.append(u"Webhook: {0}".format(N8N_WEBHOOK_URL))
+
+    try:
+        _ensure_public_dir()
+    except Exception as ex:
+        forms.alert(
+            u"No se pudo crear public/: {0}".format(ex),
+            title=u"Exportar grupos",
+            warn_icon=True,
+        )
+        return
+
+    path_log = os.path.join(PUBLIC_DIR, u"run_log.txt")
+    path_webhook_resp = WEBHOOK_RESPONSE_JSON_PATH
+    doc = revit.doc
+
+    if not os.path.isfile(PAYLOAD_GROUPS_JSON_PATH):
+        forms.alert(
+            u"No se encontró el payload:\n{0}\n\n"
+            u"Poné ahí el JSON o generá uno con SEND_PAYLOAD_FILE_ONLY = False.".format(
+                PAYLOAD_GROUPS_JSON_PATH
+            ),
+            title=u"Exportar grupos",
+            warn_icon=True,
+        )
+        return
+
+    try:
+        payload = load_payload_from_json_file(PAYLOAD_GROUPS_JSON_PATH, log_lines)
+        if not SEND_TO_WEBHOOK:
+            log_lines.append(u"SEND_TO_WEBHOOK=False: no se envía.")
+            append_run_log(path_log, log_lines)
+            forms.alert(
+                u"Payload cargado pero SEND_TO_WEBHOOK está en False.",
+                title=u"Exportar grupos",
+                warn_icon=True,
+            )
+            print(u"\n".join(log_lines))
+            return
+
+        parsed, webhook_raw = call_webhook(payload, log_lines)
+        if SAVE_WEBHOOK_RESPONSE and webhook_raw is not None:
+            save_webhook_response(path_webhook_resp, webhook_raw, log_lines)
+
+        if APPLY_WEBHOOK_RESULTS:
+            try_apply_webhook_response(doc, parsed, None, log_lines)
+
+        log_lines.append(u"Fin OK")
+    except Exception as ex:
+        log_lines.append(u"ERROR: {0}".format(ex))
+        append_run_log(path_log, log_lines)
+        forms.alert(
+            u"{0}\n\nDetalle en run_log.txt".format(ex),
+            title=u"Exportar grupos",
+            warn_icon=True,
+        )
+        print(u"\n".join(log_lines))
+        return
+
+    append_run_log(path_log, log_lines)
+    if not APPLY_WEBHOOK_RESULTS:
+        forms.alert(
+            u"Enviado a n8n.\n\nRespuesta guardada en:\n{0}".format(path_webhook_resp),
+            title=u"Exportar grupos",
+            warn_icon=False,
+        )
+    print(u"\n".join(log_lines))
+
+
+def main():
+    if SEND_PAYLOAD_FILE_ONLY:
+        main_send_payload_file_only()
+        return
+
+    log_lines = []
+    doc = revit.doc
+
+    log_lines.append(u"Inicio ExportarGrupos (export completo)")
+    log_lines.append(u"PUBLIC_DIR={0}".format(PUBLIC_DIR))
+    log_lines.append(
+        u"EXPORT_ONLY={0} SEND_TO_WEBHOOK={1} APPLY_WEBHOOK_RESULTS={2}".format(
+            EXPORT_ONLY, SEND_TO_WEBHOOK, APPLY_WEBHOOK_RESULTS
+        )
+    )
+
+    try:
+        _ensure_public_dir()
+    except Exception as ex:
+        forms.alert(
+            u"No se pudo crear public/: {0}".format(ex),
+            title=u"Exportar grupos",
+            warn_icon=True,
+        )
+        return
+
+    path_elements = os.path.join(PUBLIC_DIR, u"revit_elements.csv")
+    path_groups = os.path.join(PUBLIC_DIR, u"revit_groups.csv")
+    path_payload = os.path.join(PUBLIC_DIR, u"payload_groups.json")
+    path_blocks_snapshot = os.path.join(PUBLIC_DIR, u"blocks_snapshot.csv")
+    path_log = os.path.join(PUBLIC_DIR, u"run_log.txt")
+    path_webhook_resp = WEBHOOK_RESPONSE_JSON_PATH
+    path_gk_ids = GROUP_KEY_ELEMENT_IDS_JSON_PATH
+
+    try:
+        element_rows = collect_revit_elements(doc, log_lines)
+        groups = group_elements(element_rows)
+
+        export_revit_elements_csv(path_elements, element_rows, log_lines)
+        export_revit_groups_csv(path_groups, groups, log_lines)
+        save_group_key_element_ids_json(path_gk_ids, element_rows, log_lines)
+
+        blocks_struct = load_blocks_csv(BLOCKS_CSV_FILE, log_lines)
+        blocks_csv_text = read_blocks_csv_raw(BLOCKS_CSV_FILE, log_lines)
+        save_blocks_snapshot(path_blocks_snapshot, blocks_csv_text, log_lines)
+
+        payload = build_group_payload(doc, groups, blocks_struct, blocks_csv_text)
+        save_payload_json(path_payload, payload, log_lines)
+
+        parsed = None
+        webhook_raw = None
+        if not EXPORT_ONLY and SEND_TO_WEBHOOK:
+            try:
+                parsed, webhook_raw = call_webhook(payload, log_lines)
+                if SAVE_WEBHOOK_RESPONSE and webhook_raw is not None:
+                    save_webhook_response(path_webhook_resp, webhook_raw, log_lines)
+            except Exception as ex:
+                log_lines.append(u"--- Webhook: falló (la exportación en public/ ya está guardada) ---")
+                log_lines.append(unicode(ex))
+                try:
+                    forms.alert(
+                        u"{0}\n\n"
+                        u"Los CSV y payload_groups.json ya están en public/. "
+                        u"Podés reenviar el JSON a n8n a mano o ejecutar de nuevo.".format(
+                            unicode(ex)
+                        ),
+                        title=u"Exportar grupos — webhook",
+                        warn_icon=True,
+                    )
+                except Exception:
+                    pass
+        elif EXPORT_ONLY:
+            log_lines.append(
+                u"EXPORT_ONLY=True: no se envía al webhook (payload ya en disco)."
+            )
+        elif not SEND_TO_WEBHOOK:
+            log_lines.append(u"SEND_TO_WEBHOOK=False: no se envía al webhook.")
+
+        parsed_apply = parsed
+        if APPLY_WEBHOOK_RESULTS and parsed_apply is None and os.path.isfile(
+            path_webhook_resp
+        ):
+            parsed_apply = load_payload_from_json_file(path_webhook_resp, log_lines)
+            log_lines.append(
+                u"Aplicación: usando respuesta guardada en webhook_response.json."
+            )
+
+        if APPLY_WEBHOOK_RESULTS:
+            try_apply_webhook_response(doc, parsed_apply, element_rows, log_lines)
+
+        log_lines.append(u"Fin OK")
+    except Exception as ex:
+        log_lines.append(u"ERROR: {0}".format(ex))
+        append_run_log(path_log, log_lines)
+        forms.alert(
+            u"{0}\n\nDetalle en run_log.txt".format(ex),
+            title=u"Exportar grupos",
+            warn_icon=True,
+        )
+        print(u"\n".join(log_lines))
+        return
+
+    append_run_log(path_log, log_lines)
+
+    summary = (
+        u"Exportación completada.\n\n"
+        u"• {0}\n"
+        u"• {1}\n"
+        u"• {2}\n"
+        u"• {3} (copia de resources/blocks.csv)\n"
+        u"\nElementos: {4} | Grupos: {5}"
+    ).format(
+        path_elements,
+        path_groups,
+        path_payload,
+        path_blocks_snapshot,
+        len(element_rows),
+        len(groups),
+    )
+    if not EXPORT_ONLY and SEND_TO_WEBHOOK:
+        summary += u"\n\nRespuesta webhook: {0}".format(path_webhook_resp)
+    summary += u"\n\nMapa group_key→ids: {0}".format(path_gk_ids)
+    if EXPORT_APPLY_RESULTS_TXT:
+        summary += u"\nResultados aplicados (si hubo): {0}".format(
+            os.path.join(PUBLIC_DIR, u"apply_results.txt")
+        )
+
+    if not APPLY_WEBHOOK_RESULTS:
+        summary += (
+            u"\n\nSiguiente paso: botón «Ejecutar automático» para aplicar BTZ "
+            u"desde public/webhook_response.json al modelo."
+        )
+        forms.alert(summary, title=u"Exportar grupos", warn_icon=False)
+    else:
+        log_lines.append(summary)
+        print(summary)
+
+    print(u"\n".join(log_lines))
+
+
+if __name__ == u"__main__":
+    main()

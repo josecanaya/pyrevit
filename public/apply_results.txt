@@ -1,0 +1,1003 @@
+﻿element_id	group_key	slots	max_confidence
+495055	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495060	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495502	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495504	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495510	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495512	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495518	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495520	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495526	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495528	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495534	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495536	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495542	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495544	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495550	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495552	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495558	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495560	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495566	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495568	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495574	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495576	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495582	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495584	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495590	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495592	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495598	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495600	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495606	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495608	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495614	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495616	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495622	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495624	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495630	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495632	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495638	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495640	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495646	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495648	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495654	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495656	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495662	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495664	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495670	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495672	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495678	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495680	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495686	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495688	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495694	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495696	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+502641	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+502643	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503084	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503086	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503092	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503094	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503100	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503102	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503108	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503110	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503116	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503118	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503124	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503126	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503132	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503134	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503140	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503142	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503148	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503150	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503156	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503158	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503164	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503166	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503172	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503174	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503180	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503182	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503188	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503190	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503196	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503198	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503204	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503206	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503212	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503214	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503220	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503222	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503228	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503230	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503236	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503238	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503244	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503246	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503252	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503254	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503260	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503262	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503268	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503270	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503276	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+503278	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__st	4	1.0
+495702	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495704	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495710	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495712	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495718	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495720	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495726	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495728	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495734	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495736	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495742	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495744	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495750	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495752	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495758	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495760	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495766	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495768	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495774	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495776	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495782	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495784	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495790	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495792	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495798	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495800	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495806	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495808	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495814	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495816	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495822	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495824	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495830	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495832	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495838	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495840	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495846	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495848	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495854	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495856	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495862	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495864	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495870	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495872	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495878	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495880	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495886	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495888	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495894	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495896	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495902	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495904	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503284	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503286	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503292	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503294	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503300	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503302	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503308	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503310	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503316	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503318	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503324	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503326	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503332	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503334	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503340	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503342	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503348	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503350	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503356	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503358	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503364	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503366	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503372	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503374	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503380	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503382	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503388	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503390	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503396	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503398	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503404	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503406	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503412	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503414	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503420	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503422	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503428	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503430	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503436	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503438	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503444	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503446	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503452	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503454	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503460	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503462	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503468	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503470	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503476	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503478	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503484	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+503486	estructura|Structural Columns|H_Ala ancha-Pilar|HE300A||ref|test:nivel_3__sin_mark	4	1.0
+495170	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495172	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495174	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495176	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495178	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495180	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495182	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495184	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495186	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495188	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495190	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495192	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495194	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495196	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495198	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495200	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495202	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495204	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495206	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495208	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495210	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495212	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495214	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495216	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495218	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495220	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495222	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495224	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495226	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495228	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495230	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495232	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495234	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495236	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495238	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495240	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495242	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495244	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495246	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495248	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495250	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495252	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495254	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495256	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495258	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495260	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495262	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495264	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495266	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495268	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495270	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495272	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502753	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502755	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502757	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502759	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502761	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502763	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502765	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502767	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502769	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502771	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502773	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502775	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502777	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502779	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502781	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502783	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502785	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502787	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502789	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502791	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502793	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502795	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502797	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502799	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502801	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502803	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502805	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502807	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502809	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502811	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502813	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502815	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502817	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502819	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502821	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502823	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502825	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502827	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502829	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502831	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502833	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502835	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502837	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502839	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502841	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502843	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502845	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502847	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502849	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502851	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502853	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+502855	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__sin_mark	4	1.0
+495066	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495068	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495070	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495072	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495074	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495076	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495078	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495080	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495082	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495084	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495086	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495088	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495090	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495092	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495094	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495096	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495098	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495100	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495102	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495104	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495106	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495108	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495110	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495112	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495114	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495116	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495118	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495120	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495122	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495124	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495126	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495128	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495130	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495132	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495134	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495136	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495138	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495140	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495142	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495144	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495146	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495148	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495150	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495152	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495154	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495156	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495158	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495160	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495162	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495164	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495166	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495168	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502649	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502651	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502653	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502655	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502657	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502659	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502661	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502663	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502665	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502667	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502669	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502671	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502673	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502675	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502677	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502679	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502681	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502683	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502685	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502687	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502689	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502691	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502693	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502695	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502697	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502699	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502701	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502703	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502705	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502707	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502709	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502711	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502713	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502715	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502717	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502719	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502721	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502723	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502725	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502727	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502729	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502731	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502733	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502735	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502737	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502739	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502741	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502743	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502745	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502747	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502749	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+502751	estructura|Structural Columns|Hormigón-Rectangular-Pilar|20*20||ref|test:npt_-0_53__st	4	1.0
+495373	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495375	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495377	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495379	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495381	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495383	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495385	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495387	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495389	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495391	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495393	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495395	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495397	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495399	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495401	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495403	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495405	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495407	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495409	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495411	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495413	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495415	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495417	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495419	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495421	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495423	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495425	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495427	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495429	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495431	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495433	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495435	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495437	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495439	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495441	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495443	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495445	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495447	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495449	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495451	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495473	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495475	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495477	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495479	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495481	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495483	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495485	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495487	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495489	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495491	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495493	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495495	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502955	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502957	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502959	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502961	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502963	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502965	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502967	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502969	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502971	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502973	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502975	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502977	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502979	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502981	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502983	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502985	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502987	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502989	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502991	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502993	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502995	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502997	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+502999	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503001	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503003	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503005	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503007	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503009	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503011	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503013	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503015	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503017	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503019	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503021	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503023	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503025	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503027	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503029	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503031	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503033	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503055	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503057	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503059	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503061	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503063	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503065	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503067	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503069	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503071	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503073	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503075	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+503077	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__sin_mark	3	1.0
+495295	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495297	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495299	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495301	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495303	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495305	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495307	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495309	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495311	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495313	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495315	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495317	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495319	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495321	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495323	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495325	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495327	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495329	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495331	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495333	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495335	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495337	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495339	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495341	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495343	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495345	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495347	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495349	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495351	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495353	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495355	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495357	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495359	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495361	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495363	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495365	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495367	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495369	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495371	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495453	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495455	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495457	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495459	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495461	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495463	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495465	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495467	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495469	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495471	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495497	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495499	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502877	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502879	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502881	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502883	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502885	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502887	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502889	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502891	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502893	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502895	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502897	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502899	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502901	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502903	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502905	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502907	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502909	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502911	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502913	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502915	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502917	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502919	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502921	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502923	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502925	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502927	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502929	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502931	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502933	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502935	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502937	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502939	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502941	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502943	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502945	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502947	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502949	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502951	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+502953	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+503035	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+503037	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+503039	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+503041	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+503043	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+503045	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+503047	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+503049	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+503051	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+503053	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+503079	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+503081	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:npt_-0_53__st	3	1.0
+495293	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:nivel_4__st	3	1.0
+502875	estructura|Structural Foundations|M_Zapata-Rectangular|Base Isowea||ref|test:nivel_4__st	3	1.0
+495927	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+495931	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+495933	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+495935	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+497347	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+497349	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+497351	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+497353	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+497355	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+497357	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+497359	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+497363	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+497983	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+497985	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+497987	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+497989	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+497991	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+497993	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+497995	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+497997	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+502857	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+502859	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+502861	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+502863	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+502865	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+502867	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+502869	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+502873	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+503493	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+503495	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+503497	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+503499	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+503501	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+503503	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+503505	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+503507	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+503509	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+503513	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+503515	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+503517	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+517575	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+517577	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+517579	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+517581	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+517583	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+517585	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+517587	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+517589	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+517592	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+517594	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+517596	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+517598	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+517600	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+517602	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+517604	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+517606	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+518445	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+518449	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__sin_mark	3	1.0
+495929	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__st	3	1.0
+495937	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__st	3	1.0
+503511	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__st	3	1.0
+503519	estructura|Structural Framing|Familia2|Familia2||ref|test:nivel_2__st	3	1.0
+518443	estructura|Structural Framing|Familia2|Familia2||ref|test:npt_2_92__st	3	1.0
+518451	estructura|Structural Framing|Familia2|Familia2||ref|test:npt_2_92__st	3	1.0
+518441	estructura|Structural Framing|Familia2|Familia2||ref|test:npt_2_92__sin_mark	3	1.0
+518447	estructura|Structural Framing|Familia2|Familia2||ref|test:npt_2_92__sin_mark	3	1.0
+495062	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495064	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495506	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495508	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495514	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495516	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495522	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495524	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495530	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495532	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495538	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495540	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495546	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495548	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495554	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495556	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495562	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495564	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495570	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495572	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495578	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495580	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495586	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495588	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495594	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495596	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495602	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495604	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495610	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495612	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495618	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495620	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495626	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495628	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495634	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495636	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495642	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495644	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495650	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495652	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495658	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495660	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495666	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495668	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495674	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495676	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495682	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495684	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495690	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495692	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495698	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495700	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+502645	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+502647	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503088	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503090	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503096	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503098	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503104	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503106	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503112	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503114	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503120	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503122	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503128	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503130	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503136	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503138	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503144	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503146	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503152	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503154	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503160	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503162	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503168	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503170	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503176	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503178	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503184	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503186	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503192	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503194	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503200	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503202	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503208	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503210	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503216	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503218	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503224	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503226	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503232	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503234	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503240	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503242	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503248	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503250	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503256	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503258	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503264	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503266	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503272	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503274	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503280	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+503282	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+517612	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+517614	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518037	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518039	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518045	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518047	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518053	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518055	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518061	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518063	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518069	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518071	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518077	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518079	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518085	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518087	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518093	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518095	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518101	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518103	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518109	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518111	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518117	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518119	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518125	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518127	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518133	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518135	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518141	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518143	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518149	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518151	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518157	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518159	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518165	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518167	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518173	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518175	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518181	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518183	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518189	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518191	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518197	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518199	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518205	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518207	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518213	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518215	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518221	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518223	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518229	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+518231	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__st	3	1.0
+495706	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495708	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495714	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495716	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495722	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495724	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495730	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495732	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495738	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495740	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495746	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495748	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495754	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495756	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495762	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495764	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495770	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495772	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495778	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495780	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495786	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495788	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495794	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495796	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495802	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495804	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495810	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495812	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495818	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495820	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495826	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495828	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495834	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495836	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495842	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495844	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495850	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495852	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495858	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495860	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495866	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495868	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495874	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495876	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495882	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495884	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495890	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495892	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495898	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495900	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495906	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+495908	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503288	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503290	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503296	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503298	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503304	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503306	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503312	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503314	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503320	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503322	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503328	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503330	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503336	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503338	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503344	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503346	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503352	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503354	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503360	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503362	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503368	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503370	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503376	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503378	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503384	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503386	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503392	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503394	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503400	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503402	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503408	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503410	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503416	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503418	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503424	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503426	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503432	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503434	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503440	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503442	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503448	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503450	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503456	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503458	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503464	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503466	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503472	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503474	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503480	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503482	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503488	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+503490	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518237	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518239	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518245	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518247	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518253	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518255	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518261	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518263	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518269	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518271	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518277	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518279	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518285	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518287	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518293	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518295	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518301	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518303	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518309	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518311	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518317	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518319	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518325	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518327	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518333	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518335	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518341	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518343	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518349	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518351	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518357	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518359	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518365	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518367	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518373	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518375	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518381	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518383	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518389	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518391	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518397	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518399	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518405	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518407	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518413	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518415	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518421	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518423	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518429	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518431	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518437	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0
+518439	estructura|Structural Framing|H_Perfiles de ala ancha|HE300A||ref|test:npt_2_92__sin_mark	3	1.0

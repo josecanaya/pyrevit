@@ -1,0 +1,140 @@
+{
+  "confidence": {
+    "forbidden_token_penalty": 0.34999999999999998, 
+    "zone_match_bonus": 0.080000000000000002, 
+    "zone_mismatch_penalty": 0.25, 
+    "confidence_ceiling": 0.98999999999999999, 
+    "confidence_floor": 0.050000000000000003, 
+    "auto_apply_threshold": 0.65000000000000002, 
+    "review_threshold": 0.55000000000000004
+  }, 
+  "paths": {
+    "blocks_semantic_json": "public/project_config/blocks_semantic.json", 
+    "audit_json": "public/project_config/project_config.audit.json", 
+    "blocks_source_csv": "public/blocks_normalized.csv", 
+    "prompt_transform_blocks_md": "public/project_config/prompt_transform_blocks.md", 
+    "prompt_project_md": "public/project_config/prompt_project.md"
+  }, 
+  "rule_mode": "soft", 
+  "project_name": "NAVES ESTRUCTURA", 
+  "matching": {
+    "min_token_length": 2, 
+    "token_boundary_strict": true, 
+    "normalize_case": true, 
+    "strip_accents": true
+  }, 
+  "soft_constraints": {
+    "penalize_cross_zone": true, 
+    "penalize_forbidden_tokens": true, 
+    "demote_to_review_on_conflict": true, 
+    "prefer_same_zone": true
+  }, 
+  "updated_at_utc": "2026-03-27T16:03:44.181000Z", 
+  "prompt_project_text": "es una obra de fabrica de cerdos de columnas prefabricadas, insertas metalicas dentro de bloquees de hrmigon esos bloquees de hormigon son BASES no plateas estan sosteniendo una cubierta de chapa que esta montada sobre una estructura de cabreado metalico, aca en este revit no hay dibujado ningun vestuario ni nada de gas ni siquiera esta el suelo ni las chapas, solo la estructura", 
+  "semantic_tokens": {
+    "ST1": {
+      "expected_tags": [
+        "SALA TERMINACION 1"
+      ], 
+      "weight": 0.90000000000000002, 
+      "aliases": [
+        "SALA TERMINACION 1", 
+        "ST1"
+      ], 
+      "meaning": "Sala Terminacion 1", 
+      "forbidden_with": [
+        "SR1"
+      ], 
+      "type": "sector"
+    }, 
+    "PG": {
+      "expected_tags": [
+        "PLANTA GAS"
+      ], 
+      "weight": 0.94999999999999996, 
+      "aliases": [
+        "PLANTA GAS", 
+        "PG"
+      ], 
+      "meaning": "Planta Gas", 
+      "forbidden_with": [
+        "N1", 
+        "VESTUARIOS", 
+        "PA"
+      ], 
+      "type": "planta"
+    }, 
+    "N1": {
+      "expected_tags": [
+        "NAVE 1"
+      ], 
+      "weight": 1.0, 
+      "aliases": [
+        "NAVE 1", 
+        "N-1", 
+        "N1"
+      ], 
+      "meaning": "Nave 1", 
+      "forbidden_with": [
+        "VESTUARIOS", 
+        "PA", 
+        "PG", 
+        "SR1", 
+        "ST1"
+      ], 
+      "type": "zona"
+    }, 
+    "VESTUARIOS": {
+      "expected_tags": [
+        "VESTUARIOS"
+      ], 
+      "weight": 1.0, 
+      "aliases": [
+        "VESTUARIO", 
+        "VESTUARIOS"
+      ], 
+      "meaning": "Area de vestuarios", 
+      "forbidden_with": [
+        "N1", 
+        "PA", 
+        "PG", 
+        "SR1", 
+        "ST1"
+      ], 
+      "type": "zona"
+    }, 
+    "SR1": {
+      "expected_tags": [
+        "SALA RECEPCION 1"
+      ], 
+      "weight": 0.90000000000000002, 
+      "aliases": [
+        "SALA RECEPCION 1", 
+        "SR1"
+      ], 
+      "meaning": "Sala Recepcion 1", 
+      "forbidden_with": [
+        "ST1"
+      ], 
+      "type": "sector"
+    }, 
+    "PA": {
+      "expected_tags": [
+        "PLANTA AGUA"
+      ], 
+      "weight": 0.94999999999999996, 
+      "aliases": [
+        "PLANTA AGUA", 
+        "PA"
+      ], 
+      "meaning": "Planta Agua", 
+      "forbidden_with": [
+        "N1", 
+        "VESTUARIOS", 
+        "PG"
+      ], 
+      "type": "planta"
+    }
+  }, 
+  "version": "1.0"
+}
