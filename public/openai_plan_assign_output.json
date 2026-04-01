@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "summary": "No se asignó BTZ al elemento 196831 por falta de evidencia suficiente para vincularlo de forma segura con un subsector/unidad del catálogo permitido.",
+  "assignments": [
+    {
+      "element_id": "196831",
+      "assign": false,
+      "sector_write_code": "",
+      "subsector_code": "",
+      "unit_code": "",
+      "confidence": 0.16,
+      "reason": "El elemento se llama 'silos rio', lo que sugiere relación con silos, pero en el plano provisto no aparece una referencia inequívoca a 'SILO 5', 'SILO 6' o 'SILO 7' del catálogo TE-ALM. El texto del mapa contiene 'MOLINOS RIO DE LA PLATA', lo que puede explicar 'rio' como nombre de empresa y no como subsector/unidad BTZ. Sin ubicación gráfica puntual ni coincidencia exacta con un subsector permitido, no hay evidencia suficiente para asignar."
+    }
+  ],
+  "model": "gpt-5.4",
+  "plant_code": "TE",
+  "analyzed_elements": 1,
+  "proposed_assignments": 1
+}

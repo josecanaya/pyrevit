@@ -1,0 +1,470 @@
+{
+  "plant_code": "TE", 
+  "instructions": "No sobrescribir elementos ya asignados. Devolver solo opciones del catalogo.", 
+  "elements": [
+    {
+      "type_name": "", 
+      "level": "", 
+      "comments": "PTC_E1_V01;PTC_E3_V03;PTC_E01_V01", 
+      "mark": "", 
+      "element_id": "196831", 
+      "family_name": "", 
+      "category_name": "Generic Models", 
+      "type_comments": "", 
+      "element_name": "silos rio"
+    }
+  ], 
+  "max_elements": 20, 
+  "catalog_tree": [
+    {
+      "sector_key": "ACT", 
+      "sector_write_code": "TE-ACT-LGC-SECTOR ACEITE", 
+      "sector_name": "SECTOR ACEITE", 
+      "subsectors": [
+        {
+          "subsector_code": "TE-ACT-LGC-TANQUES 400", 
+          "subsector_name": "TANQUES 400", 
+          "units": [
+            {
+              "unit_name": "TK400", 
+              "unit_code": "TE-BIO-TNQ-TK400"
+            }, 
+            {
+              "unit_name": "TK401", 
+              "unit_code": "TE-BIO-TNQ-TK401"
+            }, 
+            {
+              "unit_name": "TK402", 
+              "unit_code": "TE-BIO-TNQ-TK402"
+            }, 
+            {
+              "unit_name": "TK403", 
+              "unit_code": "TE-FUEL-TNQ-TK403"
+            }, 
+            {
+              "unit_name": "TK404", 
+              "unit_code": "TE-FUEL-TNQ-TK404"
+            }, 
+            {
+              "unit_name": "TK405", 
+              "unit_code": "TE-FUEL-TNQ-TK405"
+            }
+          ]
+        }, 
+        {
+          "subsector_code": "TE-ACT-LGC-TANQUES ACEITE", 
+          "subsector_name": "TANQUES ACEITE", 
+          "units": [
+            {
+              "unit_name": "TK1", 
+              "unit_code": "TE-ACT-TNQ-TK1"
+            }, 
+            {
+              "unit_name": "TK2", 
+              "unit_code": "TE-ACT-TNQ-TK2"
+            }, 
+            {
+              "unit_name": "TK3", 
+              "unit_code": "TE-ACT-TNQ-TK3"
+            }, 
+            {
+              "unit_name": "TK4", 
+              "unit_code": "TE-ACT-TNQ-TK4"
+            }, 
+            {
+              "unit_name": "TK5", 
+              "unit_code": "TE-ACT-TNQ-TK5"
+            }, 
+            {
+              "unit_name": "TK6", 
+              "unit_code": "TE-ACT-TNQ-TK6"
+            }, 
+            {
+              "unit_name": "TK7", 
+              "unit_code": "TE-ACT-TNQ-TK7"
+            }, 
+            {
+              "unit_name": "TK8", 
+              "unit_code": "TE-LCT-TNQ-TK8"
+            }
+          ]
+        }, 
+        {
+          "subsector_code": "TE-ACT-LGC-TANQUES ACEITE OSL", 
+          "subsector_name": "TANQUES ACEITE OSL", 
+          "units": [
+            {
+              "unit_name": "TK10", 
+              "unit_code": "TE-ACT-TNQ-TK10"
+            }, 
+            {
+              "unit_name": "TK11", 
+              "unit_code": "TE-ACT-TNQ-TK11"
+            }, 
+            {
+              "unit_name": "TK12", 
+              "unit_code": "TE-ACT-TNQ-TK12"
+            }, 
+            {
+              "unit_name": "TK9", 
+              "unit_code": "TE-ACT-TNQ-TK9"
+            }
+          ]
+        }, 
+        {
+          "subsector_code": "TE-BBR-LGC-SECTOR BAJO  BARR", 
+          "subsector_name": "SECTOR BAJO BARR", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-GLC-LGC-TANQUES TGR", 
+          "subsector_name": "TANQUES TGR", 
+          "units": [
+            {
+              "unit_name": "TGR10", 
+              "unit_code": "TE-GLC-TNQ-TK TGR10"
+            }, 
+            {
+              "unit_name": "TGR7", 
+              "unit_code": "TE-GLC-TNQ-TK TGR7"
+            }, 
+            {
+              "unit_name": "TGR8", 
+              "unit_code": "TE-GLC-TNQ-TK TGR8"
+            }, 
+            {
+              "unit_name": "TGR9", 
+              "unit_code": "TE-GLC-TNQ-TK TGR9"
+            }
+          ]
+        }, 
+        {
+          "subsector_code": "TE-MDU-LGC-SECTOR AKZO NOBEL", 
+          "subsector_name": "SECTOR AKZO NOBEL", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-MSB-LGC-SECTOR SAN BENITO", 
+          "subsector_name": "SECTOR SAN BENITO", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-RFN-LGC-CARGADERO", 
+          "subsector_name": "CARGADERO", 
+          "units": []
+        }
+      ]
+    }, 
+    {
+      "sector_key": "ADD", 
+      "sector_write_code": "TE-ADD-LGC-DES BARCAZAS", 
+      "sector_name": "DES BARCAZAS", 
+      "subsectors": [
+        {
+          "subsector_code": "TE-ADD-LGC-CINTAS DESC BARC", 
+          "subsector_name": "CINTAS DESC BARC", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-ADD-LGC-MALACATES", 
+          "subsector_name": "MALACATES", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-ADD-LGC-TOLVAS AZUFRE", 
+          "subsector_name": "TOLVAS AZUFRE", 
+          "units": []
+        }
+      ]
+    }, 
+    {
+      "sector_key": "ADM", 
+      "sector_write_code": "TE-ADM-LGC-EDIFICIOS VARIOS", 
+      "sector_name": "EDIFICIOS VARIOS", 
+      "subsectors": [
+        {
+          "subsector_code": "TE-ADM-EDF-BICICLETERO", 
+          "subsector_name": "BICICLETERO", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-ADM-EDF-COCHERAS", 
+          "subsector_name": "COCHERAS", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-ADM-EDF-COMEDOR", 
+          "subsector_name": "COMEDOR", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-ADM-EDF-DPTO MEDICO", 
+          "subsector_name": "DPTO MEDICO", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-ADM-EDF-OFICINAS", 
+          "subsector_name": "OFICINAS", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-ADM-EDF-PORTERIA", 
+          "subsector_name": "PORTERIA", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-ADM-EDF-VESTUARIOS GRALES", 
+          "subsector_name": "VESTUARIOS GRALES", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-TLL-LGC-OBRADOR ELECTRICO", 
+          "subsector_name": "OBRADOR ELECTRICO", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-TLL-LGC-OBRADOR MECANICO", 
+          "subsector_name": "OBRADOR MECANICO", 
+          "units": []
+        }
+      ]
+    }, 
+    {
+      "sector_key": "ALM", 
+      "sector_write_code": "TE-ALM-LGC-ALMACENAJE (SILOS)", 
+      "sector_name": "ALMACENAJE (SILOS)", 
+      "subsectors": [
+        {
+          "subsector_code": "TE-ALM-SLO-SILO 5", 
+          "subsector_name": "SILO 5", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-ALM-SLO-SILO 6", 
+          "subsector_name": "SILO 6", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-ALM-SLO-SILO 7", 
+          "subsector_name": "SILO 7", 
+          "units": []
+        }
+      ]
+    }, 
+    {
+      "sector_key": "CLD", 
+      "sector_write_code": "TE-CLD-LGC-DPTOCALIDAD", 
+      "sector_name": "DPTOCALIDAD", 
+      "subsectors": [
+        {
+          "subsector_code": "TE-CLD-LGC-CALADO CAMIONES", 
+          "subsector_name": "CALADO CAMIONES", 
+          "units": []
+        }
+      ]
+    }, 
+    {
+      "sector_key": "DDC", 
+      "sector_write_code": "TE-DDC-LGC-DESCARGA CAMIONES", 
+      "sector_name": "DESCARGA CAMIONES", 
+      "subsectors": [
+        {
+          "subsector_code": "TE-DDC-LGC-PLAT. VOLCABLES", 
+          "subsector_name": "PLAT. VOLCABLES", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-DDC-PTV-PV1", 
+          "subsector_name": "PV1", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-DDC-PTV-PV2", 
+          "subsector_name": "PV2", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-DDC-PTV-PV3", 
+          "subsector_name": "PV3", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-DDC-PTV-PV4", 
+          "subsector_name": "PV4", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-DDC-PTV-PV5", 
+          "subsector_name": "PV5", 
+          "units": []
+        }
+      ]
+    }, 
+    {
+      "sector_key": "DDV", 
+      "sector_write_code": "TE-DDV-LGC-DESC. VAGONES", 
+      "sector_name": "DESC. VAGONES", 
+      "subsectors": []
+    }, 
+    {
+      "sector_key": "ELE", 
+      "sector_write_code": "TE-ELE-LGC-EQUIPOS ELECTRICOS", 
+      "sector_name": "EQUIPOS ELECTRICOS", 
+      "subsectors": [
+        {
+          "subsector_code": "TE-TRF-LGC-TRAFOS", 
+          "subsector_name": "TRAFOS", 
+          "units": []
+        }
+      ]
+    }, 
+    {
+      "sector_key": "EMB", 
+      "sector_write_code": "TE-EMB-LGC-SECTOR EMBARQUE", 
+      "sector_name": "SECTOR EMBARQUE", 
+      "subsectors": [
+        {
+          "subsector_code": "TE-EMB-LGC-ATRAQUE/AMARRE", 
+          "subsector_name": "ATRAQUE/AMARRE", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-EMB-LGC-CINTAS EMBARQUE", 
+          "subsector_name": "CINTAS EMBARQUE", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-EMB-LGC-DOLPHIN", 
+          "subsector_name": "DOLPHIN", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-EMB-LGC-PESCANTES", 
+          "subsector_name": "PESCANTES", 
+          "units": []
+        }
+      ]
+    }, 
+    {
+      "sector_key": "EXP", 
+      "sector_write_code": "TE-EXP-LGC-EXPEDICION", 
+      "sector_name": "EXPEDICION", 
+      "subsectors": [
+        {
+          "subsector_code": "TE-EXP-LGC-SECTOR ACCESO OSL", 
+          "subsector_name": "SECTOR ACCESO OSL", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-EXP-LGC-SECTOR BALANZA OSL", 
+          "subsector_name": "SECTOR BALANZA OSL", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-EXP-LGC-SECTOR BALANZA PTO", 
+          "subsector_name": "SECTOR BALANZA PTO", 
+          "units": []
+        }
+      ]
+    }, 
+    {
+      "sector_key": "PLY", 
+      "sector_write_code": "TE-PLY-LGC-SECTOR PLAYA", 
+      "sector_name": "SECTOR PLAYA", 
+      "subsectors": [
+        {
+          "subsector_code": "TE-PLY-CNL-CANAL PLUVIAL NORTE", 
+          "subsector_name": "CANAL PLUVIAL NORTE", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-PLY-CNL-CANAL PLUVIAL SUR", 
+          "subsector_name": "CANAL PLUVIAL SUR", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-PLY-LGC-BARRANCA", 
+          "subsector_name": "BARRANCA", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-PLY-LGC-CHICA TERM EMB", 
+          "subsector_name": "CHICA TERM EMB", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-PLY-LGC-PRINCIPAL TERM EMB", 
+          "subsector_name": "PRINCIPAL TERM EMB", 
+          "units": []
+        }
+      ]
+    }, 
+    {
+      "sector_key": "SCD", 
+      "sector_write_code": "TE-SCD-LGC-SECTOR SECADORA", 
+      "sector_name": "SECTOR SECADORA", 
+      "subsectors": [
+        {
+          "subsector_code": "TE-SCD-LGC-QUEMADORES", 
+          "subsector_name": "QUEMADORES", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-SCD-LGC-REDLER SECADORA", 
+          "subsector_name": "REDLER SECADORA", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-SCD-LGC-VENTIL AIRE CALIENT", 
+          "subsector_name": "VENTIL AIRE CALIENT", 
+          "units": []
+        }
+      ]
+    }, 
+    {
+      "sector_key": "TDM", 
+      "sector_write_code": "TE-TDM-LGC-TORRE DE MANIPULEO", 
+      "sector_name": "TORRE DE MANIPULEO", 
+      "subsectors": [
+        {
+          "subsector_code": "TE-TDM-LGC-BALANZAS EMBARQUE", 
+          "subsector_name": "BALANZAS EMBARQUE", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-TDM-LGC-CINTAS TRANSFERENCI", 
+          "subsector_name": "CINTAS TRANSFERENCI", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-TDM-LGC-ELEVADORES", 
+          "subsector_name": "ELEVADORES", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-TDM-LGC-PENDULARES TDM", 
+          "subsector_name": "PENDULARES TDM", 
+          "units": []
+        }
+      ]
+    }, 
+    {
+      "sector_key": "TE6", 
+      "sector_write_code": "TE-TE6-LGC-TORRE EL6", 
+      "sector_name": "TORRE EL6", 
+      "subsectors": [
+        {
+          "subsector_code": "TE-TE6-NOR-EL6", 
+          "subsector_name": "NORIA EL6", 
+          "units": []
+        }, 
+        {
+          "subsector_code": "TE-TE6-NOR-EL9", 
+          "subsector_name": "NORIA EL9", 
+          "units": []
+        }
+      ]
+    }
+  ], 
+  "pdf_path": "C:\\Users\\Usuario\\AppData\\Roaming\\Cursor\\User\\workspaceStorage\\a39d8fc3eb40d2ed953ad05e19c61450\\pdfs\\dac75698-db46-4d72-a832-fb11d8bdfd38\\Zonas Electricas TEM.pdf"
+}

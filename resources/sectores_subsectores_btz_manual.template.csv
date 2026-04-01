@@ -1,0 +1,6 @@
+planta_codigo,planta_nombre,sector_codigo,sector_nombre,sector_lgc,subsector_nombre,subsector_lgc
+TE,Terminal,ALM,Almacen,TE-ALM,Celda 1,TE-ALM-CELDA 1
+TE,Terminal,ALM,Almacen,TE-ALM,Celda 2,TE-ALM-CELDA 2
+PP,Puerto Planta,DES,Despacho,PP-DES,Anden 1,PP-DES-ANDEN 1
+P10,Planta 1000,ELE,Electricidad,P10-ELE,Tablero A,P10-ELE-TAB A
+PR,Ricardone,OBR,Obrador,PR-OBR,Patio 1,PR-OBR-PATIO 1
