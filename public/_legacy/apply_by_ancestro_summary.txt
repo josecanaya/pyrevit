@@ -1,0 +1,15 @@
+﻿BTZ por asociacion_por_ancestro_dibujado.csv
+Entrada: C:\Users\Pc\AppData\Roaming\pyRevit\Extensions\btz.extension\public\asociacion_por_ancestro_dibujado.csv
+
+Prioridad de match (primera coincidencia no vacía): BTZ_NodoDibujado → BTZ_Description_03 → BTZ_Description_04 → BTZ_NumeroActivo → Número Activo Principal → Mark → Comments
+Normalización: trim + NFC + uppercase
+
+Filas sin ancestro_dibujado: 0
+Nodos (filas con ancestro no vacío) procesados: 0
+Nodos con al menos un elemento encontrado: 0
+Nodos sin match en modelo: 0
+Nodos con múltiples elementos: 0
+Elementos con BTZ escrito OK: 0
+Filas con error de escritura: 0
+
+Resultados: C:\Users\Pc\AppData\Roaming\pyRevit\Extensions\btz.extension\public\apply_by_ancestro_results.csv

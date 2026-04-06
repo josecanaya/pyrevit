@@ -4,6 +4,7 @@ pyRevit — Exportar grupos Revit vs blocks (sin IA en Revit)
 
 Recorre el modelo, agrupa por group_key, exporta a public/ y envía payload a n8n.
 La aplicación de BTZ en el modelo se hace con el botón aparte «Ejecutar automático».
+LEGACY/OPTIONAL: este flujo ya no es el runtime oficial.
 """
 from __future__ import print_function
 
@@ -83,6 +84,7 @@ from btz_apply_webhook import (
     try_apply_webhook_response,
     main_apply_saved_webhook_only,
 )
+from btz_paths import get_public_file
 
 from btz_group_enrichment import (
     enrich_groups_with_blocks,
@@ -119,7 +121,7 @@ from btz_project_config import (
 SEND_PAYLOAD_FILE_ONLY = False
 
 # CSV normalizado para agrupación inteligente (fuente única)
-BLOCKS_CSV_FILE = os.path.join(PUBLIC_DIR, "blocks_normalized.csv")
+BLOCKS_CSV_FILE = get_public_file(u"blocks_normalized.csv", u"optional", fallback=True)
 
 # Etapa IA de agrupación (OpenAI en Python, previo al webhook)
 USE_OPENAI_GROUPING = True
@@ -130,7 +132,9 @@ OPENAI_GROUPING_MAX_ELEMENTS_PER_GROUP = 400
 OPENAI_GROUPING_MAX_CANDIDATE_BLOCKS = 12
 OPENAI_GROUPING_MAX_COMMENT_CHARS = 220
 OPENAI_GROUPING_MAX_GROUP_SUMMARY_CHARS = 360
-OPENAI_GROUPING_CACHE_PATH = os.path.join(PUBLIC_DIR, "openai_grouping_cache.json")
+OPENAI_GROUPING_CACHE_PATH = get_public_file(
+    u"openai_grouping_cache.json", u"legacy", fallback=False
+)
 OPENAI_GROUPING_AMBIGUITY_MIN = 0.35
 OPENAI_GROUPING_DOMINANT_CONF_MIN = 0.75
 OPENAI_GROUPING_CACHE_TTL_DAYS = 7
@@ -261,7 +265,7 @@ SAVE_WEBHOOK_RESPONSE = True
 
 def _element_id_as_int(element_id):
     try:
-        return element_id.IntegerValue
+        return element_id.Value if hasattr(element_id, 'Value') else element_id.IntegerValue
     except AttributeError:
         return int(element_id.Value)
 
@@ -1294,8 +1298,12 @@ def _run_openai_worker_self_check(log_lines):
 
 
 def _call_openai_grouping_worker(group_scenario, log_lines):
-    in_path = os.path.join(PUBLIC_DIR, "openai_grouping_worker_input.json")
-    out_path = os.path.join(PUBLIC_DIR, "openai_grouping_worker_output.json")
+    in_path = get_public_file(
+        u"openai_grouping_worker_input.json", u"legacy", fallback=False
+    )
+    out_path = get_public_file(
+        u"openai_grouping_worker_output.json", u"legacy", fallback=False
+    )
     with codecs.open(in_path, u"w", u"utf-8") as fp:
         fp.write(json.dumps(group_scenario, ensure_ascii=False, indent=2))
 
@@ -1918,7 +1926,7 @@ def main_send_payload_file_only():
         )
         return
 
-    path_log = os.path.join(PUBLIC_DIR, u"run_log.txt")
+    path_log = get_public_file(u"run_log.txt", u"debug", fallback=False)
     path_webhook_resp = WEBHOOK_RESPONSE_JSON_PATH
     doc = revit.doc
 
@@ -2033,11 +2041,13 @@ def main():
         )
         return
 
-    path_elements = os.path.join(PUBLIC_DIR, u"revit_elements.csv")
-    path_groups = os.path.join(PUBLIC_DIR, u"revit_groups.csv")
-    path_payload = os.path.join(PUBLIC_DIR, u"payload_groups.json")
-    path_blocks_snapshot = os.path.join(PUBLIC_DIR, u"blocks_snapshot.csv")
-    path_log = os.path.join(PUBLIC_DIR, u"run_log.txt")
+    path_elements = get_public_file(u"revit_elements.csv", u"optional", fallback=False)
+    path_groups = get_public_file(u"revit_groups.csv", u"optional", fallback=False)
+    path_payload = get_public_file(u"payload_groups.json", u"legacy", fallback=False)
+    path_blocks_snapshot = get_public_file(
+        u"blocks_snapshot.csv", u"optional", fallback=False
+    )
+    path_log = get_public_file(u"run_log.txt", u"debug", fallback=False)
     path_webhook_resp = WEBHOOK_RESPONSE_JSON_PATH
     path_gk_ids = GROUP_KEY_ELEMENT_IDS_JSON_PATH
 
@@ -2053,7 +2063,9 @@ def main():
 
         export_revit_elements_csv(path_elements, element_rows, log_lines)
         export_revit_groups_csv(path_groups, groups, log_lines)
-        path_groups_summary = os.path.join(PUBLIC_DIR, u"groups_summary.txt")
+        path_groups_summary = get_public_file(
+            u"groups_summary.txt", u"optional", fallback=False
+        )
         save_groups_summary_txt(path_groups_summary, groups, element_rows, log_lines)
         save_group_key_element_ids_json(path_gk_ids, element_rows, log_lines)
         log_lines.append(
@@ -2203,11 +2215,11 @@ def main():
         summary += u"\n\nRespuesta webhook: {0}".format(path_webhook_resp)
     summary += u"\n\nMapa group_key→ids: {0}".format(path_gk_ids)
     summary += u"\nResumen de grupos (conteos): {0}".format(
-        os.path.join(PUBLIC_DIR, u"groups_summary.txt")
+        get_public_file(u"groups_summary.txt", u"optional", fallback=False)
     )
     if EXPORT_APPLY_RESULTS_TXT:
         summary += u"\nResultados aplicados (si hubo): {0}".format(
-            os.path.join(PUBLIC_DIR, u"apply_results.txt")
+            get_public_file(u"apply_results.txt", u"legacy", fallback=False)
         )
 
     if not APPLY_WEBHOOK_RESULTS:

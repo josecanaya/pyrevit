@@ -4,7 +4,14 @@ from pathlib import Path
 
 
 def _project_config_dir(public_dir: Path) -> Path:
-    return public_dir / "project_config"
+    # Compatibilidad: nueva ruta en _optional; fallback a ruta legacy en raiz.
+    new_dir = public_dir / "_optional" / "project_config"
+    old_dir = public_dir / "project_config"
+    if new_dir.exists():
+        return new_dir
+    if old_dir.exists():
+        return old_dir
+    return new_dir
 
 
 def prompt_project_path(public_dir: Path) -> Path:

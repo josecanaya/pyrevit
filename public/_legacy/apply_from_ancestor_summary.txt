@@ -1,0 +1,16 @@
+﻿BTZ aplicar por ancestro_dibujado (CSV)
+Entrada: C:\Users\Pc\AppData\Roaming\pyRevit\Extensions\btz.extension\public\asignacion_automatica_sugerida.csv
+Política: Match por ancestro_dibujado (clave normalizada). Orden: 1) parámetros dedicados ancestro_dibujado, BTZ_AncestroDibujado, Nodo_Dibujado, Codigo_Nodo, Código_Nodo; 2) BTZ_Description_03; 3) BTZ_Description_04; 4) concat BTZ_03|BTZ_04. Sin inferencias por familia/tipo.
+
+Filas CSV leídas: 0
+Filas sin ancestro_dibujado: 0
+Grupos distintos por ancestro: 0
+Elementos escaneados (índice): 7635
+
+Ancestros aplicados OK (match_ok): 0
+Ancestros sin_match: 0
+Ancestros multiple_match: 0
+Errores de escritura: 0
+BTZ previo sobrescrito: 0
+
+Informe CSV: C:\Users\Pc\AppData\Roaming\pyRevit\Extensions\btz.extension\public\apply_from_ancestor_report.csv

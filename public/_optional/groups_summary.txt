@@ -1,0 +1,9 @@
+﻿=== BTZ — Resumen de agrupación (Exportar grupos) ===
+Elementos exportados (instancias en el barrido): 0
+Grupos distintos (group_key): 0
+
+Formato group_key: macro|categoría|familia|tipo (ver build_group_key en el script).
+Si hay muchos grupos con count=1, el modelo fragmenta tipos/familias; n8n recibe un grupo por combinación.
+
+--- Lista por grupo (orden alfabético por group_key) ---
+count	macro_group	category	family	type	group_key

@@ -1,0 +1,19 @@
+﻿Resolver BTZ automático
+Asociación: C:\Users\Pc\AppData\Roaming\pyRevit\Extensions\btz.extension\public\asociacion_por_ancestro_dibujado.csv
+Asignación: C:\Users\Pc\AppData\Roaming\pyRevit\Extensions\btz.extension\public\asignacion_automatica_sugerida.csv
+
+AVISO: CSV de asignación sin filas — rellenar codigo_activo y ancestro_dibujado, etc.
+
+Total filas CSV asignación: 0
+Activos encontrados en Revit (match 1:1): 0
+Activos actualizados (escritura OK): 0
+Activos sin match (sin codigo / sin elemento / error): 0
+Filas multiple_match (no aplicado): 0
+Filas unresolved_anchor o sin ancestro: 0
+Anclas detectadas en modelo (claves): 41
+Anclas CSV asociación sin geometría ancla en modelo: 0
+Conflictos paquete ancla duplicado: 0
+Sobrescrituras BTZ previo: 0
+Errores escritura: 0
+
+Resultados: C:\Users\Pc\AppData\Roaming\pyRevit\Extensions\btz.extension\public\resolver_btz_automatico_results.csv

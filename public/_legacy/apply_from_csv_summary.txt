@@ -1,0 +1,15 @@
+﻿BTZ aplicar desde CSV (determinista)
+Entrada: C:\Users\Pc\AppData\Roaming\pyRevit\Extensions\btz.extension\public\asignacion_automatica_sugerida.csv
+Política de match: Match por código: se compara codigo_activo (CSV) con el primer valor no vacío obtenido en Revit según prioridad: BTZ_NumeroActivo, Número Activo Principal, Número Activo, Asset Code, Codigo Activo, Código Activo; si ninguno existe o está vacío: Mark; luego Comments. Sin coincidencia por familia ni tipo.
+
+Filas leídas (datos): 0
+Filas sin codigo_activo: 0
+Elementos en índice (total IDs con código): 127
+Códigos distintos en modelo: 80
+Elementos actualizados (BTZ escrito sin error): 0
+Filas sin match (código no en modelo): 0
+Filas match_multiple (no aplicado): 0
+Filas con error de escritura: 0
+Elementos con BTZ previo sobrescrito: 0
+
+Salida CSV: C:\Users\Pc\AppData\Roaming\pyRevit\Extensions\btz.extension\public\apply_from_csv_results.csv

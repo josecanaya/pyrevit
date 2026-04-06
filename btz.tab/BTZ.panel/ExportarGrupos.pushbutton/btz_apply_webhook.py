@@ -27,6 +27,18 @@ from Autodesk.Revit.DB import (
 )
 
 from pyrevit import revit, forms
+from btz_paths import (
+    EXT_DIR,
+    RESOURCES_DIR,
+    SHARED_PARAMS_FILE,
+    PUBLIC_DIR,
+    PUBLIC_DEBUG_DIR,
+    PUBLIC_OPTIONAL_DIR,
+    PUBLIC_LEGACY_DIR,
+    PATH_SOURCE,
+    ensure_public_layout,
+    get_public_file,
+)
 
 try:
     unicode
@@ -38,78 +50,23 @@ try:
 except NameError:
     long = int
 
-_BTZ_PATH_SOURCE = u""
+_BTZ_PATH_SOURCE = PATH_SOURCE
 
-
-def _resolve_btz_extension_paths():
-    """
-    Encuentra resources/ y BTZ_SharedParameters.txt de forma fiable.
-
-    pyRevit suele copiar el script a %TEMP%; en ese caso __file__ NO apunta a la
-    extensión instalada y join(.../resources/...) abre un TXT inexistente o vacío:
-    Revit carga 0 definiciones y parece que «faltan todos» los parámetros.
-    Se usa primero pyrevit.script.get_bundle_paths() (ruta real del .pushbutton).
-    """
-    global _BTZ_PATH_SOURCE
-    found_txt = None
-
-    try:
-        from pyrevit import script
-        bpaths = script.get_bundle_paths()
-        if bpaths:
-            for bp in bpaths:
-                bp = os.path.abspath(bp)
-                ext = os.path.normpath(os.path.join(bp, u"..", u"..", u".."))
-                candidate = os.path.join(ext, u"resources", u"BTZ_SharedParameters.txt")
-                if os.path.isfile(candidate):
-                    found_txt = os.path.normpath(os.path.abspath(candidate))
-                    _BTZ_PATH_SOURCE = u"pyrevit.script.get_bundle_paths() → {0}".format(bp)
-                    break
-    except Exception:
-        pass
-
-    if not found_txt:
-        d = os.path.dirname(os.path.abspath(__file__))
-        for _ in range(14):
-            candidate = os.path.join(d, u"resources", u"BTZ_SharedParameters.txt")
-            if os.path.isfile(candidate):
-                found_txt = os.path.normpath(os.path.abspath(candidate))
-                _BTZ_PATH_SOURCE = u"recorrido desde __file__: {0}".format(d)
-                break
-            parent = os.path.dirname(d)
-            if parent == d:
-                break
-            d = parent
-
-    if not found_txt:
-        base = os.path.dirname(os.path.abspath(__file__))
-        ext = os.path.normpath(os.path.abspath(os.path.join(base, u"..", u"..", u"..")))
-        found_txt = os.path.normpath(os.path.join(ext, u"resources", u"BTZ_SharedParameters.txt"))
-        _BTZ_PATH_SOURCE = u"fallback 3 niveles desde __file__ (puede fallar si __file__ está en TEMP)"
-
-    res_dir = os.path.dirname(found_txt)
-    ext_dir = os.path.dirname(res_dir)
-    return ext_dir, res_dir, found_txt
-
-
-EXT_DIR, RESOURCES_DIR, SHARED_PARAMS_FILE = _resolve_btz_extension_paths()
-
-# Carpeta de salida: dentro de la extensión (se crea si no existe)
-PUBLIC_DIR = os.path.normpath(os.path.join(EXT_DIR, u"public"))
-
-# JSON que se envía a n8n en modo “solo enviar archivo” (por defecto = public/payload_groups.json)
-PAYLOAD_GROUPS_JSON_PATH = os.path.join(PUBLIC_DIR, u"payload_groups.json")
-
-# Respuesta n8n (group_btz_mapping_result) y mapa grupo→elementos para reaplicar sin re-exportar
-WEBHOOK_RESPONSE_JSON_PATH = os.path.join(PUBLIC_DIR, u"webhook_response.json")
-GROUP_KEY_ELEMENT_IDS_JSON_PATH = os.path.join(PUBLIC_DIR, u"group_key_element_ids.json")
-
-# Mapa refinado (post enrich + split) y manifest para BTZ_Status / trazabilidad en apply
-REFINED_GROUP_KEY_ELEMENT_IDS_JSON_PATH = os.path.join(
-    PUBLIC_DIR, u"refined_group_key_element_ids.json"
+# Resolver oficial: core en raiz, paralelos en _legacy/_optional/_debug.
+PAYLOAD_GROUPS_JSON_PATH = get_public_file(u"payload_groups.json", u"legacy", fallback=False)
+WEBHOOK_RESPONSE_JSON_PATH = get_public_file(u"webhook_response.json", u"legacy", fallback=False)
+GROUP_KEY_ELEMENT_IDS_JSON_PATH = get_public_file(
+    u"group_key_element_ids.json", u"legacy", fallback=False
 )
-REFINED_GROUPS_MANIFEST_JSON_PATH = os.path.join(PUBLIC_DIR, u"refined_groups_manifest.json")
-GROUPING_PIPELINE_LOG_PATH = os.path.join(PUBLIC_DIR, u"grouping_pipeline.log")
+REFINED_GROUP_KEY_ELEMENT_IDS_JSON_PATH = get_public_file(
+    u"refined_group_key_element_ids.json", u"legacy", fallback=False
+)
+REFINED_GROUPS_MANIFEST_JSON_PATH = get_public_file(
+    u"refined_groups_manifest.json", u"legacy", fallback=False
+)
+GROUPING_PIPELINE_LOG_PATH = get_public_file(
+    u"grouping_pipeline.log", u"legacy", fallback=False
+)
 
 # --- Respuesta n8n (group_btz_mapping_result) → aplicación en Revit ---
 # Mínimo de confianza para escribir un candidate_btz en un slot libre (0.0–1.0).
@@ -184,8 +141,7 @@ def _param_value_as_string(element, param_name):
         pass
     return u""
 def _ensure_public_dir():
-    if not os.path.isdir(PUBLIC_DIR):
-        os.makedirs(PUBLIC_DIR)
+    ensure_public_layout()
 def load_payload_from_json_file(path, log_lines):
     """
     Carga el JSON que se enviará a n8n (p. ej. public/payload_groups.json).
@@ -1253,7 +1209,7 @@ def try_apply_webhook_response(doc, parsed, element_rows, log_lines, force_apply
     manifest = load_refined_groups_manifest(REFINED_GROUPS_MANIFEST_JSON_PATH, log_lines)
 
     stats, apply_rows = apply_all_group_mappings(doc, gms, gk_map, log_lines, manifest_by_key=manifest)
-    path_apply = os.path.join(PUBLIC_DIR, u"apply_results.txt")
+    path_apply = get_public_file(u"apply_results.txt", u"legacy", fallback=False)
     if EXPORT_APPLY_RESULTS_TXT:
         export_apply_results_txt(path_apply, apply_rows, log_lines)
     show_apply_summary(stats, log_lines)
@@ -1270,7 +1226,7 @@ def main_apply_saved_webhook_only():
     log_lines.append(u"PUBLIC_DIR={0}".format(PUBLIC_DIR))
 
     doc = revit.doc
-    path_log = os.path.join(PUBLIC_DIR, u"run_log.txt")
+    path_log = get_public_file(u"run_log.txt", u"debug", fallback=False)
     path_webhook_resp = WEBHOOK_RESPONSE_JSON_PATH
 
     try:

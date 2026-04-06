@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Configuracion semantica de proyecto (editable rapido en public/project_config).
+OPTIONAL: configuracion semantica de proyecto (editable en public/_optional/project_config).
 
 Objetivo:
 - Centralizar logica del proyecto en JSON + prompts.
@@ -15,7 +15,7 @@ import csv
 import re
 import datetime
 
-from btz_apply_webhook import PUBLIC_DIR
+from btz_paths import PUBLIC_OPTIONAL_DIR, PUBLIC_DIR
 
 try:
     unicode
@@ -23,7 +23,7 @@ except NameError:
     unicode = str
 
 
-PROJECT_CONFIG_DIR = os.path.join(PUBLIC_DIR, "project_config")
+PROJECT_CONFIG_DIR = os.path.join(PUBLIC_OPTIONAL_DIR, "project_config")
 PROJECT_CONFIG_JSON = os.path.join(PROJECT_CONFIG_DIR, "project_config.json")
 PROJECT_PROMPT_MD = os.path.join(PROJECT_CONFIG_DIR, "prompt_project.md")
 TRANSFORM_PROMPT_MD = os.path.join(PROJECT_CONFIG_DIR, "prompt_transform_blocks.md")
