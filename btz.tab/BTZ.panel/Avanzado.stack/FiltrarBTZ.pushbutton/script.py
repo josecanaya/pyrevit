@@ -78,6 +78,54 @@ BASE_COLORS_BY_PLANTA = {
     u"PR": (243, 156, 18),    # naranja
 }
 
+ACEITE_SECTOR_CODE = u"TE-ACT-LGC-SECTOR ACEITE"
+ACEITE_BOMBAS_GROUP_CODE = u"TE-ACT-LGC-BOMBAS DE ACEITE"
+ACEITE_BOMBAS_SUBSECTORS = (
+    u"TE-ACT-LGC-BOMBAS LECITINA",
+    u"TE-ACT-SLA-SALA BMB ACEITE",
+    u"TE-ACT-SLA-SALA BMB OSL",
+    u"TE-BIO-SLA-SALA BMB TK400",
+    u"TE-ACT-SLA-SALA BMB BAJO BARR",
+)
+ACEITE_BOMBAS_UNITS = frozenset(
+    [
+        u"TE-LCT-BMB-BO101", u"TE-LCT-BMB-BO102", u"TE-LCT-BMB-BO103", u"TE-LCT-BMB-BO104",
+        u"TE-LCT-BMB-BO105", u"TE-LCT-BMB-BO107", u"TE-LCT-BMB-BO113",
+        u"TE-ACT-BMB-BO106", u"TE-ACT-BMB-BO108", u"TE-ACT-BMB-BO109", u"TE-BIO-BMB-BO110",
+        u"TE-BIO-BMB-BO111", u"TE-BIO-BMB-BO112",
+        u"TE-ACT-BMB-BO510", u"TE-ACT-BMB-BO511", u"TE-ACT-BMB-BO512", u"TE-ACT-BMB-BO513",
+        u"TE-BIO-BMB-BO414", u"TE-BIO-BMB-BO415", u"TE-FUEL-BMB-BO412", u"TE-FUEL-BMB-BO413",
+    ]
+)
+
+# Agrupador navegable bajo TE > SECTOR ACEITE (codigos hoja reales; el BTZ_03 es sintetico como bombas)
+ACEITE_ADMIN_GROUP_CODE = u"TE-ACT-LGC-SECTOR ADMINISTRATIVO"
+ADM_SECTOR_EXCLUDE_FROM_GROUP = frozenset(
+    [
+        u"TE-ADM-EDF-BICICLETERO",
+        u"TE-ADM-EDF-VESTUARIOS GRALES",
+    ]
+)
+ADM_SECTOR_DIRECT_LEAVES_ORDERED = (
+    u"TE-ADM-EDF-COCHERAS",
+    u"TE-ADM-EDF-COMEDOR",
+    u"TE-ADM-EDF-DPTO MEDICO",
+    u"TE-ADM-EDF-OFICINAS",
+    u"TE-ADM-EDF-PORTERIA",
+    u"TE-TLL-LGC-OBRADOR ELECTRICO",
+    u"TE-TLL-LGC-OBRADOR MECANICO",
+)
+ADM_SECTOR_DIRECT_LEAVES_U = frozenset(x.upper() for x in ADM_SECTOR_DIRECT_LEAVES_ORDERED)
+TALLER_TERMINAL_PARENT = u"TE-TLL-TALLER TERM EMB"
+TALLER_TERMINAL_UNITS = (
+    u"TE-TLL-GNR- GENERADOR GNW73ER",
+    u"TE-TLL-MLC- MLC TALLER",
+)
+TALLER_TERMINAL_UNITS_U = frozenset(x.upper() for x in TALLER_TERMINAL_UNITS)
+CALIDAD_DPTO_PARENT = u"TE-CLD-LGC-DPTOCALIDAD"
+CALIDAD_CALADO = u"TE-CLD-LGC-CALADO CAMIONES"
+ADM_SECTOR_ORDER_BTZ04 = (TALLER_TERMINAL_PARENT,) + ADM_SECTOR_DIRECT_LEAVES_ORDERED + (CALIDAD_DPTO_PARENT,)
+
 
 def _u(value):
     if value is None:
@@ -247,6 +295,9 @@ def _collect_rows_and_metadata(doc):
                     if cid is not None:
                         meta["cat_ids"].add(cid)
 
+        values = _normalize_aceite_bombas_row(values)
+        values = _normalize_aceite_admin_sector_row(values)
+
         # Mantener filas con al menos BTZ_01 para iniciar jerarquia
         if values[0]:
             rows.append(values)
@@ -269,53 +320,300 @@ def _get_level_values(rows, level_index, parent_path):
         val = _safe_strip(row[level_index])
         if val:
             unique_vals.add(val)
-    return sorted(list(unique_vals), key=lambda x: _u(x).upper())
+    return _sort_level_values(level_index, parent_path, unique_vals)
+
+
+def _sort_level_values(level_index, parent_path, unique_vals):
+    vals = list(unique_vals)
+    pl = [_safe_strip(p).upper() for p in parent_path]
+    if (
+        level_index == 3
+        and len(pl) == 3
+        and pl[0] == u"TE"
+        and pl[1] == ACEITE_SECTOR_CODE.upper()
+        and pl[2] == ACEITE_ADMIN_GROUP_CODE.upper()
+    ):
+        order_map = {k.upper(): i for i, k in enumerate(ADM_SECTOR_ORDER_BTZ04)}
+        return sorted(
+            vals,
+            key=lambda x: (order_map.get(_safe_strip(x).upper(), 999), _u(x).upper()),
+        )
+    if (
+        level_index == 4
+        and len(pl) == 4
+        and pl[0] == u"TE"
+        and pl[1] == ACEITE_SECTOR_CODE.upper()
+        and pl[2] == ACEITE_ADMIN_GROUP_CODE.upper()
+        and pl[3] == _safe_strip(TALLER_TERMINAL_PARENT).upper()
+    ):
+        order_map = {k.upper(): i for i, k in enumerate(TALLER_TERMINAL_UNITS)}
+        return sorted(
+            vals,
+            key=lambda x: (order_map.get(_safe_strip(x).upper(), 999), _u(x).upper()),
+        )
+    return sorted(vals, key=lambda x: _u(x).upper())
+
+
+def _normalize_aceite_bombas_row(values):
+    if len(values) < 2:
+        return values
+    if _safe_strip(values[0]).upper() != u"TE":
+        return values
+    if _safe_strip(values[1]).upper() != ACEITE_SECTOR_CODE:
+        return values
+
+    window = [_safe_strip(v).upper() for v in values[2:6]]
+    sala = u""
+    for v in window:
+        if v in ACEITE_BOMBAS_SUBSECTORS:
+            sala = v
+            break
+    if not sala:
+        return values
+
+    bomba = u""
+    for v in window:
+        if v in ACEITE_BOMBAS_UNITS:
+            bomba = v
+            break
+
+    out = list(values)
+    out[2] = ACEITE_BOMBAS_GROUP_CODE
+    if len(out) > 3:
+        out[3] = sala
+    if len(out) > 4 and bomba:
+        out[4] = bomba
+    return out
+
+
+def _pad6(row):
+    out = list(row)
+    while len(out) < 6:
+        out.append(u"")
+    return out[:6]
+
+
+def _normalize_aceite_admin_sector_row(values):
+    if len(values) < 2:
+        return values
+    if _safe_strip(values[0]).upper() != u"TE":
+        return values
+
+    if len(values) > 2 and _safe_strip(values[2]).upper() == ACEITE_ADMIN_GROUP_CODE:
+        return _pad6(values)
+
+    if _safe_strip(values[1]).upper() == ACEITE_SECTOR_CODE and len(values) > 2:
+        if _safe_strip(values[2]).upper() == ACEITE_BOMBAS_GROUP_CODE:
+            return values
+
+    adm_edf = u"TE-ADM-LGC-EDIFICIOS VARIOS"
+    cld = CALIDAD_DPTO_PARENT
+    taller_u = _safe_strip(TALLER_TERMINAL_PARENT).upper()
+    exclude_u = frozenset(x.upper() for x in ADM_SECTOR_EXCLUDE_FROM_GROUP)
+
+    if _safe_strip(values[1]).upper() == adm_edf:
+        if len(values) < 3 or not _safe_strip(values[2]):
+            return values
+        leaf_u = _safe_strip(values[2]).upper()
+        if leaf_u in exclude_u:
+            return values
+        if leaf_u == taller_u:
+            out = [u""] * 6
+            out[0] = u"TE"
+            out[1] = ACEITE_SECTOR_CODE
+            out[2] = ACEITE_ADMIN_GROUP_CODE
+            out[3] = TALLER_TERMINAL_PARENT
+            if len(values) > 3 and _safe_strip(values[3]).upper() in TALLER_TERMINAL_UNITS_U:
+                out[4] = _safe_strip(values[3])
+            return _pad6(out)
+        if leaf_u in ADM_SECTOR_DIRECT_LEAVES_U:
+            out = [u""] * 6
+            out[0] = u"TE"
+            out[1] = ACEITE_SECTOR_CODE
+            out[2] = ACEITE_ADMIN_GROUP_CODE
+            out[3] = _safe_strip(values[2])
+            return _pad6(out)
+
+    if _safe_strip(values[1]).upper() == taller_u:
+        if len(values) > 2 and _safe_strip(values[2]).upper() in TALLER_TERMINAL_UNITS_U:
+            out = [u""] * 6
+            out[0] = u"TE"
+            out[1] = ACEITE_SECTOR_CODE
+            out[2] = ACEITE_ADMIN_GROUP_CODE
+            out[3] = TALLER_TERMINAL_PARENT
+            out[4] = _safe_strip(values[2])
+            return _pad6(out)
+
+    if _safe_strip(values[1]).upper() == cld:
+        if len(values) < 3 or not _safe_strip(values[2]):
+            return values
+        v2_u = _safe_strip(values[2]).upper()
+        if v2_u == CALIDAD_CALADO.upper():
+            out = [u""] * 6
+            out[0] = u"TE"
+            out[1] = ACEITE_SECTOR_CODE
+            out[2] = ACEITE_ADMIN_GROUP_CODE
+            out[3] = CALIDAD_DPTO_PARENT
+            out[4] = _safe_strip(values[2])
+            return _pad6(out)
+        if v2_u == cld.upper():
+            out = [u""] * 6
+            out[0] = u"TE"
+            out[1] = ACEITE_SECTOR_CODE
+            out[2] = ACEITE_ADMIN_GROUP_CODE
+            out[3] = _safe_strip(values[2])
+            return _pad6(out)
+
+    for i in range(len(values)):
+        if _safe_strip(values[i]).upper() in TALLER_TERMINAL_UNITS_U:
+            out = [u""] * 6
+            out[0] = u"TE"
+            out[1] = ACEITE_SECTOR_CODE
+            out[2] = ACEITE_ADMIN_GROUP_CODE
+            out[3] = TALLER_TERMINAL_PARENT
+            out[4] = _safe_strip(values[i])
+            return _pad6(out)
+
+    return values
+
+
+def _adm_sector_expand_specs():
+    te = u"TE"
+    ace = ACEITE_SECTOR_CODE
+    adm = ACEITE_ADMIN_GROUP_CODE
+    td = TALLER_TERMINAL_PARENT
+    cq = CALIDAD_DPTO_PARENT
+    specs = []
+    for code in ADM_SECTOR_DIRECT_LEAVES_ORDERED:
+        specs.append((4, BTZ_PARAMS[3], [te, ace, adm], code))
+    for u in TALLER_TERMINAL_UNITS:
+        specs.append((5, BTZ_PARAMS[4], [te, ace, adm, td], u))
+    specs.append((5, BTZ_PARAMS[4], [te, ace, adm, cq], CALIDAD_CALADO))
+    return specs
+
+
+def _execute_apply_filters_multi(doc, view, site_label, specs, param_meta):
+    for _level, param_name, _parent_path, _selected_value in specs:
+        meta = param_meta.get(param_name)
+        if not meta or meta.get("param_id") is None:
+            return (
+                False,
+                None,
+                u"No se pudo localizar el parametro '{0}' para crear filtros.".format(param_name),
+            )
+        if not meta.get("cat_ids"):
+            return (
+                False,
+                None,
+                u"No hay categorias compatibles con '{0}'.".format(param_name),
+            )
+
+    created_names = []
+    reused_names = []
+    cleared = 0
+
+    tx = Transaction(doc, u"BTZ | Crear filtros jerarquicos")
+    tx.Start()
+    try:
+        cleared = _remove_btz_filters_from_view(doc, view)
+        existing_by_name = _get_existing_filters_by_name(doc)
+
+        for level, param_name, parent_path, selected_value in specs:
+            meta = param_meta.get(param_name)
+            filter_name = _build_filter_name(level, parent_path, selected_value, site_label)
+            filter_el, reused = _create_or_reuse_filter(
+                doc=doc,
+                existing_by_name=existing_by_name,
+                filter_name=filter_name,
+                param_id=meta["param_id"],
+                category_ids=meta["cat_ids"],
+                value_text=selected_value,
+            )
+
+            rgb = _color_for_selection(level, selected_value, parent_path)
+            _apply_filter_to_view(doc, view, filter_el.Id, rgb)
+
+            if reused:
+                reused_names.append(filter_name)
+            else:
+                created_names.append(filter_name)
+
+        tx.Commit()
+    except Exception as ex:
+        tx.RollBack()
+        return (False, None, u"Error al crear/aplicar filtros:\n{0}".format(ex))
+
+    return (
+        True,
+        {"cleared": cleared, "created": created_names, "reused": reused_names},
+        None,
+    )
 
 
 class SitePickerForm(Form):
     def __init__(self):
         Form.__init__(self)
         self.site_choice = None
+        self.overview_mode = False
 
         self.Text = u"FILTRAR | Sitio"
         self.StartPosition = FormStartPosition.CenterScreen
         self.FormBorderStyle = FormBorderStyle.FixedDialog
         self.MinimizeBox = False
         self.MaximizeBox = False
-        self.ClientSize = Size(420, 220)
+        self.ClientSize = Size(440, 268)
 
         lbl = Label()
         lbl.Location = Point(12, 12)
-        lbl.Size = Size(390, 40)
-        lbl.Text = u"Elegi sitio. Luego se listan solo las plantas BTZ_01 de ese sitio."
+        lbl.Size = Size(410, 44)
+        lbl.Text = (
+            u"Elegi sitio. CONTINUAR: filtrar por niveles BTZ. "
+            u"MUESTREO GENERAL: todos los BTZ_01 del sitio a la vez (mapa de zonas)."
+        )
         self.Controls.Add(lbl)
 
         self.list_sites = ListBox()
-        self.list_sites.Location = Point(12, 56)
-        self.list_sites.Size = Size(390, 100)
+        self.list_sites.Location = Point(12, 60)
+        self.list_sites.Size = Size(410, 88)
         self.list_sites.Items.Add(SITE_SAN_LORENZO)
         self.list_sites.Items.Add(SITE_RICARDONE)
         self.list_sites.SelectedIndex = 0
         self.Controls.Add(self.list_sites)
 
+        btn_overview = Button()
+        btn_overview.Text = u"MUESTREO GENERAL (todas BTZ_01)"
+        btn_overview.Location = Point(12, 156)
+        btn_overview.Size = Size(410, 34)
+        btn_overview.Click += self._on_overview
+        self.Controls.Add(btn_overview)
+
         btn_ok = Button()
         btn_ok.Text = u"CONTINUAR"
-        btn_ok.Location = Point(156, 168)
+        btn_ok.Location = Point(170, 200)
         btn_ok.Size = Size(120, 32)
         btn_ok.Click += self._on_ok
         self.Controls.Add(btn_ok)
 
         btn_cancel = Button()
         btn_cancel.Text = u"CANCELAR"
-        btn_cancel.Location = Point(282, 168)
+        btn_cancel.Location = Point(302, 200)
         btn_cancel.Size = Size(120, 32)
         btn_cancel.Click += self._on_cancel
         self.Controls.Add(btn_cancel)
+
+    def _on_overview(self, sender, args):
+        if self.list_sites.SelectedItem is None:
+            return
+        self.site_choice = _u(self.list_sites.SelectedItem)
+        self.overview_mode = True
+        self.DialogResult = DialogResult.OK
+        self.Close()
 
     def _on_ok(self, sender, args):
         if self.list_sites.SelectedItem is None:
             return
         self.site_choice = _u(self.list_sites.SelectedItem)
+        self.overview_mode = False
         self.DialogResult = DialogResult.OK
         self.Close()
 
@@ -356,7 +654,7 @@ class BTZHierarchyForm(Form):
         self.lbl_help.Size = Size(730, 24)
         self.lbl_help.Text = (
             u"Doble click: bajar de nivel (BTZ_01..06 si hay datos). "
-            u"Seleccion multiple + LISTO: crear filtros con color de linea y relleno solido."
+            u"Seleccion multiple (Ctrl/Shift) + LISTO. Sin seleccion: aplica TODOS."
         )
         self.Controls.Add(self.lbl_help)
 
@@ -381,6 +679,13 @@ class BTZHierarchyForm(Form):
         self.btn_done.Size = Size(120, 36)
         self.btn_done.Click += self._on_done
         self.Controls.Add(self.btn_done)
+
+        self.btn_all = Button()
+        self.btn_all.Text = u"TODOS"
+        self.btn_all.Location = Point(370, 474)
+        self.btn_all.Size = Size(120, 36)
+        self.btn_all.Click += self._on_all
+        self.Controls.Add(self.btn_all)
 
         self.btn_cancel = Button()
         self.btn_cancel.Text = u"CANCELAR"
@@ -442,13 +747,16 @@ class BTZHierarchyForm(Form):
         for item in self.list_values.SelectedItems:
             selected.append(_u(item))
         if not selected:
-            MessageBox.Show(
-                u"Selecciona uno o mas valores antes de continuar.",
-                u"FILTRAR",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Warning,
-            )
-            return
+            for i in range(self.list_values.Items.Count):
+                selected.append(_u(self.list_values.Items[i]))
+            if not selected:
+                MessageBox.Show(
+                    u"No hay valores disponibles para aplicar en este nivel.",
+                    u"FILTRAR",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning,
+                )
+                return
 
         self.result_payload = {
             "site_label": self._site_label,
@@ -459,6 +767,10 @@ class BTZHierarchyForm(Form):
         }
         self.DialogResult = DialogResult.OK
         self.Close()
+
+    def _on_all(self, sender, args):
+        for i in range(self.list_values.Items.Count):
+            self.list_values.SetSelected(i, True)
 
     def _on_cancel(self, sender, args):
         self.DialogResult = DialogResult.Cancel
@@ -600,6 +912,109 @@ def _is_supported_active_view(view):
     return True
 
 
+def _execute_apply_filters(doc, view, site_label, level_number, param_name, parent_path, selected_values, param_meta):
+    """
+    Quita FILTRO_BTZ* de la vista, crea/reutiliza filtros y los aplica con color.
+    Retorna (ok, datos_dict o None, mensaje_error o None).
+    """
+    use_level = level_number
+    use_param = param_name
+    use_parent = list(parent_path)
+    use_selected = list(selected_values)
+
+    # Caso especial ACEITE: el agrupador BTZ_03 "BOMBAS DE ACEITE" representa 4 salas reales en BTZ_04.
+    if (
+        use_param == BTZ_PARAMS[2]
+        and len(use_parent) >= 2
+        and _safe_strip(use_parent[0]).upper() == u"TE"
+        and _safe_strip(use_parent[1]).upper() == ACEITE_SECTOR_CODE
+        and any(_safe_strip(v).upper() == ACEITE_BOMBAS_GROUP_CODE for v in use_selected)
+    ):
+        normalized_selected = [_safe_strip(v).upper() for v in use_selected]
+        if len(normalized_selected) > 1:
+            return (
+                False,
+                None,
+                u"En SECTOR ACEITE, 'BOMBAS DE ACEITE' no se combina con otros nodos de ese nivel. "
+                u"Aplicalo por separado o entra por doble click y filtra salas/bombas.",
+            )
+        use_level = 4
+        use_param = BTZ_PARAMS[3]
+        use_parent = use_parent + [ACEITE_BOMBAS_GROUP_CODE]
+        use_selected = list(ACEITE_BOMBAS_SUBSECTORS)
+
+    if (
+        use_param == BTZ_PARAMS[2]
+        and len(use_parent) >= 2
+        and _safe_strip(use_parent[0]).upper() == u"TE"
+        and _safe_strip(use_parent[1]).upper() == ACEITE_SECTOR_CODE
+        and any(_safe_strip(v).upper() == ACEITE_ADMIN_GROUP_CODE for v in use_selected)
+    ):
+        normalized_selected = [_safe_strip(v).upper() for v in use_selected]
+        if len(normalized_selected) > 1:
+            return (
+                False,
+                None,
+                u"En SECTOR ACEITE, 'SECTOR ADMINISTRATIVO' no se combina con otros nodos de ese nivel. "
+                u"Aplicalo por separado o entra por doble click y filtra subsectores.",
+            )
+        return _execute_apply_filters_multi(doc, view, site_label, _adm_sector_expand_specs(), param_meta)
+
+    meta = param_meta.get(use_param)
+    if not meta or meta.get("param_id") is None:
+        return (
+            False,
+            None,
+            u"No se pudo localizar el parametro '{0}' para crear filtros.".format(param_name),
+        )
+    if not meta.get("cat_ids"):
+        return (
+            False,
+            None,
+            u"No hay categorias compatibles con '{0}'.".format(param_name),
+        )
+
+    created_names = []
+    reused_names = []
+    cleared = 0
+
+    tx = Transaction(doc, u"BTZ | Crear filtros jerarquicos")
+    tx.Start()
+    try:
+        cleared = _remove_btz_filters_from_view(doc, view)
+        existing_by_name = _get_existing_filters_by_name(doc)
+
+        for selected_value in use_selected:
+            filter_name = _build_filter_name(use_level, use_parent, selected_value, site_label)
+            filter_el, reused = _create_or_reuse_filter(
+                doc=doc,
+                existing_by_name=existing_by_name,
+                filter_name=filter_name,
+                param_id=meta["param_id"],
+                category_ids=meta["cat_ids"],
+                value_text=selected_value,
+            )
+
+            rgb = _color_for_selection(use_level, selected_value, use_parent)
+            _apply_filter_to_view(doc, view, filter_el.Id, rgb)
+
+            if reused:
+                reused_names.append(filter_name)
+            else:
+                created_names.append(filter_name)
+
+        tx.Commit()
+    except Exception as ex:
+        tx.RollBack()
+        return (False, None, u"Error al crear/aplicar filtros:\n{0}".format(ex))
+
+    return (
+        True,
+        {"cleared": cleared, "created": created_names, "reused": reused_names},
+        None,
+    )
+
+
 def main():
     doc = revit.doc
     view = doc.ActiveView if doc else None
@@ -627,6 +1042,7 @@ def main():
     if site_form.ShowDialog() != DialogResult.OK or not site_form.site_choice:
         return
     site_label = site_form.site_choice
+    overview_mode = bool(getattr(site_form, "overview_mode", False))
 
     rows = _filter_rows_for_site(rows, site_label)
     if not rows:
@@ -638,6 +1054,51 @@ def main():
             title=__title__,
             warn_icon=True,
         )
+        return
+
+    if overview_mode:
+        all_bt01 = _get_level_values(rows, 0, [])
+        if not all_bt01:
+            forms.alert(
+                u"No hay valores BTZ_Description_01 para armar el muestreo en este sitio.",
+                title=__title__,
+                warn_icon=True,
+            )
+            return
+        ok, data, err = _execute_apply_filters(
+            doc,
+            view,
+            site_label,
+            1,
+            BTZ_PARAMS[0],
+            [],
+            all_bt01,
+            param_meta,
+        )
+        if not ok:
+            forms.alert(err, title=__title__, warn_icon=True)
+            return
+        cleared = data[u"cleared"]
+        created_names = data[u"created"]
+        reused_names = data[u"reused"]
+        lines = []
+        lines.append(u"Sitio: {0}".format(site_label or u""))
+        lines.append(u"Modo: muestreo general — todas las BTZ_01 del sitio activas a la vez")
+        lines.append(u"Vista activa: {0}".format(_u(view.Name)))
+        lines.append(u"Filtros BTZ quitados de la vista antes de aplicar: {0}".format(cleared))
+        lines.append(u"Filtros creados: {0}".format(len(created_names)))
+        lines.append(u"Filtros reutilizados: {0}".format(len(reused_names)))
+        if created_names:
+            lines.append(u"")
+            lines.append(u"Creados:")
+            for name in created_names:
+                lines.append(u"- {0}".format(name))
+        if reused_names:
+            lines.append(u"")
+            lines.append(u"Reutilizados:")
+            for name in reused_names:
+                lines.append(u"- {0}".format(name))
+        forms.alert(u"\n".join(lines), title=__title__)
         return
 
     dialog = BTZHierarchyForm(rows, site_label)
@@ -656,57 +1117,23 @@ def main():
         forms.alert(u"Nivel seleccionado no valido.", title=__title__, warn_icon=True)
         return
 
-    meta = param_meta.get(param_name)
-    if not meta or meta.get("param_id") is None:
-        forms.alert(
-            u"No se pudo localizar el parametro '{0}' para crear filtros.".format(param_name),
-            title=__title__,
-            warn_icon=True,
-        )
-        return
-    if not meta.get("cat_ids"):
-        forms.alert(
-            u"No hay categorias compatibles con '{0}'.".format(param_name),
-            title=__title__,
-            warn_icon=True,
-        )
+    ok, data, err = _execute_apply_filters(
+        doc,
+        view,
+        site_label,
+        level_number,
+        param_name,
+        parent_path,
+        selected_values,
+        param_meta,
+    )
+    if not ok:
+        forms.alert(err, title=__title__, warn_icon=True)
         return
 
-    created_names = []
-    reused_names = []
-    failed_names = []
-    cleared = 0
-
-    tx = Transaction(doc, u"BTZ | Crear filtros jerarquicos")
-    tx.Start()
-    try:
-        cleared = _remove_btz_filters_from_view(doc, view)
-        existing_by_name = _get_existing_filters_by_name(doc)
-
-        for selected_value in selected_values:
-            filter_name = _build_filter_name(level_number, parent_path, selected_value, site_label)
-            filter_el, reused = _create_or_reuse_filter(
-                doc=doc,
-                existing_by_name=existing_by_name,
-                filter_name=filter_name,
-                param_id=meta["param_id"],
-                category_ids=meta["cat_ids"],
-                value_text=selected_value,
-            )
-
-            rgb = _color_for_selection(level_number, selected_value, parent_path)
-            _apply_filter_to_view(doc, view, filter_el.Id, rgb)
-
-            if reused:
-                reused_names.append(filter_name)
-            else:
-                created_names.append(filter_name)
-
-        tx.Commit()
-    except Exception as ex:
-        tx.RollBack()
-        forms.alert(u"Error al crear/aplicar filtros:\n{0}".format(ex), title=__title__, warn_icon=True)
-        return
+    cleared = data[u"cleared"]
+    created_names = data[u"created"]
+    reused_names = data[u"reused"]
 
     lines = []
     lines.append(u"Sitio: {0}".format(site_label or u""))
@@ -715,8 +1142,6 @@ def main():
     lines.append(u"Filtros BTZ quitados de la vista antes de aplicar: {0}".format(cleared))
     lines.append(u"Filtros creados: {0}".format(len(created_names)))
     lines.append(u"Filtros reutilizados: {0}".format(len(reused_names)))
-    if failed_names:
-        lines.append(u"Fallidos: {0}".format(len(failed_names)))
 
     if created_names:
         lines.append(u"")
