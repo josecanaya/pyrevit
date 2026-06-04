@@ -1,0 +1,104 @@
+﻿codigo_project,task_name,estado_match,observacion,tipo_asociacion
+TE-BBR-CNL-CANAL,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-BBR-VLV-CLAP,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-BBR-VLV-DESPURGUE,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-BBR-VLV-EGRESO,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-BBR-VLV-INGRESO,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-BRR-VLV-VALV,,sin_contenedor,Código repetido en Project 3 veces. Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-BBR-PLT-PILETA,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-BBR-CMR-CAMARA,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-MDU-CSL-CASILLA,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-MDU-CÑR-CAÑERIA,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-MDU-BOY-BOYA,,sin_contenedor,Código repetido en Project 4 veces. Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-MDU-MLC-M.E.T,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-MDU-MNG-MANGUERAS,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-MDU-SIS-SIST,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-MDU-TRM-SCRAPPER,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-MDU-VLV-ELE,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-MSB-CÑR-CAÑERIA,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-RFN-BRZ-BRAZO,,sin_contenedor,Código repetido en Project 3 veces. Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-RFN-CDL-CAUDAL,,sin_contenedor,Código repetido en Project 2 veces. Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-RFN-CRT-CORTINA,,sin_contenedor,Código repetido en Project 4 veces. Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-RFN-VLV-VN,,sin_contenedor,Código repetido en Project 2 veces. Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-AMR-AMARR,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-CCM-CCMBARC,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-CRR-CPDB1,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-ESC-EABA,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-ESC-EABS,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-GRU-SENNEBOGEN,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-ADB-ADB1,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-CHD-CHGALM,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-VLV-VDZ1,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-MLC-MEIB1,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-MLC-MHA,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-MLC-MLAB,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-MLC-MLC1,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-MLC-MLC2,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-MLC-MLC3,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-MLC-MLC4,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-MLC-MLC5,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-MLC-MLC6,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-MLC-MLC7,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-MLC-MLC8,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-MLC-MLCD2,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-MLC-MLCD4,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-TLV-TDAT,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-TLV-TF,,sin_contenedor,Código repetido en Project 2 veces. Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-TLV-TFN,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-TLV-TFNA,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-TLV-TFNB,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-TLV-TMN,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-TLV-TMS,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-TLV-TOLVA,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-PNT-JUEGO,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-MLC-MM1,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-MLC-MM2,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-PRT-PDB1,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-VLV-VDP73/74,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-VLV-VPBE3,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-VLV-VTT1,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ADD-VLV-VTT2,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-PLY-PLM-CFB630,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-PLY-PLM-CFBS850-2,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ALM-CRR-CTCSC4,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+TE-ALM-LGC-ALMACENAJE(CELDAS,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+TE-TNL-VNT-IA1,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-TNL-VNT-IA2,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-TNL-VNT-IA3,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-TNL-VNT-IA4,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-TNL-VLV-P27,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-TNL-VLV-P28,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-ALM-LGC-RECEPCION,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+TE-TNL-CNT-CR0,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+TE-ALM-VLV-P31,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+TE-ALM-VLV-P32,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+TE-TNL-CNT-CR1,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+TE-ALM-VLV-P81,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+TE-ALM-VLV-P82,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+TE-TNL-VNT-IA5,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-TNL-CNT-CR2,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+TE-ALM-VLV-P51,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+TE-ALM-VLV-P52,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+TE-TNL-CNT-CR3,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+TE-TNL-CNT-CR4,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+TE-ALM-VLV-P17,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+TE-ALM-VLV-P18,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+TE-TNL-VLV-VDP17,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-TNL-VLV-VDP18,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-TNL-CNT-CR6,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+TE-TNL-ASP-ACR6,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-TNL-VLV-P29,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-TNL-VLV-P30,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-TNL-VNT-IA6,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-DCC-SIS-ASP,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-DCC-SIS-ASPIR,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-TRF-TRF-CZERWENY-1600KVA,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-TRF-TRF-CZERWENY-3000KVA,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-TRF-TRF-N.RIVERA-2500KVA,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-AGR-PLM-924K2,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-PLY-BLN-LECITNA,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-PLY-BRR-ACC,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-PLY-CNL-CANAL,,sin_contenedor,Código repetido en Project 2 veces. Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-PLY-VLV-CLAP,,sin_contenedor,Código repetido en Project 3 veces. Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-PLY-VLV-VALV,,sin_contenedor,Código repetido en Project 4 veces. Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+TE-PLY-PLM-CFBS850,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion

@@ -1,0 +1,15 @@
+Asignar BTZ Project
+fecha: 2026-06-04 15:16:01
+project_xml: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\project\TE.xml
+planta: TE
+nodo_project_seleccionado: TE-PLY-LGC-CANALES PLUVIALES
+modo_aplicacion: Aplicar este nodo + todos los descendientes
+modo_escritura: Reemplazar BTZ_Description_01..80
+elementos_seleccionados: 1
+codigos_a_escribir: 11
+codigos_escritos: 11
+codigos_ya_existian: 0
+codigos_omitidos: 0
+errores: 0
+ruta_trazabilidad: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\asignaciones_manuales_project.csv
+ruta_excedentes: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\asignaciones_manuales_project_excedentes.csv

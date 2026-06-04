@@ -1,0 +1,22 @@
+Preparar aplicación BTZ
+
+total_codigos_project: 3262
+total_match_elemento_puntual_aplicable: 84
+total_asignable_a_contenedor_aplicable: 986
+total_asignable_por_ancestro_project: 487
+total_asignable_por_scoring: 499
+total_codigos_aplicables: 1070
+total_elementos_revit_a_modificar: 77
+total_hijos_asociados_a_contenedor: 986
+total_hijos_cargados_en_btz_description: 940
+total_hijos_asociados_solo_por_csv_externo: 46
+total_hijos_omitidos_por_slots: 46
+contenedores_superan_slots_80: 1
+
+lista de contenedores que superan slots:
+- element_id=394757 | hijos=122 | slots_libres=76 | PR > PR-PRP1-LGC-PREPARACION 1 > PR-PRP1-LGC-GENERAL > PR-PRP1-CNT-TSG16
+
+ruta de match_project_revit_confirmado.csv: C:\Users\Pc\AppData\Roaming\pyRevit\Extensions\btz.extension\public\output\PR\match_project_revit_confirmado.csv
+ruta de asociacion_contenedor_hijos_final.csv: C:\Users\Pc\AppData\Roaming\pyRevit\Extensions\btz.extension\public\output\PR\asociacion_contenedor_hijos_final.csv
+
+aclaración: los hijos que no entran en BTZ_Description siguen asociados por CSV externo y no se consideran error.

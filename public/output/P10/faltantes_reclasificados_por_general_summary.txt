@@ -1,0 +1,25 @@
+Diagnóstico fallback contenedores GENERAL por sector (P10)
+
+Fuente: filas con estado_match=sin_contenedor del último cruce (sin modificar match principal).
+
+Total faltantes sin_contenedor analizados: 1
+Con prefijo de sector en tabla GENERAL: 0
+Sin regla GENERAL (prefijo no mapeado): 1
+Con ancestro de cadena ya presente en modelo (revisar antes de GENERAL): 0
+
+Pueden orientarse a GENERAL existente en modelo (sin bloqueo por ancestro): 0
+Requieren crear/asignar contenedor GENERAL en Revit (no hallado): 0
+Filas donde el texto GENERAL ya aparece en Revit: 0
+
+Códigos GENERAL distintos ya presentes en export: 0
+Códigos GENERAL distintos sugeridos pero no hallados: 0
+
+Listado códigos GENERAL presentes:
+(ninguno)
+
+Listado códigos GENERAL sugeridos faltantes en export:
+(ninguno)
+
+Conteo por prefijo_sector (total | existe_en_modelo | falta_crear):
+
+Nota: validacion_rol_agrupacion en el CSV revisa heurísticamente que el GENERAL no sea una hoja BTZ suelta (varios slots, ruta con GENERAL).

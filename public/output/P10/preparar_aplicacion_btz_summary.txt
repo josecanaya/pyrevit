@@ -1,0 +1,22 @@
+Preparar aplicación BTZ
+
+total_codigos_project: 871
+total_match_elemento_puntual_aplicable: 686
+total_asignable_a_contenedor_aplicable: 17
+total_asignable_por_ancestro_project: 7
+total_asignable_por_scoring: 10
+total_codigos_aplicables: 703
+total_elementos_revit_a_modificar: 45
+total_hijos_asociados_a_contenedor: 17
+total_hijos_cargados_en_btz_description: 16
+total_hijos_asociados_solo_por_csv_externo: 1
+total_hijos_omitidos_por_slots: 1
+contenedores_superan_slots_80: 1
+
+lista de contenedores que superan slots:
+- element_id=367888 | hijos=1 | slots_libres=0 | P10 > P10-HRN-LGC-HARINA > P10-HRN-ENF-EG01 > P10-HRN-RSC-EGSF01 > P10-HRN-RSC-EGSF02 > P10-HRN-RSC-EGSF03 > P10-HRN-RSC-EGSF04 > P10-HRN-VNT-VE27 > P10-HRN-CCL-CVE27 > P10-HRN-VLV-VR20 > P10-HRN-VNT-VE28 > P10-HRN-CCL-CVE28 > P10-HRN-VLV-VR21 > P10-HRN-VNT-VE29 > P10-HRN-CCL-CVE29 > P10-HRN-VLV-VR22 > P10-HRN-VNT-VE30 > P10-HRN-CCL-CVE30 > P10-HRN-VLV-VR23 > P10-HRN-VNT-VE31 > P10-HRN-CCL-CVE31 > P10-HRN-VLV-VR24 > P10-HRN-VNT-VE32 > P10-HRN-CCL-CVE32 > P10-HRN-VLV-VR25 > P10-HRN-VNT-VE33 > P10-HRN-CCL-CVE33 > P10-HRN-VLV-VR26 > P10-HRN-VNT-VE34 > P10-HRN-CCL-CVE34 > P10-HRN-VLV-VR27 > P10-HRN-VNT-VE39 > P10-HRN-ART-ARTVE39 > P10-HRN-VNT-VE40 > P10-HRN-ART-ARTVE40 > P10-HRN-VNT-VE41 > P10-HRN-ART-ARTVE41 > P10-HRN-VNT-VE42 > P10-HRN-ART-ARTVE42 > P10-HRN-VNT-VE43 > P10-HRN-ART-ARTVE43 > P10-HRN-VNT-VE44 > P10-HRN-ART-ARTVE44 > P10-HRN-VNT-VE45 > P10-HRN-ART-ARTVE45 > P10-HRN-VNT-VE46 > P10-HRN-ART-ARTVE46 > P10-HRN-VNT-VE47 > P10-HRN-ART-ARTVE47 > P10-HRN-VNT-VE48 > P10-HRN-ART-ARTVE48 > P10-HRN-VNT-VE49 > P10-HRN-ART-ARTVE49 > P10-HRN-VNT-VE50 > P10-HRN-ART-ARTVE50 > P10-HRN-VNT-VE51 > P10-HRN-ART-ARTVE51 > P10-HRN-VNT-VE52 > P10-HRN-ART-ARTVE52 > P10-HRN-VNT-VE53 > P10-HRN-ART-ARTVE53 > P10-HRN-VNT-VE54 > P10-HRN-ART-ARTVE54 > P10-HRN-VNT-VE55 > P10-HRN-ART-ARTVE55 > P10-HRN-VNT-VE56 > P10-HRN-ART-ARTVE56 > P10-HRN-VNT-VE57 > P10-HRN-ART-ARTVE57 > P10-HRN-VNT-VE58 > P10-HRN-ART-ARTVE58 > P10-HRN-VNT-VE59 > P10-HRN-ART-ARTVE59 > P10-HRN-VNT-VE60 > P10-HRN-ART-ARTVE60 > P10-HRN-VNT-VE61 > P10-HRN-ART-ARTVE61 > P10-HRN-VNT-VE62 > P10-HRN-ART-ARTVE62 > P10-HRN-VNT-VE63
+
+ruta de match_project_revit_confirmado.csv: C:\Users\Pc\AppData\Roaming\pyRevit\Extensions\btz.extension\public\output\P10\match_project_revit_confirmado.csv
+ruta de asociacion_contenedor_hijos_final.csv: C:\Users\Pc\AppData\Roaming\pyRevit\Extensions\btz.extension\public\output\P10\asociacion_contenedor_hijos_final.csv
+
+aclaración: los hijos que no entran en BTZ_Description siguen asociados por CSV externo y no se consideran error.

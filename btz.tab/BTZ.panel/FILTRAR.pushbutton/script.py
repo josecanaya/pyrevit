@@ -6,8 +6,8 @@ from __future__ import print_function
 
 __title__ = u"FILTRAR"
 __doc__ = (
-    u"Sitio, luego BTZ_Description_01..06; regla de igualdad por nivel. Overrides de lineas "
-    u"y patron solido de proyeccion/corte en la vista activa."
+    u"Sitio, luego BTZ_Description_01..06; regla de igualdad por nivel. Lineas negras; relleno "
+    u"solido de proyeccion/corte segun planta y nivel BTZ en la vista activa."
 )
 __author__ = u"btz.extension"
 
@@ -71,11 +71,14 @@ SITE_BTZ01_ALLOW = {
 # Filtros generados por esta herramienta (para limpiar la vista en cada corrida)
 BTZ_FILTER_NAME_PREFIX = u"FILTRO_BTZ"
 
+# Proyeccion/corte: siempre negro (el relleno lleva el color de planta / nivel BTZ)
+FILTER_LINE_RGB = (0, 0, 0)
+
 BASE_COLORS_BY_PLANTA = {
     u"P10": (52, 152, 219),   # azul
     u"PP": (46, 204, 113),    # verde
-    u"TE": (231, 76, 60),     # rojo
-    u"PR": (243, 156, 18),    # naranja
+    u"TE": (255, 0, 0),       # rojo pleno (#FF0000); no aclarar por nivel (evita rosa)
+    u"PR": (107, 63, 160),    # violeta Ricardone (IAPlano); niveles mas profundos = lavanda
 }
 
 ACEITE_SECTOR_CODE = u"TE-ACT-LGC-SECTOR ACEITE"
@@ -243,6 +246,8 @@ def _color_for_selection(level_number, selected_value, parent_path):
         planta = _extract_planta(selected_value)
 
     base = BASE_COLORS_BY_PLANTA.get(planta, (127, 140, 141))
+    if planta == u"TE":
+        return base
     if level_number == 1:
         return base
     if level_number == 2:
@@ -872,26 +877,28 @@ def _apply_filter_to_view(doc, view, filter_id, rgb):
         view.AddFilter(filter_id)
 
     r, g, b = rgb
-    color = Color(Byte(r), Byte(g), Byte(b))
+    fill_color = Color(Byte(r), Byte(g), Byte(b))
+    lr, lg, lb = FILTER_LINE_RGB
+    line_color = Color(Byte(lr), Byte(lg), Byte(lb))
     ogs = OverrideGraphicSettings()
-    ogs.SetProjectionLineColor(color)
-    ogs.SetCutLineColor(color)
+    ogs.SetProjectionLineColor(line_color)
+    ogs.SetCutLineColor(line_color)
 
     solid_id = _get_solid_fill_pattern_id(doc)
     if solid_id is not None:
         try:
             ogs.SetSurfaceForegroundPatternId(solid_id)
-            ogs.SetSurfaceForegroundPatternColor(color)
+            ogs.SetSurfaceForegroundPatternColor(fill_color)
         except Exception:
             pass
         try:
             ogs.SetCutForegroundPatternId(solid_id)
-            ogs.SetCutForegroundPatternColor(color)
+            ogs.SetCutForegroundPatternColor(fill_color)
         except Exception:
             pass
         try:
             ogs.SetCutFillPatternId(solid_id)
-            ogs.SetCutFillPatternColor(color)
+            ogs.SetCutFillPatternColor(fill_color)
         except Exception:
             pass
 

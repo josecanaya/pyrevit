@@ -1,0 +1,22 @@
+{
+  "P10": {
+    "project": "public/project/P10.xml",
+    "revit_export": "public/modelo_btz_export_p10.csv",
+    "output_dir": "public/output/P10"
+  },
+  "PP": {
+    "project": "public/project/PP.xml",
+    "revit_export": "public/modelo_btz_export_pp.csv",
+    "output_dir": "public/output/PP"
+  },
+  "TE": {
+    "project": "public/project/TE.xml",
+    "revit_export": "public/modelo_btz_export_te.csv",
+    "output_dir": "public/output/TE"
+  },
+  "PR": {
+    "project": "public/project/PR.xml",
+    "revit_export": "public/modelo_btz_export_pr.csv",
+    "output_dir": "public/output/PR"
+  }
+}

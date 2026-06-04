@@ -4,7 +4,7 @@ Exporta la vista activa en un PNG de alta calidad con estilo diagrama (terreno v
 """
 from __future__ import print_function
 
-__title__ = u"Exportar vista SL"
+__title__ = u"EXPORTAR\nVISTA SL"
 __doc__ = (
     u"Duplica la vista, pone verde menta solo topografia/vias (pocas llamadas API, estable en Revit 2026). "
     u"El resto queda como lo ves en Revit. PNG en carpeta San Lorenzo."

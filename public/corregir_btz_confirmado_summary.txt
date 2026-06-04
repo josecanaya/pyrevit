@@ -1,0 +1,20 @@
+Corregir BTZ confirmado
+fecha: 2026-04-30 16:28:31
+dry_run: NO
+
+total_contenedores_leidos: 28
+total_contenedores_encontrados_en_revit: 28
+total_codigos_asociados_leidos: 480
+total_filas_fuente_leidas: 480
+estado_lectura_fuente: ok=480
+total_codigos_ya_existian: 479
+total_codigos_escritos: 0
+total_codigos_omitidos_sin_slot: 1
+total_elementos_modificados: 0
+total_errores: 0
+ruta results CSV: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\corregir_btz_confirmado_results.csv
+ruta por contenedor CSV: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\corregir_btz_confirmado_por_contenedor.csv
+ruta debug fuente CSV: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\debug_corregir_btz_fuente.csv
+ruta debug por contenedor fuente CSV: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\debug_corregir_btz_por_contenedor_fuente.csv
+ruta debug sectores no asociados CSV: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\debug_sectores_no_asociados_p10.csv
+filas debug sectores no asociados: 660

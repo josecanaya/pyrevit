@@ -1,0 +1,13 @@
+Aplicar BTZ confirmado
+fecha: 2026-05-05 13:02:24
+
+planta: PP
+entrada: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\output\PP\match_project_revit_confirmado.csv
+resultados CSV: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\output\PP\aplicar_btz_confirmado_results.csv
+
+filas leídas: 32
+filas aplicadas: 32
+filas omitidas (estado): 0
+errores (incluye no encontrado y conflicto): 0
+elementos no encontrados: 0
+conflictos unique_id: 0

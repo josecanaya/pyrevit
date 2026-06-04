@@ -4,10 +4,10 @@ pyRevit - Exportar PNG por filtros BTZ (vista duplicada, mismo aspecto que la vi
 """
 from __future__ import print_function
 
-__title__ = u"Exportar BTZ PNG"
+__title__ = u"EXPORTAR\nBTZ PNG"
 __doc__ = (
-    u"Un PNG por nodo BTZ_02/03/04: vista base solo 3D, orientacion isometrica y estilo Línea oculta (HLR). "
-    u"Solo el filtro lleva relleno TE/PP/P10/PR y lineas negras gruesas."
+    u"Un PNG por nodo BTZ_02/03/04: vista base solo 3D, orientación isométrica y el mismo estilo visual que la vista "
+    u"que elijas (p. ej. sombreado), sin forzar línea oculta. Solo el filtro lleva relleno TE/PP/P10/PR y líneas negras gruesas."
 )
 __author__ = u"btz.extension"
 
@@ -56,7 +56,7 @@ HIGHLIGHT_FILL_BY_BTZ01 = {
     u"TE": (220, 0, 0),       # rojo intenso (terminal)
     u"PP": (46, 204, 113),   # verde (planta a puerto)
     u"P10": (135, 206, 250), # celeste / azul cielo (planta 1000)
-    u"PR": (243, 156, 18),   # naranja (Ricardone)
+    u"PR": (107, 63, 160),   # violeta Ricardone (misma base que FILTRAR)
 }
 KNOWN_BTZ01_CODES = frozenset(HIGHLIGHT_FILL_BY_BTZ01.keys())
 
@@ -231,7 +231,7 @@ def _pick_base_view(doc):
     labels = [_u(v.Name) for v in views]
     pick = forms.SelectFromList.show(
         labels,
-        title=u"Vista 3D base (se duplica por filtro; isometria + linea oculta al exportar)",
+        title=u"Vista 3D base (se duplica por filtro; isometría; PNG con el mismo estilo visual, p. ej. sombreado)",
         button_name=u"Usar",
         multiselect=False,
     )
@@ -432,9 +432,10 @@ def _clear_view_filters(view):
         pass
 
 
-def _prepare_export_view_3d(view, doc):
+def _prepare_export_view_3d(view, doc, style_source_view):
     """
-    Isometria + Línea oculta (HLR), sin forzar sombreado (coincide con lo pedido en pantalla).
+    Isometría. El estilo (sombreado, línea oculta, realista, etc.) se toma de la vista base que elijiste
+    (la duplicata ya hereda el DisplayStyle; lo reasignamos desde la base por si en el futuro cambia el flujo).
     """
     if not isinstance(view, View3D):
         return
@@ -445,8 +446,30 @@ def _prepare_export_view_3d(view, doc):
                 view.SetOrientation(ori)
         except Exception:
             pass
-        view.DisplayStyle = DisplayStyle.HLR
-        view.DetailLevel = ViewDetailLevel.Fine
+        if style_source_view is not None and isinstance(style_source_view, View3D):
+            try:
+                view.DisplayStyle = style_source_view.DisplayStyle
+            except Exception:
+                try:
+                    view.DisplayStyle = DisplayStyle.Shading
+                except Exception:
+                    pass
+            try:
+                view.DetailLevel = style_source_view.DetailLevel
+            except Exception:
+                try:
+                    view.DetailLevel = ViewDetailLevel.Fine
+                except Exception:
+                    pass
+        else:
+            try:
+                view.DisplayStyle = DisplayStyle.Shading
+            except Exception:
+                pass
+            try:
+                view.DetailLevel = ViewDetailLevel.Fine
+            except Exception:
+                pass
     except Exception:
         pass
 
@@ -759,7 +782,7 @@ def main():
             row_csv[u"nombre_vista"] = _u(dup.Name)
 
             _clear_view_filters(dup)
-            _prepare_export_view_3d(dup, doc)
+            _prepare_export_view_3d(dup, doc, base_view)
             _apply_filter_highlight_override(
                 dup,
                 doc,

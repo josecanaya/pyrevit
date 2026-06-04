@@ -1,0 +1,117 @@
+Exportar Modelo BTZ
+fecha: 2026-06-03 15:17:26
+
+total elementos escaneados antes de filtros: 18659
+total elementos exportados en todo_modelo: 781
+total elementos exportados en activos: 767
+total elementos con BTZ en activos: 255
+total elementos P10 en activos: 76
+total elementos P10 en todo_modelo: 76
+total inconsistencias detectadas: 25
+
+conteo por BTZ_Description_01:
+  (vacío): 533
+  P10: 72
+  PP: 50
+  TE: 111
+  secadora a maniouleo: 1
+
+conteo por categoría:
+  Floors: 57
+  Generic Models: 91
+  Roofs: 168
+  Walls: 451
+
+conteo por cada BTZ_Description_01..80:
+  BTZ_Description_01: 234
+  BTZ_Description_02: 252
+  BTZ_Description_03: 248
+  BTZ_Description_04: 174
+  BTZ_Description_05: 199
+  BTZ_Description_06: 171
+  BTZ_Description_07: 156
+  BTZ_Description_08: 142
+  BTZ_Description_09: 126
+  BTZ_Description_10: 118
+  BTZ_Description_11: 103
+  BTZ_Description_12: 96
+  BTZ_Description_13: 88
+  BTZ_Description_14: 86
+  BTZ_Description_15: 79
+  BTZ_Description_16: 65
+  BTZ_Description_17: 61
+  BTZ_Description_18: 56
+  BTZ_Description_19: 50
+  BTZ_Description_20: 47
+  BTZ_Description_21: 43
+  BTZ_Description_22: 41
+  BTZ_Description_23: 39
+  BTZ_Description_24: 38
+  BTZ_Description_25: 36
+  BTZ_Description_26: 35
+  BTZ_Description_27: 30
+  BTZ_Description_28: 26
+  BTZ_Description_29: 26
+  BTZ_Description_30: 23
+  BTZ_Description_31: 22
+  BTZ_Description_32: 18
+  BTZ_Description_33: 18
+  BTZ_Description_34: 18
+  BTZ_Description_35: 18
+  BTZ_Description_36: 14
+  BTZ_Description_37: 14
+  BTZ_Description_38: 14
+  BTZ_Description_39: 13
+  BTZ_Description_40: 13
+  BTZ_Description_41: 13
+  BTZ_Description_42: 13
+  BTZ_Description_43: 12
+  BTZ_Description_44: 7
+  BTZ_Description_45: 6
+  BTZ_Description_46: 6
+  BTZ_Description_47: 6
+  BTZ_Description_48: 5
+  BTZ_Description_49: 5
+  BTZ_Description_50: 5
+  BTZ_Description_51: 5
+  BTZ_Description_52: 5
+  BTZ_Description_53: 4
+  BTZ_Description_54: 4
+  BTZ_Description_55: 4
+  BTZ_Description_56: 3
+  BTZ_Description_57: 3
+  BTZ_Description_58: 3
+  BTZ_Description_59: 3
+  BTZ_Description_60: 3
+  BTZ_Description_61: 3
+  BTZ_Description_62: 3
+  BTZ_Description_63: 3
+  BTZ_Description_64: 3
+  BTZ_Description_65: 2
+  BTZ_Description_66: 2
+  BTZ_Description_67: 2
+  BTZ_Description_68: 2
+  BTZ_Description_69: 2
+  BTZ_Description_70: 0
+  BTZ_Description_71: 0
+  BTZ_Description_72: 0
+  BTZ_Description_73: 0
+  BTZ_Description_74: 0
+  BTZ_Description_75: 0
+  BTZ_Description_76: 0
+  BTZ_Description_77: 0
+  BTZ_Description_78: 0
+  BTZ_Description_79: 0
+  BTZ_Description_80: 0
+
+rutas CSV generadas:
+  activos/backcompat: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\modelo_btz_export.csv
+  activos: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\modelo_btz_export_activos.csv
+  todo_modelo: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\modelo_btz_export_todo_modelo.csv
+  P10 activos: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\modelo_btz_export_p10.csv
+  PP activos: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\modelo_btz_export_pp.csv
+  TE activos: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\modelo_btz_export_te.csv
+  PR activos: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\modelo_btz_export_pr.csv
+  con BTZ activos: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\modelo_btz_export_con_btz.csv
+  inconsistencias activos: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\modelo_btz_export_inconsistencias.csv
+  por planta activos: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\modelo_btz_export_por_planta.csv

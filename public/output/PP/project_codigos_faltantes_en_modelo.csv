@@ -1,0 +1,72 @@
+﻿codigo_project,task_name,estado_match,observacion,tipo_asociacion
+PP-ADM-CMN-THS,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-AGR-LGC-AGREGADO,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+PP-AGR-NOR-N05,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-AGR-PTV-PVA,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-AGR-CHD-PVCH,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-AGR-RSC-S12,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-AGR-RSC-S13,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-AGR-RSC-S14,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-AGR-RSC-S15,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-ALM-LGC-ALMACENES,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+PP-ALM-AUT-AELV,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-ALM-BMB-GOIL,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-ALM-EDF-EDIFICIO,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-ALM-TNQ-TKGASOIL,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-APR-APA06,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-CCM-LGC-SECTOR,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+PP-CCM-CCMEXT,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-CCM-AIR-AIREXT,,sin_contenedor,Código repetido en Project 2 veces. Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-CCM-CMP-AC,,sin_contenedor,Código repetido en Project 8 veces. Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-CCM-CCMHRN,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-CCM-AIR-AIRHRN,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-CCM-CCMPRP,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-CCM-AIR-AIRPRP,,sin_contenedor,Código repetido en Project 3 veces. Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-CCM-CCMRIO,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-ENE-LGC-TRAFOS,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+PP-EXT-BMB-BODG,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+PP-EXT-TNQ-DECANTADOR,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+PP-GRL-LGC-EQUIPOS,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+PP-GRN-LGC-GRANULADO,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+PP-GRN-GRN-G01,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-ALM-GA01,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-GRN-G02,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-ALM-GA02,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-GRN-G03,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-ALM-GA03,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-GRN-G04,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-ALM-GA04,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-GRN-G05,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-ALM-GA05,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-GRN-G06,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-ALM-GA06,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-GRN-G07,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-ALM-GA07,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-GRN-G08,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-ALM-GA08,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-GRN-G09,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-ALM-GA09,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-GRN-G10,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-ALM-GA10,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-GRN-G11,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-ALM-GA11,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-GRN-G12,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-ALM-GA12,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-GRN-RDL-R21,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+PP-LGC-EQUIPOS,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+PP-LGC-RUTAS,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+PP-LGC-ZONA,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+PP-LGC-MAQUINARIAS,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+PP-MQN-BRR-BARREDORA,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-MQN-PLM-PALA,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-TLL-AUT-AELV,,sin_contenedor,Código repetido en Project 3 veces. Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-LGC-SUB,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+PP-ET-CABINA,,sin_contenedor,Código repetido en Project 2 veces. Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-ET-SULFACID,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-LGC-VEHICULOS,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+PP-ADM-ATM-TOY,,sin_contenedor,Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-PRP-EDF-SUPERVISORIO,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+PP-PRP-INCENDIO,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+PP-SIS-CMP-PC,,sin_contenedor,Código repetido en Project 4 veces. Ningún contenedor supera puntaje mínimo 40.,sin_asociacion
+PP-RPS-LGC-REPUESTOS,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion
+PP-RPS-LGC-EN,,sin_contenedor,force_ancestor_container: ningún ancestro de Project coincide con el export Revit (campos BTZ/Mark/Comments/path).,sin_asociacion

@@ -1,0 +1,2 @@
+﻿codigo_project,descripcion_project,prefijo_sector,estado_original,contenedor_general_sugerido,contenedor_general_existe_en_modelo,accion_recomendada,motivo,ancestro_dibujado_en_modelo,ancestros_presentes_en_modelo,elementos_revit_coincidentes,validacion_rol_agrupacion
+P10-PRD-ELE-CCMPEL,CCM PELETERAS P10,,sin_contenedor,,NO,Mantener en revisión manual; sin regla GENERAL definida para este prefijo.,El código no coincide con ningún prefijo de sector en la tabla GENERAL.,NO,,,n/a_sin_codigo_general

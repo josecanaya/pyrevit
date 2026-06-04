@@ -1,0 +1,122 @@
+Preparación match Project/Revit PP
+
+entrada Project: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\project\PP.xml
+entrada Revit: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\modelo_btz_export_pp.csv
+salida CSV: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\output\PP\match_project_revit_preparacion.csv
+salida contenedores CSV: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\output\PP\contenedores_revit.csv
+
+columna códigos Project detectada: Task/Name
+columna descripción Project: ExtendedAttribute[Alias=Descripción] o Notes
+delimitador Project: '(xml)'
+encoding Project: (xml parser)
+
+total códigos Project: 915
+total elementos PP Revit: 32
+total contenedores Revit PP: 32
+match_elemento_puntual: 0
+match_directo: 23
+duplicado: 0
+ya_existente_en_btz: 0
+ya_existente_en_btz_multi_id: 0
+codigos_existentes_multi_id_colapsados: 0
+force_ancestor_container: 0
+ambiguo_real: 0
+asignable_a_contenedor: 821
+contenedor_unico: 483
+contenedor_logico_duplicado_dist: 338
+contenedor_logico_duplicado_canon: 0
+contenedor_duplicado: 0
+sin_contenedor: 71
+omitido_por_slots: 0
+filas_requieren_split_por_slots_SI: 105
+cluster_mode: distributed
+force_ancestor_container_modo: SI
+resueltos_por_force_ancestor_container: 0
+clusters_force_ancestor_container: 0
+capacidad_total_force_ancestor: 0
+capacidad_usada_force_ancestor: 0
+promedio diferencia de puntaje: 60.00
+resueltos_por_ancestro_project: 482
+resueltos_por_scoring: 1
+resueltos_por_puntual_multi_cluster: 6
+resueltos_por_registry_ancestro_capacidad: 7
+resueltos_por_fallback_ancestro_superior: 0
+resueltos_por_primer_ancestro_valido: 0
+resueltos_por_primer_ancestro_valido_relajado: 0
+cantidad todavía contenedor_duplicado: 0
+cantidad de contenedores que superan 80 códigos: 4
+total_confirmado_auto: 844
+total_codigos_aplicables: 844
+total_revision: 71
+total_elementos_revit_a_modificar: 32
+total_asociaciones_contenedor_hijos: 821
+contenedores_superan_slots_80: 4
+aclaración: las asociaciones de hijos se guardan en CSV externo y no se escriben como BTZ_Description individuales.
+
+top 20 contenedores con más códigos sugeridos:
+1. PP > PP-LCT-LGC-LECITINA > PP_LCT_VOTATOR | element_id=184857 | asignados=118 | slots_libres=77
+2. PP > PP-EXT-LGC-EXTRACCION > PP-EXT-LGC-DESGOMADO | element_id=179296 | asignados=108 | slots_libres=77
+3. PP > PP-SRV-LGC-SERVICIOS | element_id=284763 | asignados=105 | slots_libres=78
+4. PP > PP-DSC-LGC-DESCASCARADO > Silo de cascara | element_id=183538 | asignados=84 | slots_libres=77
+5. PP > PP-HRN-LGC-HARINA > PP-HRN-LGC-ENFRIADORES | element_id=286624 | asignados=64 | slots_libres=77
+6. PP > PP-PRL-LGC-PRELIMPIEZA | element_id=286530 | asignados=53 | slots_libres=78
+7. PP > PP-PRP-LGC-PREPARACION > PP-PRP-LGC-LAMINADORES | element_id=286415 | asignados=37 | slots_libres=77
+8. PP > PP-PRP-LGC-PREPARACION > PP-PRP-LGC-BEAN HEATER | element_id=284902 | asignados=31 | slots_libres=77
+9. PP > PP-PRP-LGC-PREPARACION > PP-PRP-LGC-EXPANDIDO | element_id=286288 | asignados=28 | slots_libres=77
+10. PP > PP-PRP-LGC-PREPARACION > PP-PRP-LGC-QUEBRADORES | element_id=286467 | asignados=28 | slots_libres=77
+11. PP > PP-PRP-LGC-PREPARACION > PP-PRP-LGC-REDLER | element_id=286906 | asignados=23 | slots_libres=77
+12. PP > PP-PLL-LGC-PELLETERA | element_id=285377 | asignados=22 | slots_libres=78
+13. PP > PP-HRN-LGC-HARINA > PP-HRN-LGC-HARINA | element_id=366183 | asignados=20 | slots_libres=77
+14. PP > PP-EXT-LGC-EXTRACCION > PP-EXT-LGC-DESTILACION | element_id=366838 | asignados=19 | slots_libres=77
+15. PP > PP-EXT-LGC-EXTRACCION > PP-EXT-LGC-SOLVENTE | element_id=366559 | asignados=16 | slots_libres=77
+16. PP > PP-EXT-LGC-EXTRACCION > PP-EXT-TST-DT01 | element_id=366922 | asignados=14 | slots_libres=77
+17. PP > PP-HRN-LGC-HARINA > PP-HRN-LGC-REDLER | element_id=365759 | asignados=12 | slots_libres=77
+18. PP > PP-HRN-LGC-HARINA > PP-HRN-LGC-TAMIZADORES | element_id=366106 | asignados=9 | slots_libres=77
+19. PP > PP-PRL-LGC-SILOS > PP-PRL-SLO-SA00 | element_id=173600 | asignados=8 | slots_libres=77
+20. PP > PP-HRN-LGC-HARINA > PP-HRN-LGC-VALVULAS A PUERTO | element_id=366280 | asignados=8 | slots_libres=77
+
+top 20 duplicados luego de usar ancestro Project:
+
+clusters contenedor (hijos sugeridos vs capacidad BTZ_05-80 al export):
+  cluster=184857;367233;367512 | hijos_sugeridos=118 | capacidad_05_80=228 | path=PP > PP-LCT-LGC-LECITINA > PP_LCT_VOTATOR
+  cluster=284763 | hijos_sugeridos=105 | capacidad_05_80=76 | path=PP > PP-SRV-LGC-SERVICIOS
+  cluster=183538;183638;183810;184070 | hijos_sugeridos=84 | capacidad_05_80=302 | path=PP > PP-DSC-LGC-DESCASCARADO > Silo de cascara
+  cluster=179296;179346;366559;366791;366838;366859;366922 | hijos_sugeridos=77 | capacidad_05_80=532 | path=PP > PP-EXT-LGC-EXTRACCION > PP-EXT-LGC-DESGOMADO
+  cluster=286624 | hijos_sugeridos=64 | capacidad_05_80=76 | path=PP > PP-HRN-LGC-HARINA > PP-HRN-LGC-ENFRIADORES
+  cluster=286530 | hijos_sugeridos=53 | capacidad_05_80=76 | path=PP > PP-PRL-LGC-PRELIMPIEZA
+  cluster=286415 | hijos_sugeridos=37 | capacidad_05_80=76 | path=PP > PP-PRP-LGC-PREPARACION > PP-PRP-LGC-LAMINADORES
+  cluster=179296 | hijos_sugeridos=31 | capacidad_05_80=76 | path=PP > PP-EXT-LGC-EXTRACCION > PP-EXT-LGC-DESGOMADO
+  cluster=284902;286288;286415;286467;286906 | hijos_sugeridos=31 | capacidad_05_80=380 | path=PP > PP-PRP-LGC-PREPARACION > PP-PRP-LGC-BEAN HEATER
+  cluster=286288 | hijos_sugeridos=28 | capacidad_05_80=76 | path=PP > PP-PRP-LGC-PREPARACION > PP-PRP-LGC-EXPANDIDO
+  cluster=286467 | hijos_sugeridos=28 | capacidad_05_80=76 | path=PP > PP-PRP-LGC-PREPARACION > PP-PRP-LGC-QUEBRADORES
+  cluster=286906 | hijos_sugeridos=23 | capacidad_05_80=76 | path=PP > PP-PRP-LGC-PREPARACION > PP-PRP-LGC-REDLER
+  cluster=285377 | hijos_sugeridos=22 | capacidad_05_80=76 | path=PP > PP-PLL-LGC-PELLETERA
+  cluster=285276;286624;365759;366082;366106;366183;366280 | hijos_sugeridos=20 | capacidad_05_80=532 | path=PP > PP-HRN-LGC-HARINA > PP-HRN-LGC-HARINA
+  cluster=366838 | hijos_sugeridos=19 | capacidad_05_80=76 | path=PP > PP-EXT-LGC-EXTRACCION > PP-EXT-LGC-DESTILACION
+  cluster=366559 | hijos_sugeridos=16 | capacidad_05_80=76 | path=PP > PP-EXT-LGC-EXTRACCION > PP-EXT-LGC-SOLVENTE
+  cluster=366922 | hijos_sugeridos=14 | capacidad_05_80=76 | path=PP > PP-EXT-LGC-EXTRACCION > PP-EXT-TST-DT01
+  cluster=365759 | hijos_sugeridos=12 | capacidad_05_80=76 | path=PP > PP-HRN-LGC-HARINA > PP-HRN-LGC-REDLER
+  cluster=366106 | hijos_sugeridos=9 | capacidad_05_80=76 | path=PP > PP-HRN-LGC-HARINA > PP-HRN-LGC-TAMIZADORES
+  cluster=366280 | hijos_sugeridos=8 | capacidad_05_80=76 | path=PP > PP-HRN-LGC-HARINA > PP-HRN-LGC-VALVULAS A PUERTO
+  cluster=173600 | hijos_sugeridos=7 | capacidad_05_80=76 | path=PP > PP-PRL-LGC-SILOS > PP-PRL-SLO-SA00
+  cluster=366082 | hijos_sugeridos=6 | capacidad_05_80=76 | path=PP > PP-HRN-LGC-HARINA > PP-HRN-LGC-MOLINOS
+  cluster=285673 | hijos_sugeridos=4 | capacidad_05_80=76 | path=PP > PP-HRN-SRT-SR01
+  cluster=285276 | hijos_sugeridos=2 | capacidad_05_80=76 | path=PP > PP-HRN-LGC-HARINA > PP-HRN-LGC-NORIAS
+  cluster=365517 | hijos_sugeridos=2 | capacidad_05_80=76 | path=PP > PP-PRL-LGC-SILOS > PP-PRL-SLO-SRECUP
+  cluster=173600;365517 | hijos_sugeridos=1 | capacidad_05_80=152 | path=PP > PP-PRL-LGC-SILOS > PP-PRL-SLO-SA00
+
+---
+Planta: PP
+project_codigos_ya_en_modelo_puntual_o_contenedor: 821
+match_directo_elemento_puntual: 0
+match_por_contenedor_ancestro: 821
+sin_contenedor: 71
+duplicado: 0
+contenedor_duplicado: 0
+total_confirmado_auto: 844
+total_para_revision_humana: 71
+total_filas_post_csvs_auto_y_revision: 915
+hijos_omitidos_por_slots: 29
+project_codigos_faltantes_en_modelo.csv: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\output\PP\project_codigos_faltantes_en_modelo.csv
+asociacion_contenedor_hijos_final: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\output\PP\asociacion_contenedor_hijos_final_pp.csv
+omitidos_por_slots_csv: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\output\PP\asociacion_contenedor_hijos_final_pp_omitidos_por_slots.csv

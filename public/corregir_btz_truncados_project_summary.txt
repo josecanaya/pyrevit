@@ -1,0 +1,11 @@
+Corregir BTZ truncados (Project XML)
+fecha: 2026-06-02 10:38:15
+project_xml: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\project\TE.xml
+planta: TE
+elementos_escaneados: 18657
+elementos_modificados: 72
+valores_corregidos: 148
+duplicados_limpiados: 15
+prefijos_ambiguos_omitidos: 41
+errores: 0
+ruta_trazabilidad: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\corregir_btz_truncados_project.csv

@@ -1,0 +1,149 @@
+Preparación match Project/Revit TE
+
+entrada Project: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\project\TE.xml
+entrada Revit: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\modelo_btz_export_te.csv
+salida CSV: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\output\TE\match_project_revit_preparacion.csv
+salida contenedores CSV: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\output\TE\contenedores_revit.csv
+
+columna códigos Project detectada: Task/Name
+columna descripción Project: ExtendedAttribute[Alias=Descripción] o Notes
+delimitador Project: '(xml)'
+encoding Project: (xml parser)
+
+total códigos Project: 833
+total elementos TE Revit: 101
+total contenedores Revit TE: 101
+match_elemento_puntual: 0
+match_directo: 41
+duplicado: 0
+ya_existente_en_btz: 0
+ya_existente_en_btz_multi_id: 0
+codigos_existentes_multi_id_colapsados: 0
+force_ancestor_container: 453
+ambiguo_real: 0
+asignable_a_contenedor: 689
+contenedor_unico: 148
+contenedor_logico_duplicado_dist: 541
+contenedor_logico_duplicado_canon: 0
+contenedor_duplicado: 0
+sin_contenedor: 103
+omitido_por_slots: 0
+filas_requieren_split_por_slots_SI: 0
+cluster_mode: distributed
+force_ancestor_container_modo: SI
+resueltos_por_force_ancestor_container: 453
+clusters_force_ancestor_container: 19
+capacidad_total_force_ancestor: 9480
+capacidad_usada_force_ancestor: 453
+promedio diferencia de puntaje: 53.14
+resueltos_por_ancestro_project: 113
+resueltos_por_scoring: 35
+resueltos_por_puntual_multi_cluster: 25
+resueltos_por_registry_ancestro_capacidad: 53
+resueltos_por_fallback_ancestro_superior: 0
+resueltos_por_primer_ancestro_valido: 0
+resueltos_por_primer_ancestro_valido_relajado: 0
+cantidad todavía contenedor_duplicado: 0
+cantidad de contenedores que superan 80 códigos: 1
+total_confirmado_auto: 730
+total_codigos_aplicables: 730
+total_revision: 103
+total_elementos_revit_a_modificar: 87
+total_asociaciones_contenedor_hijos: 689
+contenedores_superan_slots_80: 1
+aclaración: las asociaciones de hijos se guardan en CSV externo y no se escriben como BTZ_Description individuales.
+
+top 20 contenedores con más códigos sugeridos:
+1. TE > TE-ALM-LGC-ALMACENAJE (CELDAS) > TE-ALM-CLD-CELDA 4 | element_id=386142 | asignados=183 | slots_libres=77
+2. TE > TE-ALM-LGC-ALMACENAJE (SILOS) > TE-ALM-SLO-SILO 6 | element_id=173806 | asignados=75 | slots_libres=77
+3. TE > TE-TDM-LGC-TORRE DE MANIPULEO | element_id=238674 | asignados=59 | slots_libres=78
+4. TE > TE-SCD-LGC-SECTOR SECADORA > TE-SCD-FLT-FMAMAP > redler secadora > centiladores aire caliente > elevador 7 > elevador 8 > TE-SEC-SECSEKW(SECADORA) | element_id=285419 | asignados=35 | slots_libres=72
+5. TE > P10-PRL-LGC-PRELIMPIEZA > P10-PRL-ACS-TPRL | element_id=377655 | asignados=31 | slots_libres=77
+6. TE > TE-ACT-LGC-SECTOR ACEITE > TE-ACT-LGC-TANQUES 400 > TE-BIO-TNQ-TK402 | element_id=171843 | asignados=30 | slots_libres=76
+7. TE > TE-TDM-LGC-TORRE DE MANIPULEO > TE-TE6-LGC-TORRE EL9 | element_id=346372 | asignados=28 | slots_libres=77
+8. TE > TE-TDM-LGC-TORRE DE MANIPULEO > TE-TDM-LGC-ELEVADORES | element_id=374459 | asignados=21 | slots_libres=77
+9. TE > TE-EMB-LGC-SECTOR EMBARQUE > TE-EMB-LGC-CINTAS EMBARQUE | element_id=239666 | asignados=20 | slots_libres=77
+10. TE > TE-DDC-LGC-DESCARGA CAMIONES > TE-DDC-PTV-PV5 > Es exclusivamente de la secadora | element_id=170458 | asignados=18 | slots_libres=76
+11. TE > TE-EMB-LGC-SECTOR EMBARQUE > TE-EMB-LGC-ATRAQUE/AMARRE | element_id=238339 | asignados=15 | slots_libres=77
+12. TE > TE-TDM-LGC-TORRE DE MANIPULEO > TE-TDM-LGC-CINTAS TRANSFERENCI | element_id=375014 | asignados=14 | slots_libres=77
+13. TE > TE-DDV-LGC-DESC. VAGONES | element_id=247155 | asignados=13 | slots_libres=78
+14. TE > TE-ACT-LGC-SECTOR ACEITE > TE-GLC-LGC-TANQUES TGR > TE-GLC-TNQ-TK TGR7 | element_id=239910 | asignados=11 | slots_libres=76
+15. TE > TE-DDC-LGC-DESCARGA CAMIONES > TE-DDC-PTV-PV1 | element_id=314154 | asignados=10 | slots_libres=77
+16. TE > TE-DDC-LGC-DESCARGA CAMIONES > TE-DDC-PTV-PV2 | element_id=314190 | asignados=10 | slots_libres=77
+17. TE > TE-DDC-LGC-DESCARGA CAMIONES > TE-DDC-PTV-PV3 | element_id=314219 | asignados=10 | slots_libres=77
+18. TE > TE-DDC-LGC-DESCARGA CAMIONES > TE-DDC-PTV-PV4 | element_id=314239 | asignados=10 | slots_libres=77
+19. TE-ACT-SLA-SALA BMB BAJO BARR | element_id=354957 | asignados=10 | slots_libres=79
+20. TE > TE-EXP-LGC-EXPEDICION > TE-EXP-LGC-SECTOR ACCESO OSL | element_id=153025 | asignados=9 | slots_libres=77
+
+top 20 duplicados luego de usar ancestro Project:
+
+clusters contenedor (hijos sugeridos vs capacidad BTZ_05-80 al export):
+  cluster=164153;164356;172255;174292;386142 | hijos_sugeridos=183 | capacidad_05_80=380 | path=TE > TE-ALM-LGC-ALMACENAJE (CELDAS) > TE-ALM-CLD-CELDA 4
+  cluster=238674;346372;349738;373369;374208;374459;374802;375014 | hijos_sugeridos=59 | capacidad_05_80=608 | path=TE > TE-TDM-LGC-TORRE DE MANIPULEO
+  cluster=173806;174050;314581;314647 | hijos_sugeridos=56 | capacidad_05_80=304 | path=TE > TE-ALM-LGC-ALMACENAJE (SILOS) > TE-ALM-SLO-SILO 6
+  cluster=285419;376778;376800 | hijos_sugeridos=31 | capacidad_05_80=213 | path=TE > TE-SCD-LGC-SECTOR SECADORA > TE-SCD-FLT-FMAMAP > redler secadora > centiladores aire caliente > elevador 7 > elevador 8 > TE-SEC-SECSEKW(SECADORA)
+  cluster=377655 | hijos_sugeridos=31 | capacidad_05_80=76 | path=TE > P10-PRL-LGC-PRELIMPIEZA > P10-PRL-ACS-TPRL
+  cluster=346372;373369 | hijos_sugeridos=28 | capacidad_05_80=152 | path=TE > TE-TDM-LGC-TORRE DE MANIPULEO > TE-TE6-LGC-TORRE EL9
+  cluster=374459 | hijos_sugeridos=21 | capacidad_05_80=76 | path=TE > TE-TDM-LGC-TORRE DE MANIPULEO > TE-TDM-LGC-ELEVADORES
+  cluster=239666;373139 | hijos_sugeridos=20 | capacidad_05_80=152 | path=TE > TE-EMB-LGC-SECTOR EMBARQUE > TE-EMB-LGC-CINTAS EMBARQUE
+  cluster=164153;164356;172255;173806;174050;174292;314581;314647;386142 | hijos_sugeridos=19 | capacidad_05_80=684 | path=TE > TE-ALM-LGC-ALMACENAJE (SILOS) > TE-ALM-SLO-SILO 6
+  cluster=171843;171963;174187;174203;174229;196831;196851;196872;196891;197248;239853;239868;239885;239910;287117;287288;308642;308734;318340;318365;318484;318499;330783;350956;351012;357674;361205;361370 | hijos_sugeridos=17 | capacidad_05_80=2128 | path=TE > TE-ACT-LGC-SECTOR ACEITE > TE-ACT-LGC-TANQUES 400 > TE-BIO-TNQ-TK402
+  cluster=375014 | hijos_sugeridos=14 | capacidad_05_80=76 | path=TE > TE-TDM-LGC-TORRE DE MANIPULEO > TE-TDM-LGC-CINTAS TRANSFERENCI
+  cluster=247155;247308;247346;247373 | hijos_sugeridos=13 | capacidad_05_80=304 | path=TE > TE-DDV-LGC-DESC. VAGONES
+  cluster=171843;171963;174187;174203;174229;196831;196851;196872;196891;239853;239868;239885;287288;318340;318365;318484;318499;330783 | hijos_sugeridos=11 | capacidad_05_80=1368 | path=TE > TE-ACT-LGC-SECTOR ACEITE > TE-ACT-LGC-TANQUES 400 > TE-BIO-TNQ-TK402
+  cluster=238339;238578;238598;238634;239666;350532;352276;370890;372532;372571;373139 | hijos_sugeridos=11 | capacidad_05_80=836 | path=TE > TE-EMB-LGC-SECTOR EMBARQUE > TE-EMB-LGC-ATRAQUE/AMARRE
+  cluster=239910;287117;308642;308734 | hijos_sugeridos=11 | capacidad_05_80=304 | path=TE > TE-ACT-LGC-SECTOR ACEITE > TE-GLC-LGC-TANQUES TGR > TE-GLC-TNQ-TK TGR7
+  cluster=314154 | hijos_sugeridos=10 | capacidad_05_80=76 | path=TE > TE-DDC-LGC-DESCARGA CAMIONES > TE-DDC-PTV-PV1
+  cluster=314190 | hijos_sugeridos=10 | capacidad_05_80=76 | path=TE > TE-DDC-LGC-DESCARGA CAMIONES > TE-DDC-PTV-PV2
+  cluster=314219 | hijos_sugeridos=10 | capacidad_05_80=76 | path=TE > TE-DDC-LGC-DESCARGA CAMIONES > TE-DDC-PTV-PV3
+  cluster=314239 | hijos_sugeridos=10 | capacidad_05_80=76 | path=TE > TE-DDC-LGC-DESCARGA CAMIONES > TE-DDC-PTV-PV4
+  cluster=350956;354957;357674 | hijos_sugeridos=10 | capacidad_05_80=228 | path=TE-ACT-SLA-SALA BMB BAJO BARR
+  cluster=153025;153117;153162;200296;246541;248505;249234;249243;249637;250078;250604;250727;250817;251677;251912 | hijos_sugeridos=9 | capacidad_05_80=1140 | path=TE > TE-EXP-LGC-EXPEDICION > TE-EXP-LGC-SECTOR ACCESO OSL
+  cluster=170458 | hijos_sugeridos=9 | capacidad_05_80=76 | path=TE > TE-DDC-LGC-DESCARGA CAMIONES > TE-DDC-PTV-PV5 > Es exclusivamente de la secadora
+  cluster=170458;314154;314190;314219;314239 | hijos_sugeridos=9 | capacidad_05_80=380 | path=TE > TE-DDC-LGC-DESCARGA CAMIONES > TE-DDC-PTV-PV5 > Es exclusivamente de la secadora
+  cluster=350956;351012;357674;361205;361370 | hijos_sugeridos=8 | capacidad_05_80=380 | path=TE > TE-ACT-LGC-SECTOR ACEITE > TE-ACT-LGC-BOMBAS DE ACEITE > TE-ACT-SLA-SALA BMB ACEITE
+  cluster=361370 | hijos_sugeridos=8 | capacidad_05_80=76 | path=TE > TE-ACT-LGC-SECTOR ACEITE > TE-ACT-LGC-BOMBAS DE ACEITE > TE-BIO-SLA-SALA BMB TK400
+  cluster=370890 | hijos_sugeridos=6 | capacidad_05_80=76 | path=TE > TE-EMB-LGC-SECTOR EMBARQUE > TE-EMB-LGC-PESCANTES > TE-EMB-PSC-P1
+  cluster=374208 | hijos_sugeridos=6 | capacidad_05_80=76 | path=TE > TE-TDM-LGC-TORRE DE MANIPULEO > TE-TDM-LGC-GALERIA C01/C05 > TE-TDM-CNT-C05
+  cluster=376778 | hijos_sugeridos=6 | capacidad_05_80=71 | path=TE > TE-SCD-LGC-SECTOR SECADORA > TE-SCD-LGC-REDLER SECADORA > redler secadora > centiladores aire caliente > elevador 7 > elevador 8 > TE-SEC-SECSEKW(SECADORA)
+  cluster=238339;238578;238598 | hijos_sugeridos=4 | capacidad_05_80=228 | path=TE > TE-EMB-LGC-SECTOR EMBARQUE > TE-EMB-LGC-ATRAQUE/AMARRE
+  cluster=285419 | hijos_sugeridos=4 | capacidad_05_80=71 | path=TE > TE-SCD-LGC-SECTOR SECADORA > TE-SCD-FLT-FMAMAP > redler secadora > centiladores aire caliente > elevador 7 > elevador 8 > TE-SEC-SECSEKW(SECADORA)
+  cluster=352276 | hijos_sugeridos=4 | capacidad_05_80=76 | path=TE > TE-EMB-LGC-SECTOR EMBARQUE > TE-EMB-LGC-DOLPHIN
+  cluster=374802 | hijos_sugeridos=4 | capacidad_05_80=76 | path=TE > TE-TDM-LGC-TORRE DE MANIPULEO > TE-TDM-LGC-PENDULARES TDM
+  cluster=349738;374208 | hijos_sugeridos=3 | capacidad_05_80=152 | path=TE > TE-TDM-LGC-TORRE DE MANIPULEO > TE-TDM-LGC-GALERIA C01/C05 > TE-TDM-CNT-C01
+  cluster=376800 | hijos_sugeridos=3 | capacidad_05_80=71 | path=TE > TE-SCD-LGC-SECTOR SECADORA > TE-SEC-NOR-EL7 > redler secadora > centiladores aire caliente > elevador 7 > elevador 8 > TE-SEC-SECSEKW(SECADORA)
+  cluster=166634;166752;168183;168280;198056;198120;240154;240182;243779;243861;363228;364143;364734;364898 | hijos_sugeridos=2 | capacidad_05_80=1064 | path=TE-ADM-LGC-EDIFICIOS VARIOS
+  cluster=171843 | hijos_sugeridos=2 | capacidad_05_80=76 | path=TE > TE-ACT-LGC-SECTOR ACEITE > TE-ACT-LGC-TANQUES 400 > TE-BIO-TNQ-TK402
+  cluster=171963 | hijos_sugeridos=2 | capacidad_05_80=76 | path=TE > TE-ACT-LGC-SECTOR ACEITE > TE-ACT-LGC-TANQUES 400 > TE-FUEL-TNQ-TK403
+  cluster=196831 | hijos_sugeridos=2 | capacidad_05_80=76 | path=TE > TE-ACT-LGC-SECTOR ACEITE > TE-ACT-LGC-TANQUES ACEITE > TE-ACT-TNQ-TK4
+  cluster=196872 | hijos_sugeridos=2 | capacidad_05_80=76 | path=TE > TE-ACT-LGC-SECTOR ACEITE > TE-ACT-LGC-TANQUES ACEITE > TE-ACT-TNQ-TK1
+  cluster=196891 | hijos_sugeridos=2 | capacidad_05_80=76 | path=TE > TE-ACT-LGC-SECTOR ACEITE > TE-ACT-LGC-TANQUES ACEITE > TE-ACT-TNQ-TK3
+  cluster=198120 | hijos_sugeridos=2 | capacidad_05_80=76 | path=TE > TE-ADM-LGC-EDIFICIOS VARIOS > TE-TLL-TALLER TERM EMB
+  cluster=318340 | hijos_sugeridos=2 | capacidad_05_80=76 | path=TE > TE-ACT-LGC-SECTOR ACEITE > TE-ACT-LGC-TANQUES 400 > TE-BIO-TNQ-TK401
+  cluster=318484 | hijos_sugeridos=2 | capacidad_05_80=76 | path=TE > TE-ACT-LGC-SECTOR ACEITE > TE-ACT-LGC-TANQUES 400 > TE-FUEL-TNQ-TK404
+  cluster=318499 | hijos_sugeridos=2 | capacidad_05_80=76 | path=TE > TE-ACT-LGC-SECTOR ACEITE > TE-ACT-LGC-TANQUES 400 > TE-FUEL-TNQ-TK405
+  cluster=372532 | hijos_sugeridos=2 | capacidad_05_80=76 | path=TE > TE-EMB-LGC-SECTOR EMBARQUE > TE-EMB-LGC-PESCANTES > TE-EMB-PSC-P2
+  cluster=372571 | hijos_sugeridos=2 | capacidad_05_80=76 | path=TE > TE-EMB-LGC-SECTOR EMBARQUE > TE-EMB-LGC-PESCANTES > TE-EMB-PSC-P3
+  cluster=168183;168280 | hijos_sugeridos=1 | capacidad_05_80=152 | path=TE > TE-ADM-LGC-EDIFICIOS VARIOS > TE-ADM-EDF-OFICINAS
+  cluster=174229 | hijos_sugeridos=1 | capacidad_05_80=76 | path=TE > TE-ACT-LGC-SECTOR ACEITE > TE-ACT-LGC-TANQUES ACEITE OSL > TE-ACT-TNQ-TK12
+  cluster=198056;364898 | hijos_sugeridos=1 | capacidad_05_80=152 | path=TE > TE-ADM-LGC-EDIFICIOS VARIOS > TE-TLL-LGC-OBRADOR ELECTRICO
+  cluster=240154;243779 | hijos_sugeridos=1 | capacidad_05_80=152 | path=TE > TE-ADM-LGC-EDIFICIOS VARIOS > TE-CLD-LGC-DPTOCALIDAD
+  cluster=287288 | hijos_sugeridos=1 | capacidad_05_80=76 | path=TE > TE-ACT-LGC-SECTOR ACEITE > TE-ACT-LGC-TANQUES ACEITE > TE-LCT-TNQ-TK8
+  cluster=318365 | hijos_sugeridos=1 | capacidad_05_80=76 | path=TE > TE-ACT-LGC-SECTOR ACEITE > TE-ACT-LGC-TANQUES 400 > TE-BIO-TNQ-TK400
+  cluster=370890;372532;372571 | hijos_sugeridos=1 | capacidad_05_80=228 | path=TE > TE-EMB-LGC-SECTOR EMBARQUE > TE-EMB-LGC-PESCANTES > TE-EMB-PSC-P1
+
+---
+Planta: TE
+project_codigos_ya_en_modelo_puntual_o_contenedor: 689
+match_directo_elemento_puntual: 0
+match_por_contenedor_ancestro: 689
+sin_contenedor: 103
+duplicado: 0
+contenedor_duplicado: 0
+total_confirmado_auto: 730
+total_para_revision_humana: 103
+total_filas_post_csvs_auto_y_revision: 833
+hijos_omitidos_por_slots: 0
+project_codigos_faltantes_en_modelo.csv: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\output\TE\project_codigos_faltantes_en_modelo.csv
+asociacion_contenedor_hijos_final: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\output\TE\asociacion_contenedor_hijos_final_te.csv
+omitidos_por_slots_csv: C:\Users\Usuario\AppData\Roaming\pyRevit\Extensions\btz.extension\public\output\TE\asociacion_contenedor_hijos_final_te_omitidos_por_slots.csv
